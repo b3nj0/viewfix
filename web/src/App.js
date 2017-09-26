@@ -4,13 +4,36 @@ import { fixdict } from './fixdict';
 import { Button, Container, Divider, Form, Grid, Header, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fixData: ''
+    };
+  }
+  onFixTextChange = (e, data) => {
+    this.onParseFix(data.value);
+  }
+  onClear = () => {
+    this.onParseFix('');
+  }
+  onSampleData = () => {
+    const fixsession = '' +
+      '8=FIX.4.2|9=76|35=A|34=702|49=ABC|52=20100130-10:52:40.663|56=XYZ|95=4|96=1234|98=0|108=60|10=134|\n' +
+      '8=FIX.4.2|9=59|35=A|49=XYZ|56=ABC|34=710|52=20100130-10:52:36|98=0|108=60|10=103|\n';
+    this.onParseFix(fixsession);
+  }
+  onParseFix = (fixData) => {
+    this.setState({fixData: fixData});
+    console.log(fixData);
+  }
   render() {
+    const { fixData } = this.state;
     return (
       <Form>
-        <Form.TextArea />
+        <Form.TextArea onChange={this.onFixTextChange} placeholder={'Paste FIX messages here'} name='fixData' value={fixData} />
         <Button>Process</Button>
-        <Button>Clear</Button>
-        <Button>Sample Data</Button>
+        <Button onClick={this.onClear}>Clear</Button>
+        <Button onClick={this.onSampleData}>Sample Data</Button>
       </Form>
     )
   }
