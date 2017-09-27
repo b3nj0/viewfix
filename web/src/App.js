@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { fixdict } from './fixdict';
 import { parseFixData } from './fixparser';
 import { Button, Container, Divider, Form, Grid, Header, Table } from 'semantic-ui-react'
 
@@ -73,9 +74,21 @@ class FixTimeline extends Component {
   }
 }
 
-
 class FixMessageDetail extends Component {
   render() {
+    const rows = this.props.selectedMessage.fieldList.map((field, idx) => {
+        const tag = field[0];
+        const value = field[1];
+        return (
+          <Table.Row key={idx}>
+            <Table.Cell>{tag}</Table.Cell>
+            <Table.Cell>{fixdict.fields[tag].name}</Table.Cell>
+            <Table.Cell>{value}</Table.Cell>
+            <Table.Cell>{fixdict.fields[tag].enum[value]}</Table.Cell>
+          </Table.Row>
+      );
+    });
+
     return (
       <Container>
         <Header as="h3">Detail</Header>
@@ -89,6 +102,7 @@ class FixMessageDetail extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
+            {rows}
           </Table.Body>
         </Table>
       </Container>
@@ -97,11 +111,12 @@ class FixMessageDetail extends Component {
 }
 
 class App extends Component {
-  state = { messages: [], selectedMessage: null };
+  NULL_MESSAGE = { fieldList: [] }
+  state = { messages: [], selectedMessage: this.NULL_MESSAGE };
   onMessages = (messages) => {
     this.setState({
       messages: messages,
-      selectedMessage: messages.length > 0 ? messages[0] : null
+      selectedMessage: messages.length > 0 ? messages[0] : this.NULL_MESSAGE
     });
   }
   onMessageSelected = (message) => {
@@ -119,7 +134,7 @@ class App extends Component {
             <FixTimeline messages={this.state.messages} selectedMessage={this.state.selectedMessage} onMessageSelected={this.onMessageSelected}/>
           </Grid.Column>
           <Grid.Column width={7}>
-            <FixMessageDetail/>
+            <FixMessageDetail selectedMessage={this.state.selectedMessage}/>
           </Grid.Column>
           </Grid.Row>
         </Grid>
