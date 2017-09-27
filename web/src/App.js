@@ -20,7 +20,7 @@ class FixInput extends Component {
   onParseFix = (fixData) => {
     this.setState({fixData: fixData});
     let messages = parseFixData(fixData);
-    this.props.onFixMessages(messages);
+    this.props.onMessages(messages);
   }
   render() {
     const { fixData } = this.state;
@@ -37,9 +37,9 @@ class FixInput extends Component {
 
 class FixTimeline extends Component {
   render() {
-    let rows = this.props.fixMessages.map((msg, idx) => {
+    let rows = this.props.messages.map((msg, idx) => {
         return (
-          <Table.Row key={idx}>
+          <Table.Row key={idx} active={msg === this.props.selectedMessage} onClick={e => this.props.onMessageSelected(msg)}>
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
             <Table.Cell>{msg.tag(49)}</Table.Cell>
             <Table.Cell>{msg.tag(56)}</Table.Cell>
@@ -97,23 +97,26 @@ class FixMessageDetail extends Component {
 }
 
 class App extends Component {
-  state = { fixMessages: [] };
-  onFixMessages = (messages) => {
-    this.setState({fixMessages: messages});
+  state = { messages: [], selectedMessage: null };
+  onMessages = (messages) => {
+    this.setState({
+      messages: messages,
+      selectedMessage: messages.length > 0 ? messages[0] : null
+    });
   }
-  onFixMessageSelected = (message) => {
-    this.setState({fixMessage: message});
+  onMessageSelected = (message) => {
+    this.setState({selectedMessage: message});
   }
   render() {
     return (
       <Container>
         <h1>viewfix</h1>
-        <FixInput onFixMessages={this.onFixMessages}/>
+        <FixInput onMessages={this.onMessages}/>
         <Divider/>
         <Grid>
           <Grid.Row>
           <Grid.Column width={9}>
-            <FixTimeline fixMessages={this.state.fixMessages}/>
+            <FixTimeline messages={this.state.messages} selectedMessage={this.state.selectedMessage} onMessageSelected={this.onMessageSelected}/>
           </Grid.Column>
           <Grid.Column width={7}>
             <FixMessageDetail/>
