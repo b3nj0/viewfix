@@ -42,10 +42,10 @@ class FixTimeline extends Component {
         return (
           <Table.Row key={idx} active={msg === this.props.selectedMessage} onClick={e => this.props.onMessageSelected(msg)}>
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
-            <Table.Cell>{msg.tag(49)}</Table.Cell>
-            <Table.Cell>{msg.tag(56)}</Table.Cell>
+            <Table.Cell>{msg.tag(49).value}</Table.Cell>
+            <Table.Cell>{msg.tag(56).value}</Table.Cell>
             <Table.Cell>{msg.msgtype()}</Table.Cell>
-            <Table.Cell>{msg.tag(11)}</Table.Cell>
+            <Table.Cell>{msg.tag(11).value}</Table.Cell>
             <Table.Cell>{''}</Table.Cell>
           </Table.Row>
         );
@@ -76,15 +76,18 @@ class FixTimeline extends Component {
 
 class FixMessageDetail extends Component {
   render() {
-    const rows = this.props.selectedMessage.fieldList.map((field, idx) => {
-        const tag = field[0];
+    const msg = this.props.selectedMessage;
+
+    const rows = msg.fieldList.map((field, idx) => {
+        const tagnum = field[0];
         const value = field[1];
+        const tag = msg.tagWithValue(tagnum, value);
         return (
           <Table.Row key={idx}>
-            <Table.Cell>{tag}</Table.Cell>
-            <Table.Cell>{fixdict.fields[tag].name}</Table.Cell>
-            <Table.Cell>{value}</Table.Cell>
-            <Table.Cell>{fixdict.fields[tag].enum[value]}</Table.Cell>
+            <Table.Cell>{tag.def.number}</Table.Cell>
+            <Table.Cell>{tag.def.name}</Table.Cell>
+            <Table.Cell>{tag.value}</Table.Cell>
+            <Table.Cell>{tag.enum}</Table.Cell>
           </Table.Row>
       );
     });

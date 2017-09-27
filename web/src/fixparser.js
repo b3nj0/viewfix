@@ -7,17 +7,23 @@ class FixMessage {
     this.fieldIndex = {};
     fieldList.forEach(f => this.fieldIndex[f[0]] = f[1]);
   }
-  tag(tag) { 
-    return this.fieldIndex[tag];
+  tag(tag, defaultValue='') { 
+    const def = fixdict.fields[tag] || {name: 'Unknown[' + tag + ']', number: tag, tags: '', enum: {}};
+    const value = this.fieldIndex[tag] || defaultValue;
+    return {def: def, value: value, enum: def.enum[value]};
+  }
+  tagWithValue(tag, value) { 
+    const def = fixdict.fields[tag] || {name: 'Unknown[' + tag + ']', number: tag, tags: '', enum: {}};
+    return {def: def, value: value, enum: def.enum[value]};
   }
   msgtype() {
-    let type = this.tag(35);
+    let type = this.tag(35).value;
     return (fixdict.messages[type] || {name: 'Unknown[' + type + ']'}).name;
   }
   sendingTime() {
     // 01234567890123456
     // 20100130-10:52:36
-    return this.tag(52).substring(9, 17);
+    return this.tag(52, '               ').value.substring(9, 17);
   }
 }
 
