@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fixdict } from './fixdict';
 import { parseFixData } from './fixparser';
 import { Button, Container, Divider, Form, Grid, Header, Table } from 'semantic-ui-react'
 
