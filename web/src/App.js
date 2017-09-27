@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { fixdict } from './fixdict';
+import { parseFixData } from './fixparser';
 import { Button, Container, Divider, Form, Grid, Header, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
@@ -25,6 +26,8 @@ class FixInput extends Component {
   onParseFix = (fixData) => {
     this.setState({fixData: fixData});
     console.log(fixData);
+    let fixMessages = parseFixData(fixData);
+    console.log(fixMessages);
   }
   render() {
     const { fixData } = this.state;
