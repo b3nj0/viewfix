@@ -53,7 +53,7 @@ class FixTimeline extends Component {
     return (
       <Container>
         <Header as="h3">Timeline</Header>
-        <Table>
+        <Table selectable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Time</Table.HeaderCell>
@@ -79,7 +79,7 @@ class FixMessageDetail extends Component {
     return (
       <Container>
         <Header as="h3">Detail</Header>
-        <Table>
+        <Table selectable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Tag</Table.HeaderCell>
