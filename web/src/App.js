@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fixdict } from './fixdict';
 import { parseFixData } from './fixparser';
 import { Button, Container, Divider, Form, Grid, Header, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fixData: ''
-    };
-  }
+  state = { fixData: '' };
   onFixTextChange = (e, data) => {
     this.onParseFix(data.value);
   }
@@ -25,9 +19,8 @@ class FixInput extends Component {
   }
   onParseFix = (fixData) => {
     this.setState({fixData: fixData});
-    console.log(fixData);
-    let fixMessages = parseFixData(fixData);
-    console.log(fixMessages);
+    let messages = parseFixData(fixData);
+    this.props.onFixMessages(messages);
   }
   render() {
     const { fixData } = this.state;
@@ -44,6 +37,19 @@ class FixInput extends Component {
 
 class FixTimeline extends Component {
   render() {
+    let rows = this.props.fixMessages.map((msg, idx) => {
+        return (
+          <Table.Row key={idx}>
+            <Table.Cell>{msg.sendingTime()}</Table.Cell>
+            <Table.Cell>{msg.tag(49)}</Table.Cell>
+            <Table.Cell>{msg.tag(56)}</Table.Cell>
+            <Table.Cell>{msg.msgtype()}</Table.Cell>
+            <Table.Cell>{msg.tag(11)}</Table.Cell>
+            <Table.Cell>{''}</Table.Cell>
+          </Table.Row>
+        );
+    });
+
     return (
       <Container>
         <Header as="h3">Timeline</Header>
@@ -58,7 +64,8 @@ class FixTimeline extends Component {
               <Table.HeaderCell>Detail</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-          <Table.Body>
+          <Table.Body>  
+            {rows}
           </Table.Body>
         </Table>
       </Container>
@@ -90,16 +97,23 @@ class FixMessageDetail extends Component {
 }
 
 class App extends Component {
+  state = { fixMessages: [] };
+  onFixMessages = (messages) => {
+    this.setState({fixMessages: messages});
+  }
+  onFixMessageSelected = (message) => {
+    this.setState({fixMessage: message});
+  }
   render() {
     return (
       <Container>
         <h1>viewfix</h1>
-        <FixInput/>
+        <FixInput onFixMessages={this.onFixMessages}/>
         <Divider/>
         <Grid>
           <Grid.Row>
           <Grid.Column width={9}>
-            <FixTimeline/>
+            <FixTimeline fixMessages={this.state.fixMessages}/>
           </Grid.Column>
           <Grid.Column width={7}>
             <FixMessageDetail/>

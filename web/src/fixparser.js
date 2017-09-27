@@ -1,9 +1,23 @@
+import { fixdict } from './fixdict';
+
 class FixMessage {
   constructor(rawFix, fieldList) {
     this.rawFix = rawFix;
     this.fieldList = fieldList;
     this.fieldIndex = {};
     fieldList.forEach(f => this.fieldIndex[f[0]] = f[1]);
+  }
+  tag(tag) { 
+    return this.fieldIndex[tag];
+  }
+  msgtype() {
+    let type = this.tag(35);
+    return (fixdict.messages[type] || {name: 'Unknown[' + type + ']'}).name;
+  }
+  sendingTime() {
+    // 01234567890123456
+    // 20100130-10:52:36
+    return this.tag(52).substring(9, 17);
   }
 }
 
