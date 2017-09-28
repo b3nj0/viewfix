@@ -94,6 +94,14 @@ class FixTagName extends Component {
   }
 }
 
+class FixTagDescription extends Component {
+  render() {
+    let enumValue = this.props.tag.enum || ''; 
+    enumValue = enumValue.replace(/_/g, ' ');
+    return (<span>{enumValue}</span>);
+  }
+}
+
 class FixMessageDetail extends Component {
   render() {
     const msg = this.props.selectedMessage;
@@ -107,7 +115,7 @@ class FixMessageDetail extends Component {
             <Table.Cell>{tag.def.number}</Table.Cell>
             <Table.Cell><FixTagName tag={tag}/></Table.Cell>
             <Table.Cell>{tag.value}</Table.Cell>
-            <Table.Cell>{tag.enum}</Table.Cell>
+            <Table.Cell><FixTagDescription tag={tag}/></Table.Cell>
           </Table.Row>
       );
     });
