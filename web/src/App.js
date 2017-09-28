@@ -73,7 +73,7 @@ class FixTimeline extends Component {
   }
 }
 
-class FixTagName extends Component {
+class FixFieldName extends Component {
   render() {
     const def = this.props.tag.def;
     
@@ -94,7 +94,7 @@ class FixTagName extends Component {
   }
 }
 
-class FixTagDescription extends Component {
+class FixFieldDescription extends Component {
   render() {
     let enumValue = this.props.tag.enum || ''; 
     enumValue = enumValue.replace(/_/g, ' ');
@@ -113,9 +113,9 @@ class FixMessageDetail extends Component {
         return (
           <Table.Row key={idx}>
             <Table.Cell>{tag.def.number}</Table.Cell>
-            <Table.Cell><FixTagName tag={tag}/></Table.Cell>
+            <Table.Cell><FixFieldName tag={tag}/></Table.Cell>
             <Table.Cell>{tag.value}</Table.Cell>
-            <Table.Cell><FixTagDescription tag={tag}/></Table.Cell>
+            <Table.Cell><FixFieldDescription tag={tag}/></Table.Cell>
           </Table.Row>
       );
     });
