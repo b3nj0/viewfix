@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { parseFixData } from './fixparser';
-import { Button, Container, Divider, Form, Grid, Header, Table } from 'semantic-ui-react'
+import { Button, Container, Divider, Form, Grid, Header, Label, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
   state = { fixData: '' };
@@ -73,6 +73,27 @@ class FixTimeline extends Component {
   }
 }
 
+class FixTagName extends Component {
+  render() {
+    const def = this.props.tag.def;
+    
+    let fieldtype = def.tags.includes('header') ? 'header' : 'body';
+    fieldtype = def.number === 35 ? 'type' : fieldtype;
+    fieldtype = def.number === 150 ? 'type' : fieldtype;
+
+    let color = 'blue';
+    if (fieldtype === 'header') {
+      color = 'grey';   
+    } else if (fieldtype === 'type') {
+      color = 'green';
+    }
+
+    return (
+      <Label color={color}>{def.name}</Label>
+    );
+  }
+}
+
 class FixMessageDetail extends Component {
   render() {
     const msg = this.props.selectedMessage;
@@ -84,7 +105,7 @@ class FixMessageDetail extends Component {
         return (
           <Table.Row key={idx}>
             <Table.Cell>{tag.def.number}</Table.Cell>
-            <Table.Cell>{tag.def.name}</Table.Cell>
+            <Table.Cell><FixTagName tag={tag}/></Table.Cell>
             <Table.Cell>{tag.value}</Table.Cell>
             <Table.Cell>{tag.enum}</Table.Cell>
           </Table.Row>
