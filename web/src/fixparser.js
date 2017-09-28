@@ -8,13 +8,13 @@ class FixMessage {
     fieldList.forEach(f => this.fieldIndex[f[0]] = f[1]);
   }
   tag(tag, defaultValue='') { 
-    const def = fixdict.fields[tag] || {name: 'Unknown[' + tag + ']', number: tag, tags: '', enum: {}};
     const value = this.fieldIndex[tag] || defaultValue;
-    return {def: def, value: value, enum: def.enum[value] || ''};
+    return this.tagWithValue(tag, value);
   }
   tagWithValue(tag, value) { 
     const def = fixdict.fields[tag] || {name: 'Unknown[' + tag + ']', number: tag, tags: '', enum: {}};
-    return {def: def, value: value, enum: def.enum[value]};
+    const enumValue = def.enum[value] || '';
+    return {def: def, value: value, enum: enumValue};
   }
   msgtype() {
     let type = this.tag(35).value;
