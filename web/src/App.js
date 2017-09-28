@@ -65,6 +65,41 @@ class FixMsgType extends Component {
   }
 }
 
+class FixMsgSummary extends Component {
+  formattedNumber(number) {
+    return parseFloat(number).toLocaleString(); 
+  }
+  render() {
+    const msg = this.props.msg;
+
+    let summary = '';
+
+    if (msg.hasTag(54)) { // buy or sell
+      summary += msg.tag(54).enum;
+    }
+    
+    if (msg.hasTag(38)) { // qty
+      summary += ' ' + this.formattedNumber(msg.tag(38).value);
+    }
+    
+    if (msg.hasTag(55)) { // symbol
+      summary += ' ' + msg.tag(55).value; 
+    }
+    
+    if (msg.hasTag(44)) { // px
+      summary += ' @ ' + this.formattedNumber(msg.tag(44).value)
+    }
+
+    if (msg.hasTag(58)) {
+        summary = msg.tag(58).value;
+    }
+
+    return (
+      <span>{summary}</span>
+    );
+  }
+} 
+
 class FixTimeline extends Component {
   render() {
     let rows = this.props.messages.map((msg, idx) => {
@@ -75,7 +110,7 @@ class FixTimeline extends Component {
             <Table.Cell>{msg.tag(56).value}</Table.Cell>
             <Table.Cell><FixMsgType msg={msg}/></Table.Cell>
             <Table.Cell>{msg.tag(11).value}</Table.Cell>
-            <Table.Cell>{''}</Table.Cell>
+            <Table.Cell><FixMsgSummary msg={msg}/></Table.Cell>
           </Table.Row>
         );
     });

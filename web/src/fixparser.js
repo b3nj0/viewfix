@@ -7,6 +7,9 @@ class FixMessage {
     this.fieldIndex = {};
     fieldList.forEach(f => this.fieldIndex[f[0]] = f[1]);
   }
+  hasTag(tag) {
+    return tag in this.fieldIndex;
+  }
   tag(tag, defaultValue='') { 
     const value = this.fieldIndex[tag] || defaultValue;
     return this.tagWithValue(tag, value);
