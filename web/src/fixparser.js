@@ -10,7 +10,7 @@ class FixMessage {
   tag(tag, defaultValue='') { 
     const def = fixdict.fields[tag] || {name: 'Unknown[' + tag + ']', number: tag, tags: '', enum: {}};
     const value = this.fieldIndex[tag] || defaultValue;
-    return {def: def, value: value, enum: def.enum[value]};
+    return {def: def, value: value, enum: def.enum[value] || ''};
   }
   tagWithValue(tag, value) { 
     const def = fixdict.fields[tag] || {name: 'Unknown[' + tag + ']', number: tag, tags: '', enum: {}};
@@ -19,6 +19,10 @@ class FixMessage {
   msgtype() {
     let type = this.tag(35).value;
     return (fixdict.messages[type] || {name: 'Unknown[' + type + ']'}).name;
+  }
+  msgcat() {
+    let type = this.tag(35).value;
+    return (fixdict.messages[type] || {msgcat: 'unknown'}).msgcat; 
   }
   sendingTime() {
     // 01234567890123456

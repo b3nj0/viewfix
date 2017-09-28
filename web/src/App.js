@@ -35,6 +35,36 @@ class FixInput extends Component {
   }
 }
 
+class FixMsgType extends Component {
+  render() {
+    const msg = this.props.msg;
+    const msgtype = msg.tag(35).value;
+    const name = msg.msgtype();
+    const msgcat = msg.msgcat();
+
+    let color = 'grey'; 
+    let text = name;
+
+    if (msgtype === '8') { // execution report
+      color = 'blue';
+      text = 'ER ' + msg.tag(150).enum.replace('/_/g', ' ');
+    } else if (msgtype === 'AE') { // trade capture report
+      color = 'blue';
+      text = 'TCR ' + msg.tag(150).enum.replace('/_/g', ' ');
+    } else if (msgtype === 'D') { // new order
+      color = 'green';
+    } else if (msgtype === '3') { // reject
+      color = 'red';
+    } else if (msgcat === 'app') { // application message 
+      color = 'teal';
+    }
+
+    return (
+      <Label color={color}>{text}</Label>
+    );
+  }
+}
+
 class FixTimeline extends Component {
   render() {
     let rows = this.props.messages.map((msg, idx) => {
@@ -43,7 +73,7 @@ class FixTimeline extends Component {
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
             <Table.Cell>{msg.tag(49).value}</Table.Cell>
             <Table.Cell>{msg.tag(56).value}</Table.Cell>
-            <Table.Cell>{msg.msgtype()}</Table.Cell>
+            <Table.Cell><FixMsgType msg={msg}/></Table.Cell>
             <Table.Cell>{msg.tag(11).value}</Table.Cell>
             <Table.Cell>{''}</Table.Cell>
           </Table.Row>
