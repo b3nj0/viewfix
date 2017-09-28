@@ -71,32 +71,33 @@ class FixMsgSummary extends Component {
   }
   render() {
     const msg = this.props.msg;
+    const msgtype = msg.tag(35).value;
 
-    let summary = '';
+    let summary = [];
 
-    if (msg.hasTag(54)) { // buy or sell
-      summary += msg.tag(54).enum;
-    }
-    
-    if (msg.hasTag(38)) { // qty
-      summary += ' ' + this.formattedNumber(msg.tag(38).value);
-    }
-    
-    if (msg.hasTag(55)) { // symbol
-      summary += ' ' + msg.tag(55).value; 
-    }
-    
-    if (msg.hasTag(44)) { // px
-      summary += ' @ ' + this.formattedNumber(msg.tag(44).value)
+    if (['D', 'F', 'G'].includes(msgtype)) {
+      if (msg.hasTag(54)) { // buy or sell
+        summary.push(<Label key='side' color='green'>{msg.tag(54).enum}</Label>);
+      }
+      
+      if (msg.hasTag(38)) { // qty
+        summary.push(<span key='qty'>{' ' + this.formattedNumber(msg.tag(38).value)}</span>);
+      }
+      
+      if (msg.hasTag(55)) { // symbol
+        summary.push(<Label key='sym' color='blue'>{' ' + msg.tag(55).value}</Label>); 
+      }
+      
+      if (msg.hasTag(44)) { // px
+        summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.tag(44).value)}</span>);
+      }
     }
 
     if (msg.hasTag(58)) {
-        summary = msg.tag(58).value;
+        summary = <span key='text'>{msg.tag(58).value}</span>;
     }
 
-    return (
-      <span>{summary}</span>
-    );
+    return <span>{summary}</span>;
   }
 } 
 
