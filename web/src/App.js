@@ -48,11 +48,11 @@ class FixMsgType extends Component {
     if (msgtype === '8') { // execution report
       color = 'blue';
       // fid: 150 = exec type
-      text = 'ER ' + msg.tag(150).enum.replace('/_/g', ' ');
+      text = 'ER ' + msg.tag(150).enum.replace(/_/g, ' ');
     } else if (msgtype === 'AE') { // trade capture report
       color = 'blue';
       // fid: 573 = match status
-      text = 'TCR ' + msg.tag(573).enum.replace('/_/g', ' '); 
+      text = 'TCR ' + msg.tag(573).enum.replace(/_/g, ' '); 
     } else if (msgtype === 'D') { // new order
       color = 'green';
     } else if (msgtype === '3') { // reject
