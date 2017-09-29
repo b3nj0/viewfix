@@ -42,7 +42,7 @@ class FixMsgType extends Component {
     const name = msg.msgtype();
     const msgcat = msg.msgcat();
 
-    let color = 'grey'; 
+    let color = 'standard'; 
     let text = name;
 
     if (msgtype === '8') { // execution report
@@ -151,7 +151,7 @@ class FixFieldName extends Component {
 
     let color = 'blue';
     if (fieldtype === 'header') {
-      color = 'grey';   
+      color = 'standard';   
     } else if (fieldtype === 'type') {
       color = 'green';
     }
