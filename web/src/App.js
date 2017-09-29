@@ -223,21 +223,25 @@ class App extends Component {
   }
   render() {
     return (
-      <Container>
-        <h1>viewfix</h1>
-        <FixInput onMessages={this.onMessages}/>
-        <Divider/>
-        <Grid>
-          <Grid.Row>
-          <Grid.Column width={9}>
-            <FixTimeline messages={this.state.messages} selectedMessage={this.state.selectedMessage} onMessageSelected={this.onMessageSelected}/>
+      <Grid centered columns={16}>
+        <Grid.Row>
+          <Grid.Column width={14}>
+            <h1>viewfix</h1>
+            <FixInput onMessages={this.onMessages}/>
+            <Divider/>
+            <Grid>
+              <Grid.Row>
+                <Grid.Column width={9}>
+                  <FixTimeline messages={this.state.messages} selectedMessage={this.state.selectedMessage} onMessageSelected={this.onMessageSelected}/>
+                </Grid.Column>
+                <Grid.Column width={7}>
+                  <FixMessageDetail selectedMessage={this.state.selectedMessage}/>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </Grid.Column>
-          <Grid.Column width={7}>
-            <FixMessageDetail selectedMessage={this.state.selectedMessage}/>
-          </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
+        </Grid.Row>
+      </Grid>
     );
   }
 }
