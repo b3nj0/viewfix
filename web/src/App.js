@@ -121,7 +121,7 @@ class FixTimeline extends Component {
     return (
       <Container>
         <Header as="h3">Timeline</Header>
-        <Table selectable striped>
+        <Table selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Time</Table.HeaderCell>
@@ -191,7 +191,7 @@ class FixMessageDetail extends Component {
     return (
       <Container>
         <Header as="h3">Detail</Header>
-        <Table selectable striped>
+        <Table selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Tag</Table.HeaderCell>
