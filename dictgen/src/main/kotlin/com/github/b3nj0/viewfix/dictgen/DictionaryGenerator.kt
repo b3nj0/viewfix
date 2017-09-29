@@ -7,11 +7,25 @@ import org.jdom2.input.SAXBuilder
 import org.jdom2.xpath.XPathFactory
 import java.io.File
 import java.util.*
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
 
 // Converts a quickfixj FIX dictionary file to json.
 
-data class Field(val number: Int, val name: String, val values: List<FieldValue>, val tags: Set<String> = TreeSet())
-data class FieldValue(val enum: String, val description: String)
+data class Field(val number: Int, val name: String, val values: Set<FieldValue>, val tags: Set<String> = TreeSet())
+data class FieldValue(val enum: String, val description: String) : Comparable<FieldValue> {
+    override fun equals(other: Any?): Boolean {
+        return other is FieldValue && enum.equals(other.enum)
+    }
+
+    override fun hashCode(): Int {
+        return enum.hashCode()
+    }
+
+    override fun compareTo(other: FieldValue): Int {
+        return enum.compareTo(other.enum)
+    }
+}
 data class Message(val name: String, val msgtype: String, val msgcat: String)
 data class FixDict(val messages: Map<String, Message>, val fields: Map<Int, Field>)
 
@@ -45,7 +59,7 @@ private fun parseQuickfixJDictionaryFIles(dictionaryFiles: List<String>) : FixDi
     val fieldsXpath = XPathFactory.instance().compile("//fields/field", Filters.element())
 
     // extract fields and messages from quickfixj dictionaries
-    dictionaryFiles.forEach { fn ->
+    dictionaryFiles.reversed().forEach { fn ->
         val resource = Message("", "", "").javaClass.getResource(fn).openStream()
         val doc = SAXBuilder().build(resource)
         println(fn + ": " + doc.rootElement)
@@ -61,7 +75,7 @@ private fun parseQuickfixJDictionaryFIles(dictionaryFiles: List<String>) : FixDi
             val name = e.getAttributeValue("name")
             val msgtype = e.getAttributeValue("msgtype")
             val msgcat = e.getAttributeValue("msgcat")
-            messages.put(msgtype, Message(name, msgtype, msgcat))
+            messages.computeIfAbsent(msgtype) { msgtype -> Message(name, msgtype, msgcat) }
         }
 
         // extract all the field info
@@ -74,16 +88,18 @@ private fun parseQuickfixJDictionaryFIles(dictionaryFiles: List<String>) : FixDi
             // </field>
             val number = e.getAttributeValue("number").toInt()
             val name = e.getAttributeValue("name")
-            val values: List<FieldValue> = e.getChildren("value").map { v ->
+
+            val field = fields.computeIfAbsent(number) { number -> Field(number, name, TreeSet(), TreeSet()) }
+
+            if (headerFieldnames.contains(name)) {
+                (field.tags as MutableSet).add("header")
+            }
+
+            e.getChildren("value").forEach { v ->
                 val enum = v.getAttributeValue("enum")
                 val description = v.getAttributeValue("description")
-                FieldValue(enum, description)
+                (field.values as MutableSet).add(FieldValue(enum, description))
             }
-            val tags = TreeSet<String>()
-            if (headerFieldnames.contains(name)) {
-                tags.add("header")
-            }
-            fields.put(number, Field(number, name, values, tags))
         }
     }
 

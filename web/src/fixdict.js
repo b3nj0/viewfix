@@ -611,8 +611,8 @@ const fixdict = {
       "number": 5,
       "tags": "",
       "enum": {
-        "N": "NEW",
         "C": "CANCEL",
+        "N": "NEW",
         "R": "REPLACE"
       }
     },
@@ -847,9 +847,10 @@ const fixdict = {
       "number": 27,
       "tags": "",
       "enum": {
-        "S": "SMALL",
-        "M": "MEDIUM",
+        "0": "_1000000000",
         "L": "LARGE",
+        "M": "MEDIUM",
+        "S": "SMALL",
         "U": "UNDISCLOSED_QUANTITY"
       }
     },
@@ -858,8 +859,8 @@ const fixdict = {
       "number": 28,
       "tags": "",
       "enum": {
-        "N": "NEW",
         "C": "CANCEL",
+        "N": "NEW",
         "R": "REPLACE"
       }
     },
@@ -920,8 +921,65 @@ const fixdict = {
         "8": "EXECUTION_REPORT",
         "9": "ORDER_CANCEL_REJECT",
         "A": "LOGON",
+        "AA": "DERIVATIVE_SECURITY_LIST",
+        "AB": "NEW_ORDER_MULTILEG",
+        "AC": "MULTILEG_ORDER_CANCEL_REPLACE",
+        "AD": "TRADE_CAPTURE_REPORT_REQUEST",
+        "AE": "TRADE_CAPTURE_REPORT",
+        "AF": "ORDER_MASS_STATUS_REQUEST",
+        "AG": "QUOTE_REQUEST_REJECT",
+        "AH": "RFQ_REQUEST",
+        "AI": "QUOTE_STATUS_REPORT",
+        "AJ": "QUOTE_RESPONSE",
+        "AK": "CONFIRMATION",
+        "AL": "POSITION_MAINTENANCE_REQUEST",
+        "AM": "POSITION_MAINTENANCE_REPORT",
+        "AN": "REQUEST_FOR_POSITIONS",
+        "AO": "REQUEST_FOR_POSITIONS_ACK",
+        "AP": "POSITION_REPORT",
+        "AQ": "TRADE_CAPTURE_REPORT_REQUEST_ACK",
+        "AR": "TRADE_CAPTURE_REPORT_ACK",
+        "AS": "ALLOCATION_REPORT",
+        "AT": "ALLOCATION_REPORT_ACK",
+        "AU": "CONFIRMATION_ACK",
+        "AV": "SETTLEMENT_INSTRUCTION_REQUEST",
+        "AW": "ASSIGNMENT_REPORT",
+        "AX": "COLLATERAL_REQUEST",
+        "AY": "COLLATERAL_ASSIGNMENT",
+        "AZ": "COLLATERAL_RESPONSE",
         "B": "NEWS",
+        "BA": "COLLATERAL_REPORT",
+        "BB": "COLLATERAL_INQUIRY",
+        "BC": "NETWORK_STATUS_REQUEST",
+        "BD": "NETWORK_STATUS_RESPONSE",
+        "BE": "USER_REQUEST",
+        "BF": "USER_RESPONSE",
+        "BG": "COLLATERAL_INQUIRY_ACK",
+        "BH": "CONFIRMATION_REQUEST",
+        "BI": "TRADING_SESSION_LIST_REQUEST",
+        "BJ": "TRADING_SESSION_LIST",
+        "BK": "SECURITY_LIST_UPDATE_REPORT",
+        "BL": "ADJUSTED_POSITION_REPORT",
+        "BM": "ALLOCATION_INSTRUCTION_ALERT",
+        "BN": "EXECUTION_ACKNOWLEDGEMENT",
+        "BO": "CONTRARY_INTENTION_REPORT",
+        "BP": "SECURITY_DEFINITION_UPDATE_REPORT",
+        "BQ": "SETTLEMENT_OBLIGATION_REPORT",
+        "BR": "DERIVATIVE_SECURITY_LIST_UPDATE_REPORT",
+        "BS": "TRADING_SESSION_LIST_UPDATER_EPORT",
+        "BT": "MARKET_DEFINITION_REQUEST",
+        "BU": "MARKET_DEFINITION",
+        "BV": "MARKET_DEFINITION_UPDATE_REPORT",
+        "BW": "APPLICATION_MESSAGE_REQUEST",
+        "BX": "APPLICATION_MESSAGE_REQUEST_ACK",
+        "BY": "APPLICATION_MESSAGE_REPORT",
+        "BZ": "ORDER_MASS_ACTION_REPORT",
         "C": "EMAIL",
+        "CA": "ORDER_MASS_ACTION_REQUEST",
+        "CB": "USER_NOTIFICATION",
+        "CC": "STREAM_ASSIGNMENT_REQUEST",
+        "CD": "STREAM_ASSIGNMENT_REPORT",
+        "CE": "STREAM_ASSIGNMENT_REPORT_ACK",
         "D": "ORDER_SINGLE",
         "E": "ORDER_LIST",
         "F": "ORDER_CANCEL_REQUEST",
@@ -967,64 +1025,7 @@ const fixdict = {
         "w": "SECURITY_TYPES",
         "x": "SECURITY_LIST_REQUEST",
         "y": "SECURITY_LIST",
-        "z": "DERIVATIVE_SECURITY_LIST_REQUEST",
-        "AA": "DERIVATIVE_SECURITY_LIST",
-        "AB": "NEW_ORDER_MULTILEG",
-        "AC": "MULTILEG_ORDER_CANCEL_REPLACE",
-        "AD": "TRADE_CAPTURE_REPORT_REQUEST",
-        "AE": "TRADE_CAPTURE_REPORT",
-        "AF": "ORDER_MASS_STATUS_REQUEST",
-        "AG": "QUOTE_REQUEST_REJECT",
-        "AH": "RFQ_REQUEST",
-        "AI": "QUOTE_STATUS_REPORT",
-        "AJ": "QUOTE_RESPONSE",
-        "AK": "CONFIRMATION",
-        "AL": "POSITION_MAINTENANCE_REQUEST",
-        "AM": "POSITION_MAINTENANCE_REPORT",
-        "AN": "REQUEST_FOR_POSITIONS",
-        "AO": "REQUEST_FOR_POSITIONS_ACK",
-        "AP": "POSITION_REPORT",
-        "AQ": "TRADE_CAPTURE_REPORT_REQUEST_ACK",
-        "AR": "TRADE_CAPTURE_REPORT_ACK",
-        "AS": "ALLOCATION_REPORT",
-        "AT": "ALLOCATION_REPORT_ACK",
-        "AU": "CONFIRMATION_ACK",
-        "AV": "SETTLEMENT_INSTRUCTION_REQUEST",
-        "AW": "ASSIGNMENT_REPORT",
-        "AX": "COLLATERAL_REQUEST",
-        "AY": "COLLATERAL_ASSIGNMENT",
-        "AZ": "COLLATERAL_RESPONSE",
-        "CA": "ORDER_MASS_ACTION_REQUEST",
-        "CB": "USER_NOTIFICATION",
-        "CC": "STREAM_ASSIGNMENT_REQUEST",
-        "CD": "STREAM_ASSIGNMENT_REPORT",
-        "CE": "STREAM_ASSIGNMENT_REPORT_ACK",
-        "BA": "COLLATERAL_REPORT",
-        "BB": "COLLATERAL_INQUIRY",
-        "BC": "NETWORK_STATUS_REQUEST",
-        "BD": "NETWORK_STATUS_RESPONSE",
-        "BE": "USER_REQUEST",
-        "BF": "USER_RESPONSE",
-        "BG": "COLLATERAL_INQUIRY_ACK",
-        "BH": "CONFIRMATION_REQUEST",
-        "BI": "TRADING_SESSION_LIST_REQUEST",
-        "BJ": "TRADING_SESSION_LIST",
-        "BK": "SECURITY_LIST_UPDATE_REPORT",
-        "BL": "ADJUSTED_POSITION_REPORT",
-        "BM": "ALLOCATION_INSTRUCTION_ALERT",
-        "BN": "EXECUTION_ACKNOWLEDGEMENT",
-        "BO": "CONTRARY_INTENTION_REPORT",
-        "BP": "SECURITY_DEFINITION_UPDATE_REPORT",
-        "BQ": "SETTLEMENT_OBLIGATION_REPORT",
-        "BR": "DERIVATIVE_SECURITY_LIST_UPDATE_REPORT",
-        "BS": "TRADING_SESSION_LIST_UPDATER_EPORT",
-        "BT": "MARKET_DEFINITION_REQUEST",
-        "BU": "MARKET_DEFINITION",
-        "BV": "MARKET_DEFINITION_UPDATE_REPORT",
-        "BW": "APPLICATION_MESSAGE_REQUEST",
-        "BX": "APPLICATION_MESSAGE_REQUEST_ACK",
-        "BY": "APPLICATION_MESSAGE_REPORT",
-        "BZ": "ORDER_MASS_ACTION_REPORT"
+        "z": "DERIVATIVE_SECURITY_LIST_REQUEST"
       }
     },
     "36": {
@@ -1304,6 +1305,7 @@ const fixdict = {
         "7": "WHEN_AND_IF_ISSUED",
         "8": "SELLERS_OPTION",
         "9": "T_5",
+        "A": "T_PLUS_1",
         "B": "BROKEN_DATE_FOR_FX_EXPRESSING_NON_STANDARD_TENOR_SETTLDATE_MUST_BE_SPECIFIED",
         "C": "FX_SPOT_NEXT_SETTLEMENT"
       }
@@ -1403,11 +1405,11 @@ const fixdict = {
       "tags": "",
       "enum": {
         "C": "CLOSE",
+        "D": "DEFAULT",
         "F": "FIFO",
-        "O": "OPEN",
-        "R": "ROLLED",
         "N": "CLOSE_BUT_NOTIFY_ON_OPEN",
-        "D": "DEFAULT"
+        "O": "OPEN",
+        "R": "ROLLED"
       }
     },
     "78": {
@@ -1494,6 +1496,10 @@ const fixdict = {
       "enum": {
         "0": "UNKNOWN_ACCOUNT",
         "1": "INCORRECT_QUANTITY",
+        "10": "UNKNOWN_OR_STALE_EXECID",
+        "11": "MISMATCHED_DATA",
+        "12": "UNKNOWN_CLORDID",
+        "13": "WAREHOUSE_REQUEST_REJECTED",
         "2": "INCORRECT_AVERAGEG_PRICE",
         "3": "UNKNOWN_EXECUTING_BROKER_MNEMONIC",
         "4": "COMMISSION_DIFFERENCE",
@@ -1502,10 +1508,6 @@ const fixdict = {
         "7": "OTHER",
         "8": "INCORRECT_ALLOCATED_QUANTITY",
         "9": "CALCULATION_DIFFERENCE",
-        "10": "UNKNOWN_OR_STALE_EXECID",
-        "11": "MISMATCHED_DATA",
-        "12": "UNKNOWN_CLORDID",
-        "13": "WAREHOUSE_REQUEST_REJECTED",
         "99": "OTHER_1"
       }
     },
@@ -1594,7 +1596,10 @@ const fixdict = {
       "name": "ExDestination",
       "number": 100,
       "tags": "",
-      "enum": {}
+      "enum": {
+        "0": "NONE",
+        "4": "POSIT"
+      }
     },
     "102": {
       "name": "CxlRejReason",
@@ -1603,6 +1608,7 @@ const fixdict = {
       "enum": {
         "0": "TOO_LATE_TO_CANCEL",
         "1": "UNKNOWN_ORDER",
+        "18": "INVALID_PRICE_INCREMENT",
         "2": "BROKER_EXCHANGE_OPTION",
         "3": "ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS",
         "4": "UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST",
@@ -1610,7 +1616,6 @@ const fixdict = {
         "6": "DUPLICATE_CLORDID_RECEIVED",
         "7": "PRICE_EXCEEDS_CURRENT_PRICE",
         "8": "PRICE_EXCEEDS_CURRENT_PRICE_BAND",
-        "18": "INVALID_PRICE_INCREMENT",
         "99": "OTHER"
       }
     },
@@ -1621,14 +1626,6 @@ const fixdict = {
       "enum": {
         "0": "BROKER_EXCHANGE_OPTION",
         "1": "UNKNOWN_SYMBOL",
-        "2": "EXCHANGE_CLOSED",
-        "3": "ORDER_EXCEEDS_LIMIT",
-        "4": "TOO_LATE_TO_ENTER",
-        "5": "UNKNOWN_ORDER",
-        "6": "DUPLICATE_ORDER",
-        "7": "DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER",
-        "8": "STALE_ORDER",
-        "9": "TRADE_ALONG_REQUIRED",
         "10": "INVALID_INVESTOR_ID",
         "11": "UNSUPPORTED_ORDER_CHARACTERISTIC",
         "12": "SURVEILLENCE_OPTION",
@@ -1637,6 +1634,14 @@ const fixdict = {
         "15": "UNKNOWN_ACCOUNT",
         "16": "PRICE_EXCEEDS_CURRENT_PRICE_BAND",
         "18": "INVALID_PRICE_INCREMENT",
+        "2": "EXCHANGE_CLOSED",
+        "3": "ORDER_EXCEEDS_LIMIT",
+        "4": "TOO_LATE_TO_ENTER",
+        "5": "UNKNOWN_ORDER",
+        "6": "DUPLICATE_ORDER",
+        "7": "DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER",
+        "8": "STALE_ORDER",
+        "9": "TRADE_ALONG_REQUIRED",
         "99": "OTHER"
       }
     },
@@ -1802,8 +1807,8 @@ const fixdict = {
       "number": 125,
       "tags": "",
       "enum": {
-        "P": "PARTIAL_CANCEL",
-        "F": "FULL_REMAINING_QUANTITY"
+        "F": "FULL_REMAINING_QUANTITY",
+        "P": "PARTIAL_CANCEL"
       }
     },
     "126": {
@@ -1901,6 +1906,11 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "REGULATORY",
+        "10": "PER_TRANSACTION",
+        "11": "CONVERSION",
+        "12": "AGENT",
+        "13": "TRANSFER_FEE",
+        "14": "SECURITY_LENDING",
         "2": "TAX",
         "3": "LOCAL_COMMISSION",
         "4": "EXCHANGE_FEES",
@@ -1908,12 +1918,7 @@ const fixdict = {
         "6": "LEVY",
         "7": "OTHER",
         "8": "MARKUP",
-        "9": "CONSUMPTION_TAX",
-        "10": "PER_TRANSACTION",
-        "11": "CONVERSION",
-        "12": "AGENT",
-        "13": "TRANSFER_FEE",
-        "14": "SECURITY_LENDING"
+        "9": "CONSUMPTION_TAX"
       }
     },
     "140": {
@@ -1985,6 +1990,8 @@ const fixdict = {
       "tags": "",
       "enum": {
         "0": "NEW",
+        "1": "PARTIAL_FILL",
+        "2": "FILL",
         "3": "DONE_FOR_DAY",
         "4": "CANCELED",
         "5": "REPLACED",
@@ -2041,8 +2048,8 @@ const fixdict = {
       "number": 156,
       "tags": "",
       "enum": {
-        "M": "MULTIPLY",
-        "D": "DIVIDE"
+        "D": "DIVIDE",
+        "M": "MULTIPLY"
       }
     },
     "157": {
@@ -2093,8 +2100,8 @@ const fixdict = {
       "number": 163,
       "tags": "",
       "enum": {
-        "N": "NEW",
         "C": "CANCEL",
+        "N": "NEW",
         "R": "REPLACE",
         "T": "RESTATE"
       }
@@ -2125,6 +2132,7 @@ const fixdict = {
         "EUR": "EUROCLEAR",
         "FED": "FEDERAL_BOOK_ENTRY",
         "ISO": "LOCAL_MARKET_SETTLE_LOCATION",
+        "PED": "PHYSICAL",
         "PNY": "PHYSICAL",
         "PTC": "PARTICIPANT_TRUST_COMPANY"
       }
@@ -2134,124 +2142,137 @@ const fixdict = {
       "number": 167,
       "tags": "",
       "enum": {
-        "EUSUPRA": "EURO_SUPRANATIONAL_COUPONS_",
-        "CORP": "CORPORATE_BOND",
-        "FOR": "FOREIGN_EXCHANGE_CONTRACT",
-        "CDS": "CREDIT_DEFAULT_SWAP",
-        "CS": "COMMON_STOCK",
-        "REPO": "REPURCHASE",
-        "BRADY": "BRADY_BOND",
-        "TERM": "TERM_LOAN",
-        "BA": "BANKERS_ACCEPTANCE",
-        "ABS": "ASSET_BACKED_SECURITIES",
-        "AN": "OTHER_ANTICIPATION_NOTES",
-        "MF": "MUTUAL_FUND",
-        "FAC": "FEDERAL_AGENCY_COUPON",
-        "CPP": "CORPORATE_PRIVATE_PLACEMENT",
-        "FUT": "FUTURE",
-        "PS": "PREFERRED_STOCK",
-        "FORWARD": "FORWARD",
-        "CAN": "CANADIAN_TREASURY_NOTES",
-        "RVLV": "REVOLVER_LOAN",
-        "BDN": "BANK_DEPOSITORY_NOTE",
-        "CMB": "CANADIAN_MORTGAGE_BONDS",
-        "COFO": "CERTIFICATE_OF_OBLIGATION",
-        "MLEG": "MULTI_LEG_INSTRUMENT",
-        "FXNDF": "NON_DELIVERABLE_FORWARD",
-        "FADN": "FEDERAL_AGENCY_DISCOUNT_NOTE",
-        "CB": "CONVERTIBLE_BOND",
-        "OPT": "OPTION",
-        "BUYSELL": "BUY_SELLBACK",
-        "CTB": "CANADIAN_TREASURY_BILLS",
-        "RVLVTRM": "REVOLVER_TERM_LOAN",
-        "BN": "BANK_NOTES",
-        "CMBS": "CORP_MORTGAGE_BACKED_SECURITIES",
-        "COFP": "CERTIFICATE_OF_PARTICIPATION",
-        "NONE": "NO_SECURITY_TYPE",
-        "FXSPOT": "FX_SPOT",
-        "UST": "US_TREASURY_NOTE",
-        "PEF": "PRIVATE_EXPORT_FUNDING_",
-        "DUAL": "DUAL_CURRENCY",
-        "OOF": "OPTIONS_ON_FUTURES",
-        "SECLOAN": "SECURITIES_LOAN",
-        "EUSOV": "EURO_SOVEREIGNS_",
-        "BRIDGE": "BRIDGE_LOAN",
-        "BOX": "BILL_OF_EXCHANGES",
-        "CMO": "COLLATERALIZED_MORTGAGE_OBLIGATION",
-        "GO": "GENERAL_OBLIGATION_BONDS",
-        "FXFWD": "FX_FORWARD",
-        "USTB": "US_TREASURY_BILL",
-        "SUPRA": "USD_SUPRANATIONAL_COUPONS_",
-        "EUCORP": "EURO_CORPORATE_BOND",
-        "OOP": "OPTIONS_ON_PHYSICAL_USE_NOT_RECOMMENDED",
-        "SECPLEDGE": "SECURITIES_PLEDGE",
-        "PROV": "CANADIAN_PROVINCIAL_BONDS",
-        "LOFC": "LETTER_OF_CREDIT",
-        "CAMM": "CANADIAN_MONEY_MARKETS",
-        "IET": "IOETTE_MORTGAGE",
-        "MT": "MANDATORY_TENDER",
-        "FXSWAP": "FX_SWAP",
-        "EUFRN": "EURO_CORPORATE_FLOATING_RATE_NOTES",
-        "IRS": "INTEREST_RATE_SWAP",
-        "TB": "TREASURY_BILL_NON_US",
-        "SWING": "SWING_LINE_FACILITY",
-        "CD": "CERTIFICATE_OF_DEPOSIT",
-        "MBS": "MORTGAGE_BACKED_SECURITIES",
-        "RAN": "REVENUE_ANTICIPATION_NOTE",
         "?": "WILDCARD_ENTRY_FOR_USE_ON_SECURITY_DEFINITION_REQUEST",
-        "FRN": "US_CORPORATE_FLOATING_RATE_NOTES",
-        "OOC": "OPTIONS_ON_COMBO",
-        "TBOND": "US_TREASURY_BOND",
-        "DINP": "DEBTOR_IN_POSSESSION",
-        "CL": "CALL_LOANS",
-        "MIO": "MORTGAGE_INTEREST_ONLY",
-        "REV": "REVENUE_BONDS",
-        "CASH": "CASH",
-        "XLINKD": "INDEXED_LINKED",
-        "TINT": "INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE",
-        "DEFLTED": "DEFAULTED",
-        "CP": "COMMERCIAL_PAPER",
-        "MPO": "MORTGAGE_PRINCIPAL_ONLY",
-        "SPCLA": "SPECIAL_ASSESSMENT",
-        "STRUCT": "STRUCTURED_NOTES",
-        "TBILL": "US_TREASURY_BILL_1",
-        "TIPS": "TREASURY_INFLATION_PROTECTED_SECURITIES",
-        "WITHDRN": "WITHDRAWN",
-        "DN": "DEPOSIT_NOTES",
-        "MPP": "MORTGAGE_PRIVATE_PLACEMENT",
-        "SPCLO": "SPECIAL_OBLIGATION",
-        "YANK": "YANKEE_CORPORATE_BOND",
-        "TCAL": "PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE",
-        "REPLACD": "REPLACED",
-        "EUCD": "EURO_CERTIFICATE_OF_DEPOSIT",
-        "MPT": "MISCELLANEOUS_PASS_THROUGH",
-        "SPCLT": "SPECIAL_TAX",
-        "TPRN": "PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE",
-        "MATURED": "MATURED",
-        "EUCP": "EURO_COMMERCIAL_PAPER",
-        "PFAND": "PFANDBRIEFE_",
-        "TAN": "TAX_ANTICIPATION_NOTE",
-        "TNOTE": "US_TREASURY_NOTE_1",
+        "ABS": "ASSET_BACKED_SECURITIES",
         "AMENDED": "AMENDED_RESTATED",
+        "AN": "OTHER_ANTICIPATION_NOTES",
+        "BA": "BANKERS_ACCEPTANCE",
+        "BDN": "BANK_DEPOSITORY_NOTE",
+        "BN": "BANK_NOTES",
+        "BOX": "BILL_OF_EXCHANGES",
+        "BRADY": "BRADY_BOND",
+        "BRIDGE": "BRIDGE_LOAN",
+        "BUYSELL": "BUY_SELLBACK",
+        "CAMM": "CANADIAN_MONEY_MARKETS",
+        "CAN": "CANADIAN_TREASURY_NOTES",
+        "CASH": "CASH",
+        "CB": "CONVERTIBLE_BOND",
+        "CD": "CERTIFICATE_OF_DEPOSIT",
+        "CDS": "CREDIT_DEFAULT_SWAP",
+        "CL": "CALL_LOANS",
+        "CMB": "CANADIAN_MORTGAGE_BONDS",
+        "CMBS": "CORP_MORTGAGE_BACKED_SECURITIES",
+        "CMO": "COLLATERALIZED_MORTGAGE_OBLIGATION",
+        "COFO": "CERTIFICATE_OF_OBLIGATION",
+        "COFP": "CERTIFICATE_OF_PARTICIPATION",
+        "CORP": "CORPORATE_BOND",
+        "CP": "COMMERCIAL_PAPER",
+        "CPP": "CORPORATE_PRIVATE_PLACEMENT",
+        "CS": "COMMON_STOCK",
+        "CTB": "CANADIAN_TREASURY_BILLS",
+        "DEFLTED": "DEFAULTED",
+        "DINP": "DEBTOR_IN_POSSESSION",
+        "DN": "DEPOSIT_NOTES",
+        "DP": "DEPOSIT_NOTES",
+        "DUAL": "DUAL_CURRENCY",
+        "EUCD": "EURO_CERTIFICATE_OF_DEPOSIT",
+        "EUCORP": "EURO_CORPORATE_BOND",
+        "EUCP": "EURO_COMMERCIAL_PAPER",
+        "EUFRN": "EURO_CORPORATE_FLOATING_RATE_NOTES",
+        "EUSOV": "EURO_SOVEREIGNS_",
+        "EUSUPRA": "EURO_SUPRANATIONAL_COUPONS_",
+        "FAC": "FEDERAL_AGENCY_COUPON",
+        "FADN": "FEDERAL_AGENCY_DISCOUNT_NOTE",
+        "FHA": "FEDERAL_HOUSING_AUTHORITY",
+        "FHL": "FEDERAL_HOME_LOAN",
+        "FN": "FEDERAL_NATIONAL_MORTGAGE_ASSOCIATION",
+        "FOR": "FOREIGN_EXCHANGE_CONTRACT",
+        "FORWARD": "FORWARD",
+        "FRN": "US_CORPORATE_FLOATING_RATE_NOTES",
+        "FUT": "FUTURE",
+        "FXFWD": "FX_FORWARD",
+        "FXNDF": "NON_DELIVERABLE_FORWARD",
+        "FXSPOT": "FX_SPOT",
+        "FXSWAP": "FX_SWAP",
+        "GN": "GOVERNMENT_NATIONAL_MORTGAGE_ASSOCIATION",
+        "GO": "GENERAL_OBLIGATION_BONDS",
+        "GOVT": "TREASURIES_PLUS_AGENCY_DEBENTURE",
+        "IET": "IOETTE_MORTGAGE",
+        "IRS": "INTEREST_RATE_SWAP",
+        "LOFC": "LETTER_OF_CREDIT",
         "LQN": "LIQUIDITY_NOTE",
-        "TBA": "TO_BE_ANNOUNCED",
-        "TAXA": "TAX_ALLOCATION",
-        "RETIRED": "RETIRED",
+        "MATURED": "MATURED",
+        "MBS": "MORTGAGE_BACKED_SECURITIES",
+        "MF": "MUTUAL_FUND",
+        "MIO": "MORTGAGE_INTEREST_ONLY",
+        "MLEG": "MULTI_LEG_INSTRUMENT",
+        "MPO": "MORTGAGE_PRINCIPAL_ONLY",
+        "MPP": "MORTGAGE_PRIVATE_PLACEMENT",
+        "MPT": "MISCELLANEOUS_PASS_THROUGH",
+        "MT": "MANDATORY_TENDER",
         "MTN": "MEDIUM_TERM_NOTES",
-        "TECP": "TAX_EXEMPT_COMMERCIAL_PAPER",
+        "MUNI": "MUNICIPAL_BOND",
+        "NONE": "NO_SECURITY_TYPE",
         "ONITE": "OVERNIGHT",
-        "TMCP": "TAXABLE_MUNICIPAL_CP",
+        "OOC": "OPTIONS_ON_COMBO",
+        "OOF": "OPTIONS_ON_FUTURES",
+        "OOP": "OPTIONS_ON_PHYSICAL_USE_NOT_RECOMMENDED",
+        "OPT": "OPTION",
+        "PEF": "PRIVATE_EXPORT_FUNDING_",
+        "PFAND": "PFANDBRIEFE_",
         "PN": "PROMISSORY_NOTE",
-        "STN": "SHORT_TERM_LOAN_NOTE",
-        "TRAN": "TAX_REVENUE_ANTICIPATION_NOTE",
+        "POOL": "AGENCY_POOLS",
+        "PROV": "CANADIAN_PROVINCIAL_BONDS",
+        "PS": "PREFERRED_STOCK",
         "PZFJ": "PLAZOS_FIJOS",
-        "VRDN": "VARIABLE_RATE_DEMAND_NOTE",
+        "RAN": "REVENUE_ANTICIPATION_NOTE",
+        "REPLACD": "REPLACED",
+        "REPO": "REPURCHASE",
+        "RETIRED": "RETIRED",
+        "REV": "REVENUE_BONDS",
+        "RP": "REPURCHASE_AGREEMENT",
+        "RVLV": "REVOLVER_LOAN",
+        "RVLVTRM": "REVOLVER_TERM_LOAN",
+        "RVRP": "REVERSE_REPURCHASE_AGREEMENT",
+        "SECLOAN": "SECURITIES_LOAN",
+        "SECPLEDGE": "SECURITIES_PLEDGE",
+        "SL": "STUDENT_LOAN_MARKETING_ASSOCIATION",
         "SLQN": "SECURED_LIQUIDITY_NOTE",
-        "WAR": "WARRANT",
+        "SPCLA": "SPECIAL_ASSESSMENT",
+        "SPCLO": "SPECIAL_OBLIGATION",
+        "SPCLT": "SPECIAL_TAX",
+        "STN": "SHORT_TERM_LOAN_NOTE",
+        "STRUCT": "STRUCTURED_NOTES",
+        "SUPRA": "USD_SUPRANATIONAL_COUPONS_",
+        "SWING": "SWING_LINE_FACILITY",
+        "TAN": "TAX_ANTICIPATION_NOTE",
+        "TAXA": "TAX_ALLOCATION",
+        "TB": "TREASURY_BILL_NON_US",
+        "TBA": "TO_BE_ANNOUNCED",
+        "TBILL": "US_TREASURY_BILL_1",
+        "TBOND": "US_TREASURY_BOND",
+        "TCAL": "PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE",
         "TD": "TIME_DEPOSIT",
+        "TECP": "TAX_EXEMPT_COMMERCIAL_PAPER",
+        "TERM": "TERM_LOAN",
+        "TINT": "INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE",
+        "TIPS": "TREASURY_INFLATION_PROTECTED_SECURITIES",
         "TLQN": "TERM_LIQUIDITY_NOTE",
+        "TMCP": "TAXABLE_MUNICIPAL_CP",
+        "TNOTE": "US_TREASURY_NOTE_1",
+        "TPRN": "PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE",
+        "TRAN": "TAX_REVENUE_ANTICIPATION_NOTE",
+        "UST": "US_TREASURY_NOTE",
+        "USTB": "US_TREASURY_BILL",
+        "VRDN": "VARIABLE_RATE_DEMAND_NOTE",
+        "WAR": "WARRANT",
+        "WITHDRN": "WITHDRAWN",
+        "WLD": "_UNKNOWN",
         "XCN": "EXTENDED_COMM_NOTE",
-        "YCD": "YANKEE_CERTIFICATE_OF_DEPOSIT"
+        "XLINKD": "INDEXED_LINKED",
+        "YANK": "YANKEE_CORPORATE_BOND",
+        "YCD": "YANKEE_CERTIFICATE_OF_DEPOSIT",
+        "ZOO": "CATS_TIGERS"
       }
     },
     "168": {
@@ -2707,59 +2728,78 @@ const fixdict = {
       "number": 233,
       "tags": "",
       "enum": {
-        "AMT": "ALTERNATIVE_MINIMUM_TAX",
         "ABS": "ABSOLUTE_PREPAYMENT_SPEED",
+        "AMT": "ALTERNATIVE_MINIMUM_TAX",
         "AUTOREINV": "AUTO_REINVESTMENT_AT_RATE_OR_BETTER",
-        "CPP": "CONSTANT_PREPAYMENT_PENALTY",
+        "AVAILQTY": "AVAILABLE_OFFER_QUANTITY_TO_BE_SHOWN_TO_THE_STREET",
+        "AVFICO": "AVERAGE_FICO_SCORE",
+        "AVSIZE": "AVERAGE_LOAN_SIZE",
         "BANKQUAL": "BANK_QUALIFIED",
-        "CPR": "CONSTANT_PREPAYMENT_RATE",
         "BGNCON": "BARGAIN_CONDITIONS",
-        "CPY": "CONSTANT_PREPAYMENT_YIELD",
+        "BROKERCREDIT": "BROKERS_SALES_CREDIT",
         "COUPON": "COUPON_RANGE",
-        "HEP": "FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE",
+        "CPP": "CONSTANT_PREPAYMENT_PENALTY",
+        "CPR": "CONSTANT_PREPAYMENT_RATE",
+        "CPY": "CONSTANT_PREPAYMENT_YIELD",
         "CURRENCY": "ISO_CURRENCY_CODE",
-        "MHP": "PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE",
         "CUSTOMDATE": "CUSTOM_START_END_DATE",
-        "MPR": "MONTHLY_PREPAYMENT_RATE",
+        "DISCOUNT": "DISCOUNT_RATE",
         "GEOG": "GEOGRAPHICS_AND_RANGE",
-        "PPC": "PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE",
         "HAIRCUT": "VALUATION_DISCOUNT",
-        "PSA": "PERCENT_OF_BMA_PREPAYMENT_CURVE",
+        "HEP": "FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE",
         "INSURED": "INSURED",
-        "SMM": "SINGLE_MONTHLY_MORTALITY",
+        "INTERNALPX": "OFFER_PRICE_TO_BE_SHOWN_TO_INTERNAL_BROKERS",
+        "INTERNALQTY": "OFFER_QUANTITY_TO_BE_SHOWN_TO_INTERNAL_BROKERS",
         "ISSUE": "YEAR_OR_YEAR_MONTH_OF_ISSUE",
         "ISSUER": "ISSUERS_TICKER",
         "ISSUESIZE": "ISSUE_SIZE_RANGE",
+        "LEAVEQTY": "THE_MINIMUM_RESIDUAL_OFFER_QUANTITY",
         "LOOKBACK": "LOOKBACK_DAYS",
         "LOT": "EXPLICIT_LOT_IDENTIFIER",
         "LOTVAR": "LOT_VARIANCE",
         "MAT": "MATURITY_YEAR_AND_MONTH",
         "MATURITY": "MATURITY_RANGE",
+        "MAXBAL": "MAXIMUM_LOAN_BALANCE",
+        "MAXORDQTY": "MAXIMUM_ORDER_SIZE",
         "MAXSUBS": "MAXIMUM_SUBSTITUTIONS",
+        "MHP": "PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE",
         "MINDNOM": "MINIMUM_DENOMINATION",
         "MININCR": "MINIMUM_INCREMENT",
         "MINQTY": "MINIMUM_QUANTITY",
+        "MPR": "MONTHLY_PREPAYMENT_RATE",
+        "ORDRINCR": "ORDER_QUANTITY_INCREMENT",
         "PAYFREQ": "PAYMENT_FREQUENCY_CALENDAR",
         "PIECES": "NUMBER_OF_PIECES",
         "PMAX": "POOLS_MAXIMUM",
+        "POOL": "POOL_IDENTIFIER",
+        "PPC": "PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE",
         "PPL": "POOLS_PER_LOT",
         "PPM": "POOLS_PER_MILLION",
         "PPT": "POOLS_PER_TRADE",
         "PRICE": "PRICE_RANGE",
         "PRICEFREQ": "PRICING_FREQUENCY",
+        "PRIMARY": "PRIMARY_OR_SECONDARY_MARKET_INDICATOR",
         "PROD": "PRODUCTION_YEAR",
         "PROTECT": "CALL_PROTECTION",
+        "PSA": "PERCENT_OF_BMA_PREPAYMENT_CURVE",
         "PURPOSE": "PURPOSE",
         "PXSOURCE": "BENCHMARK_PRICE_SOURCE",
         "RATING": "RATING_SOURCE_AND_RANGE",
         "REDEMPTION": "TYPE_OF_REDEMPTION_VALUES_ARE_NONCALLABLE_PREFUNDED_ESCROWEDTOMATURITY_PUTABLE_CONVERTIBLE",
+        "REFINT": "INTEREST_OF_ROLLING_OR_CLOSING_TRADE",
+        "REFPRIN": "PRINCIPAL_OF_ROLLING_OR_CLOSING_TRADE",
+        "REFTRADE": "REFERENCE_TO_ROLLING_OR_CLOSING_TRADE",
         "RESTRICTED": "RESTRICTED",
+        "ROLLTYPE": "TYPE_OF_ROLL_TRADE",
+        "SALESCREDITOVR": "BROKER_SALES_CREDIT_OVERRIDE",
         "SECTOR": "MARKET_SECTOR",
         "SECTYPE": "SECURITY_TYPE_INCLUDED_OR_EXCLUDED",
+        "SMM": "SINGLE_MONTHLY_MORTALITY",
         "STRUCT": "STRUCTURE",
         "SUBSFREQ": "SUBSTITUTIONS_FREQUENCY",
         "SUBSLEFT": "SUBSTITUTIONS_LEFT",
         "TEXT": "FREEFORM_TEXT",
+        "TRADERCREDIT": "TRADERS_CREDIT",
         "TRDVAR": "TRADE_VARIANCE",
         "WAC": "WEIGHTED_AVERAGE_COUPON_VALUE_IN_PERCENT",
         "WAL": "WEIGHTED_AVERAGE_LIFE_COUPON_VALUE_IN_PERCENT",
@@ -2767,25 +2807,6 @@ const fixdict = {
         "WAM": "WEIGHTED_AVERAGE_MATURITY_VALUE_IN_MONTHS",
         "WHOLE": "WHOLE_POOL",
         "YIELD": "YIELD_RANGE",
-        "AVFICO": "AVERAGE_FICO_SCORE",
-        "AVSIZE": "AVERAGE_LOAN_SIZE",
-        "MAXBAL": "MAXIMUM_LOAN_BALANCE",
-        "POOL": "POOL_IDENTIFIER",
-        "ROLLTYPE": "TYPE_OF_ROLL_TRADE",
-        "REFTRADE": "REFERENCE_TO_ROLLING_OR_CLOSING_TRADE",
-        "REFPRIN": "PRINCIPAL_OF_ROLLING_OR_CLOSING_TRADE",
-        "REFINT": "INTEREST_OF_ROLLING_OR_CLOSING_TRADE",
-        "AVAILQTY": "AVAILABLE_OFFER_QUANTITY_TO_BE_SHOWN_TO_THE_STREET",
-        "BROKERCREDIT": "BROKERS_SALES_CREDIT",
-        "INTERNALPX": "OFFER_PRICE_TO_BE_SHOWN_TO_INTERNAL_BROKERS",
-        "INTERNALQTY": "OFFER_QUANTITY_TO_BE_SHOWN_TO_INTERNAL_BROKERS",
-        "LEAVEQTY": "THE_MINIMUM_RESIDUAL_OFFER_QUANTITY",
-        "MAXORDQTY": "MAXIMUM_ORDER_SIZE",
-        "ORDRINCR": "ORDER_QUANTITY_INCREMENT",
-        "PRIMARY": "PRIMARY_OR_SECONDARY_MARKET_INDICATOR",
-        "SALESCREDITOVR": "BROKER_SALES_CREDIT_OVERRIDE",
-        "TRADERCREDIT": "TRADERS_CREDIT",
-        "DISCOUNT": "DISCOUNT_RATE",
         "YTM": "YIELD_TO_MATURITY"
       }
     },
@@ -2793,7 +2814,22 @@ const fixdict = {
       "name": "StipulationValue",
       "number": 234,
       "tags": "",
-      "enum": {}
+      "enum": {
+        "CB": "SPECIAL_CUM_BONUS",
+        "CC": "SPECIAL_CUM_COUPON",
+        "CD": "SPECIAL_CUM_DIVIDEND",
+        "CP": "SPECIAL_CUM_CAPITAL_REPAYMENTS",
+        "CR": "SPECIAL_CUM_RIGHTS",
+        "CS": "CASH_SETTLEMENT",
+        "GD": "GUARANTEED_DELIVERY",
+        "SP": "SPECIAL_PRICE",
+        "TR": "REPORT_FOR_EUROPEAN_EQUITY_MARKET_SECURITIES",
+        "XB": "SPECIAL_EX_BONUS",
+        "XC": "SPECIAL_EX_COUPON",
+        "XD": "SPECIAL_EX_DIVIDEND",
+        "XP": "SPECIAL_EX_CAPITAL_REPAYMENTS",
+        "XR": "SPECIAL_EX_RIGHTS"
+      }
     },
     "235": {
       "name": "YieldType",
@@ -2803,6 +2839,7 @@ const fixdict = {
         "AFTERTAX": "AFTER_TAX_YIELD",
         "ANNUAL": "ANNUAL_YIELD",
         "ATISSUE": "YIELD_AT_ISSUE",
+        "AVGLIFE": "YIELD_TO_AVERAGE_LIFE",
         "AVGMATURITY": "YIELD_TO_AVG_MATURITY",
         "BOOK": "BOOK_YIELD",
         "CALL": "YIELD_TO_NEXT_CALL",
@@ -2819,6 +2856,7 @@ const fixdict = {
         "LASTQUARTER": "CLOSING_YIELD_MOST_RECENT_QUARTER",
         "LASTYEAR": "CLOSING_YIELD_MOST_RECENT_YEAR",
         "LONGAVGLIFE": "YIELD_TO_LONGEST_AVERAGE_LIFE",
+        "LONGEST": "YIELD_TO_LONGEST_AVERAGE",
         "MARK": "MARK_TO_MARKET_YIELD",
         "MATURITY": "YIELD_TO_MATURITY",
         "NEXTREFUND": "YIELD_TO_NEXT_REFUND",
@@ -2828,6 +2866,7 @@ const fixdict = {
         "PUT": "YIELD_TO_NEXT_PUT",
         "SEMIANNUAL": "SEMI_ANNUAL_YIELD",
         "SHORTAVGLIFE": "YIELD_TO_SHORTEST_AVERAGE_LIFE",
+        "SHORTEST": "YIELD_TO_SHORTEST_AVERAGE",
         "SIMPLE": "SIMPLE_YIELD",
         "TAXEQUIV": "TAX_EQUIVALENT_YIELD",
         "TENDER": "YIELD_TO_TENDER_DATE",
@@ -3025,8 +3064,8 @@ const fixdict = {
       "number": 266,
       "tags": "",
       "enum": {
-        "Y": "BOOK_ENTRIES_TO_BE_AGGREGATED",
-        "N": "BOOK_ENTRIES_SHOULD_NOT_BE_AGGREGATED"
+        "N": "BOOK_ENTRIES_SHOULD_NOT_BE_AGGREGATED",
+        "Y": "BOOK_ENTRIES_TO_BE_AGGREGATED"
       }
     },
     "267": {
@@ -3072,8 +3111,8 @@ const fixdict = {
         "O": "SESSION_LOW_OFFER",
         "P": "EARLY_PRICES",
         "Q": "AUCTION_CLEARING_PRICE",
-        "S": "SWAP_VALUE_FACTOR",
         "R": "DAILY_VALUE_ADJUSTMENT_FOR_LONG_POSITIONS",
+        "S": "SWAP_VALUE_FACTOR",
         "T": "CUMULATIVE_VALUE_ADJUSTMENT_FOR_LONG_POSITIONS",
         "U": "DAILY_VALUE_ADJUSTMENT_FOR_SHORT_POSITIONS",
         "V": "CUMULATIVE_VALUE_ADJUSTMENT_FOR_SHORT_POSITIONS",
@@ -3130,6 +3169,18 @@ const fixdict = {
       "number": 276,
       "tags": "",
       "enum": {
+        "0": "RESERVED_SAM",
+        "1": "NO_ACTIVE_SAM",
+        "1000": "NO_MARKET_ACTIVITY",
+        "1001": "NO_DATA_AVAILABLE",
+        "1002": "NOT_APPLICABLE",
+        "1003": "AMOUNT_THRESHOLD_EXCEEDED",
+        "2": "RESTRICTED",
+        "3": "REST_OF_BOOK_VWAP",
+        "4": "BETTER_PRICES_IN_CONDITIONAL_ORDERS",
+        "5": "MEDIAN_PRICE",
+        "6": "FULL_CURVE",
+        "7": "FLAT_CURVE",
         "A": "OPEN_ACTIVE",
         "B": "CLOSED_INACTIVE",
         "C": "EXCHANGE_BEST",
@@ -3139,9 +3190,9 @@ const fixdict = {
         "G": "DEPTH",
         "H": "FAST_TRADING",
         "I": "NON_FIRM",
-        "L": "MANUAL_SLOW_QUOTE",
         "J": "OUTRIGHT_PRICE",
         "K": "IMPLIED_PRICE",
+        "L": "MANUAL_SLOW_QUOTE",
         "M": "DEPTH_ON_OFFER",
         "N": "DEPTH_ON_BID",
         "O": "CLOSING",
@@ -3181,15 +3232,7 @@ const fixdict = {
         "w": "OPENING_SAM",
         "x": "OPEN_SAM",
         "y": "SURVEILLANCE_SAM",
-        "z": "SUSPENDED_SAM",
-        "0": "RESERVED_SAM",
-        "1": "NO_ACTIVE_SAM",
-        "2": "RESTRICTED",
-        "3": "REST_OF_BOOK_VWAP",
-        "4": "BETTER_PRICES_IN_CONDITIONAL_ORDERS",
-        "5": "MEDIAN_PRICE",
-        "6": "FULL_CURVE",
-        "7": "FLAT_CURVE"
+        "z": "SUSPENDED_SAM"
       }
     },
     "277": {
@@ -3197,7 +3240,36 @@ const fixdict = {
       "number": 277,
       "tags": "",
       "enum": {
+        "0": "CANCEL",
+        "1": "IMPLIED_TRADE",
+        "1000": "NO_MARKET_ACTIVITY",
+        "1001": "NO_DATA_AVAILABLE",
+        "1002": "NOT_APPLICABLE",
+        "2": "MARKETPLACE_ENTERED_TRADE",
+        "3": "MULT_ASSET_CLASS_MULTILEG_TRADE",
+        "4": "MULTILEG_TO_MULTILEG_TRADE",
         "A": "CASH_MARKET",
+        "AA": "SPREAD",
+        "AB": "SPREAD_ETH",
+        "AC": "STRADDLE",
+        "AD": "STRADDLE_ETH",
+        "AE": "STOPPED",
+        "AF": "STOPPED_ETH",
+        "AG": "REGULAR_ETH",
+        "AH": "COMBO",
+        "AI": "COMBO_ETH",
+        "AJ": "OFFICIAL_CLOSING_PRICE",
+        "AK": "PRIOR_REFERENCE_PRICE",
+        "AL": "STOPPED_SOLD_LAST",
+        "AM": "STOPPED_OUT_OF_SEQUENCE",
+        "AN": "OFFICAL_CLOSING_PRICE",
+        "AO": "CROSSED_1",
+        "AP": "FAST_MARKET",
+        "AQ": "AUTOMATIC_EXECUTION",
+        "AR": "FORM_T",
+        "AS": "BASKET_INDEX",
+        "AT": "BURST_BASKET",
+        "AV": "OUTSIDE_SPREAD",
         "B": "AVERAGE_PRICE_TRADE",
         "C": "CASH_TRADE",
         "D": "NEXT_DAY_MARKET",
@@ -3247,33 +3319,7 @@ const fixdict = {
         "w": "REOPEN",
         "x": "REOPEN_ETH",
         "y": "ADJUSTED",
-        "z": "ADJUSTED_ETH",
-        "AA": "SPREAD",
-        "AB": "SPREAD_ETH",
-        "AC": "STRADDLE",
-        "AD": "STRADDLE_ETH",
-        "AE": "STOPPED",
-        "AF": "STOPPED_ETH",
-        "AG": "REGULAR_ETH",
-        "AH": "COMBO",
-        "AI": "COMBO_ETH",
-        "AJ": "OFFICIAL_CLOSING_PRICE",
-        "AK": "PRIOR_REFERENCE_PRICE",
-        "0": "CANCEL",
-        "AL": "STOPPED_SOLD_LAST",
-        "AM": "STOPPED_OUT_OF_SEQUENCE",
-        "AN": "OFFICAL_CLOSING_PRICE",
-        "AO": "CROSSED_1",
-        "AP": "FAST_MARKET",
-        "AQ": "AUTOMATIC_EXECUTION",
-        "AR": "FORM_T",
-        "AS": "BASKET_INDEX",
-        "AT": "BURST_BASKET",
-        "AV": "OUTSIDE_SPREAD",
-        "1": "IMPLIED_TRADE",
-        "2": "MARKETPLACE_ENTERED_TRADE",
-        "3": "MULT_ASSET_CLASS_MULTILEG_TRADE",
-        "4": "MULTILEG_TO_MULTILEG_TRADE"
+        "z": "ADJUSTED_ETH"
       }
     },
     "278": {
@@ -3457,14 +3503,6 @@ const fixdict = {
       "enum": {
         "0": "ACCEPTED",
         "1": "CANCEL_FOR_SYMBOL",
-        "2": "CANCELED_FOR_SECURITY_TYPE",
-        "3": "CANCELED_FOR_UNDERLYING",
-        "4": "CANCELED_ALL",
-        "5": "REJECTED",
-        "6": "REMOVED_FROM_MARKET",
-        "7": "EXPIRED",
-        "8": "QUERY",
-        "9": "QUOTE_NOT_FOUND",
         "10": "PENDING",
         "11": "PASS",
         "12": "LOCKED_MARKET_WARNING",
@@ -3475,7 +3513,15 @@ const fixdict = {
         "17": "CANCELED",
         "18": "UNSOLICITED_QUOTE_REPLENISHMENT",
         "19": "PENDING_END_TRADE",
-        "20": "TOO_LATE_TO_END"
+        "2": "CANCELED_FOR_SECURITY_TYPE",
+        "20": "TOO_LATE_TO_END",
+        "3": "CANCELED_FOR_UNDERLYING",
+        "4": "CANCELED_ALL",
+        "5": "REJECTED",
+        "6": "REMOVED_FROM_MARKET",
+        "7": "EXPIRED",
+        "8": "QUERY",
+        "9": "QUOTE_NOT_FOUND"
       }
     },
     "298": {
@@ -3505,6 +3551,10 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "UNKNOWN_SYMBOL",
+        "10": "PRICE_EXCEEDS_CURRENT_PRICE_BAND",
+        "11": "QUOTE_LOCKED_UNABLE_TO_UPDATE_CANCEL",
+        "12": "INVALID_OR_UNKNOWN_SECURITY_ISSUER",
+        "13": "INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY",
         "2": "EXCHANGE_CLOSED",
         "3": "QUOTE_REQUEST_EXCEEDS_LIMIT",
         "4": "TOO_LATE_TO_ENTER",
@@ -3513,10 +3563,6 @@ const fixdict = {
         "7": "INVALID_BID_ASK_SPREAD",
         "8": "INVALID_PRICE",
         "9": "NOT_AUTHORIZED_TO_QUOTE_SECURITY",
-        "10": "PRICE_EXCEEDS_CURRENT_PRICE_BAND",
-        "11": "QUOTE_LOCKED_UNABLE_TO_UPDATE_CANCEL",
-        "12": "INVALID_OR_UNKNOWN_SECURITY_ISSUER",
-        "13": "INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY",
         "99": "OTHER"
       }
     },
@@ -3616,7 +3662,10 @@ const fixdict = {
       "name": "UnderlyingPutOrCall",
       "number": 315,
       "tags": "",
-      "enum": {}
+      "enum": {
+        "0": "PUT",
+        "1": "CALL"
+      }
     },
     "316": {
       "name": "UnderlyingStrikePrice",
@@ -3705,15 +3754,8 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "OPENING_DELAY",
-        "2": "TRADING_HALT",
-        "3": "RESUME",
-        "4": "NO_OPEN_NO_RESUME",
-        "5": "PRICE_INDICATION",
-        "6": "TRADING_RANGE_INDICATION",
-        "7": "MARKET_IMBALANCE_BUY",
-        "8": "MARKET_IMBALANCE_SELL",
-        "9": "MARKET_ON_CLOSE_IMBALANCE_BUY",
         "10": "MARKET_ON_CLOSE_IMBALANCE_SELL",
+        "11": "NOT_ASSIGNED",
         "12": "NO_MARKET_IMBALANCE",
         "13": "NO_MARKET_ON_CLOSE_IMBALANCE",
         "14": "ITS_PRE_OPENING",
@@ -3722,13 +3764,21 @@ const fixdict = {
         "17": "READY_TO_TRADE",
         "18": "NOT_AVAILABLE_FOR_TRADING",
         "19": "NOT_TRADED_ON_THIS_MARKET",
+        "2": "TRADING_HALT",
         "20": "UNKNOWN_OR_INVALID",
         "21": "PRE_OPEN",
         "22": "OPENING_ROTATION",
         "23": "FAST_MARKET",
         "24": "PRE_CROSS_SYSTEM_IS_IN_A_PRE_CROSS_STATE_ALLOWING_MARKET_TO_RESPOND_TO_EITHER_SIDE_OF_CROSS",
         "25": "CROSS_SYSTEM_HAS_CROSSED_A_PERCENTAGE_OF_THE_ORDERS_AND_ALLOWS_MARKET_TO_RESPOND_PRIOR_TO_CROSSING_REMAINING_PORTION",
-        "26": "POST_CLOSE"
+        "26": "POST_CLOSE",
+        "3": "RESUME",
+        "4": "NO_OPEN_NO_RESUME",
+        "5": "PRICE_INDICATION",
+        "6": "TRADING_RANGE_INDICATION",
+        "7": "MARKET_IMBALANCE_BUY",
+        "8": "MARKET_IMBALANCE_SELL",
+        "9": "MARKET_ON_CLOSE_IMBALANCE_BUY"
       }
     },
     "327": {
@@ -3741,7 +3791,13 @@ const fixdict = {
         "2": "ORDER_IMBALANCE",
         "3": "ADDITIONAL_INFORMATION",
         "4": "NEWS_PENDING",
-        "5": "EQUIPMENT_CHANGEOVER"
+        "5": "EQUIPMENT_CHANGEOVER",
+        "D": "NEWS_DISSEMINATION",
+        "E": "ORDER_INFLUX",
+        "I": "ORDER_IMBALANCE",
+        "M": "ADDITIONAL_INFORMATION",
+        "P": "NEW_PENDING",
+        "X": "EQUIPMENT_CHANGEOVER"
       }
     },
     "328": {
@@ -3895,7 +3951,12 @@ const fixdict = {
       "name": "MessageEncoding",
       "number": 347,
       "tags": "header",
-      "enum": {}
+      "enum": {
+        "EUC-JP": "EUC_JP",
+        "ISO-2022-JP": "ISO_2022_JP",
+        "SHIFT_JIS": "SHIFT_JIS",
+        "UTF-8": "UTF_8"
+      }
     },
     "348": {
       "name": "EncodedIssuerLen",
@@ -4021,7 +4082,18 @@ const fixdict = {
       "name": "QuoteEntryRejectReason",
       "number": 368,
       "tags": "",
-      "enum": {}
+      "enum": {
+        "1": "UNKNOWN_SYMBOL",
+        "2": "EXCHANGE_CLOSED",
+        "3": "QUOTE_EXCEEDS_LIMIT",
+        "4": "TOO_LATE_TO_ENTER",
+        "5": "UNKNOWN_QUOTE",
+        "6": "DUPLICATE_QUOTE",
+        "7": "INVALID_BID_ASK_SPREAD",
+        "8": "INVALID_PRICE",
+        "9": "NOT_AUTHORIZED_TO_QUOTE_SECURITY",
+        "99": "OTHER"
+      }
     },
     "369": {
       "name": "LastMsgSeqNumProcessed",
@@ -4054,14 +4126,6 @@ const fixdict = {
       "enum": {
         "0": "INVALID_TAG_NUMBER",
         "1": "REQUIRED_TAG_MISSING",
-        "2": "TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE",
-        "3": "UNDEFINED_TAG",
-        "4": "TAG_SPECIFIED_WITHOUT_A_VALUE",
-        "5": "VALUE_IS_INCORRECT",
-        "6": "INCORRECT_DATA_FORMAT_FOR_VALUE",
-        "7": "DECRYPTION_PROBLEM",
-        "8": "SIGNATURE_PROBLEM",
-        "9": "COMPID_PROBLEM",
         "10": "SENDINGTIME_ACCURACY_PROBLEM",
         "11": "INVALID_MSGTYPE",
         "12": "XML_VALIDATION_ERROR",
@@ -4071,6 +4135,14 @@ const fixdict = {
         "16": "INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP",
         "17": "NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER",
         "18": "INVALID_UNSUPPORTED_APPLICATION_VERSION",
+        "2": "TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE",
+        "3": "UNDEFINED_TAG",
+        "4": "TAG_SPECIFIED_WITHOUT_A_VALUE",
+        "5": "VALUE_IS_INCORRECT",
+        "6": "INCORRECT_DATA_FORMAT_FOR_VALUE",
+        "7": "DECRYPTION_PROBLEM",
+        "8": "SIGNATURE_PROBLEM",
+        "9": "COMPID_PROBLEM",
         "99": "OTHER"
       }
     },
@@ -4111,6 +4183,8 @@ const fixdict = {
       "enum": {
         "0": "GT_CORPORATE_ACTION",
         "1": "GT_RENEWAL_RESTATEMENT",
+        "10": "WAREHOUSE_RECAP",
+        "11": "PEG_REFRESH",
         "2": "VERBAL_CHANGE",
         "3": "REPRICING_OF_ORDER",
         "4": "BROKER_OPTION",
@@ -4119,8 +4193,6 @@ const fixdict = {
         "7": "CANCEL_ON_SYSTEM_FAILURE",
         "8": "MARKET_OPTION",
         "9": "CANCELED_NOT_BEST",
-        "10": "WAREHOUSE_RECAP",
-        "11": "PEG_REFRESH",
         "99": "OTHER"
       }
     },
@@ -4137,13 +4209,13 @@ const fixdict = {
       "enum": {
         "0": "OTHER",
         "1": "UNKNOWN_ID",
+        "18": "INVALID_PRICE_INCREMENT",
         "2": "UNKNOWN_SECURITY",
         "3": "UNSUPPORTED_MESSAGE_TYPE",
         "4": "APPLICATION_NOT_AVAILABLE",
         "5": "CONDITIONALLY_REQUIRED_FIELD_MISSING",
         "6": "NOT_AUTHORIZED",
-        "7": "DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME",
-        "18": "INVALID_PRICE_INCREMENT"
+        "7": "DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME"
       }
     },
     "381": {
@@ -4461,14 +4533,6 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "PERCENTAGE",
-        "2": "PER_UNIT",
-        "3": "FIXED_AMOUNT",
-        "4": "DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR",
-        "5": "PREMIUM_PERCENTAGE_POINTS_OVER_PAR",
-        "6": "SPREAD",
-        "7": "TED_PRICE",
-        "8": "TED_YIELD",
-        "9": "YIELD",
         "10": "FIXED_CABINET_TRADE_PRICE",
         "11": "VARIABLE_CABINET_TRADE_PRICE",
         "13": "PRODUCT_TICKS_IN_HALFS",
@@ -4477,7 +4541,15 @@ const fixdict = {
         "16": "PRODUCT_TICKS_IN_SIXTEENTHS",
         "17": "PRODUCT_TICKS_IN_THIRTY_SECONDS",
         "18": "PRODUCT_TICKS_IN_SIXTY_FORTHS",
-        "19": "PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS"
+        "19": "PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS",
+        "2": "PER_UNIT",
+        "3": "FIXED_AMOUNT",
+        "4": "DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR",
+        "5": "PREMIUM_PERCENTAGE_POINTS_OVER_PAR",
+        "6": "SPREAD",
+        "7": "TED_PRICE",
+        "8": "TED_YIELD",
+        "9": "YIELD"
       }
     },
     "424": {
@@ -4658,24 +4730,24 @@ const fixdict = {
       "number": 447,
       "tags": "",
       "enum": {
-        "6": "UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER",
         "1": "KOREAN_INVESTOR_ID",
-        "I": "DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT",
-        "B": "BIC",
-        "7": "US_SOCIAL_SECURITY_NUMBER",
         "2": "TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID",
-        "C": "GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER",
-        "8": "US_EMPLOYER_OR_TAX_ID_NUMBER",
         "3": "TAIWANESE_TRADING_ACCT",
-        "D": "PROPRIETARY_CUSTOM_CODE",
-        "9": "AUSTRALIAN_BUSINESS_NUMBER",
         "4": "MALAYSIAN_CENTRAL_DEPOSITORY_NUMBER",
-        "E": "ISO_COUNTRY_CODE",
-        "A": "AUSTRALIAN_TAX_FILE_NUMBER",
         "5": "CHINESE_INVESTOR_ID",
+        "6": "UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER",
+        "7": "US_SOCIAL_SECURITY_NUMBER",
+        "8": "US_EMPLOYER_OR_TAX_ID_NUMBER",
+        "9": "AUSTRALIAN_BUSINESS_NUMBER",
+        "A": "AUSTRALIAN_TAX_FILE_NUMBER",
+        "B": "BIC",
+        "C": "GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER",
+        "D": "PROPRIETARY_CUSTOM_CODE",
+        "E": "ISO_COUNTRY_CODE",
         "F": "SETTLEMENT_ENTITY_LOCATION",
         "G": "MIC",
-        "H": "CSD_PARTICIPANT_MEMBER_CODE"
+        "H": "CSD_PARTICIPANT_MEMBER_CODE",
+        "I": "DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT"
       }
     },
     "448": {
@@ -4708,14 +4780,6 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "EXECUTING_FIRM",
-        "2": "BROKER_OF_CREDIT",
-        "3": "CLIENT_ID",
-        "4": "CLEARING_FIRM",
-        "5": "INVESTOR_ID",
-        "6": "INTRODUCING_FIRM",
-        "7": "ENTERING_FIRM",
-        "8": "LOCATE_LENDING_FIRM",
-        "9": "FUND_MANAGER_CLIENT_ID",
         "10": "SETTLEMENT_LOCATION",
         "11": "ORDER_ORIGINATION_TRADER",
         "12": "EXECUTING_TRADER",
@@ -4726,6 +4790,7 @@ const fixdict = {
         "17": "CONTRA_FIRM",
         "18": "CONTRA_CLEARING_FIRM",
         "19": "SPONSORING_FIRM",
+        "2": "BROKER_OF_CREDIT",
         "20": "UNDERLYING_CONTRA_FIRM",
         "21": "CLEARING_ORGANIZATION",
         "22": "EXCHANGE",
@@ -4735,6 +4800,7 @@ const fixdict = {
         "27": "BUYER_SELLER",
         "28": "CUSTODIAN",
         "29": "INTERMEDIARY",
+        "3": "CLIENT_ID",
         "30": "AGENT",
         "31": "SUB_CUSTODIAN",
         "32": "BENEFICIARY",
@@ -4745,6 +4811,7 @@ const fixdict = {
         "37": "CONTRA_TRADER",
         "38": "POSITION_ACCOUNT",
         "39": "CONTRA_INVESTOR_ID",
+        "4": "CLEARING_FIRM",
         "40": "TRANSFER_TO_FIRM",
         "41": "CONTRA_POSITION_ACCOUNT",
         "42": "CONTRA_EXCHANGE",
@@ -4755,6 +4822,7 @@ const fixdict = {
         "47": "THIRD_PARTY_ALLOCATION_FIRM",
         "48": "CLAIMING_ACCOUNT",
         "49": "ASSET_MANAGER",
+        "5": "INVESTOR_ID",
         "50": "PLEDGOR_ACCOUNT",
         "51": "PLEDGEE_ACCOUNT",
         "52": "LARGE_TRADER_REPORTABLE_ACCOUNT",
@@ -4765,6 +4833,7 @@ const fixdict = {
         "57": "UNACCEPTABLE_COUNTERPARTY",
         "58": "ENTERING_UNIT",
         "59": "EXECUTING_UNIT",
+        "6": "INTRODUCING_FIRM",
         "60": "INTRODUCING_BROKER",
         "61": "QUOTE_ORIGINATOR",
         "62": "REPORT_ORIGINATOR",
@@ -4775,6 +4844,7 @@ const fixdict = {
         "67": "INVESTMENT_FIRM",
         "68": "HOST_COMPETENT_AUTHORITY",
         "69": "HOME_COMPETENT_AUTHORITY",
+        "7": "ENTERING_FIRM",
         "70": "COMPETENT_AUTHORITY_OF_THE_MOST_RELEVANT_MARKET_IN_TERMS_OF_LIQUIDITY",
         "71": "COMPETENT_AUTHORITY_OF_THE_TRANSACTION",
         "72": "REPORTING_INTERMEDIARY",
@@ -4785,12 +4855,14 @@ const fixdict = {
         "77": "MARKET_DATA_MARKET",
         "78": "ALLOCATION_ENTITY",
         "79": "PRIME_BROKER_PROVIDING_GENERAL_TRADE_SERVICES",
+        "8": "LOCATE_LENDING_FIRM",
         "80": "STEP_OUT_FIRM",
         "81": "BROKERCLEARINGID",
         "82": "CENTRAL_REGISTRATION_DEPOSITORY",
         "83": "CLEARING_ACCOUNT",
         "84": "ACCEPTABLE_SETTLING_COUNTERPARTY",
-        "85": "UNACCEPTABLE_SETTLING_COUNTERPARTY"
+        "85": "UNACCEPTABLE_SETTLING_COUNTERPARTY",
+        "9": "FUND_MANAGER_CLIENT_ID"
       }
     },
     "453": {
@@ -4841,6 +4913,10 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "AGENCY",
+        "10": "MORTGAGE",
+        "11": "MUNICIPAL",
+        "12": "OTHER",
+        "13": "FINANCING",
         "2": "COMMODITY",
         "3": "CORPORATE",
         "4": "CURRENCY",
@@ -4848,11 +4924,7 @@ const fixdict = {
         "6": "GOVERNMENT",
         "7": "INDEX",
         "8": "LOAN",
-        "9": "MONEYMARKET",
-        "10": "MORTGAGE",
-        "11": "MUNICIPAL",
-        "12": "OTHER",
-        "13": "FINANCING"
+        "9": "MONEYMARKET"
       }
     },
     "461": {
@@ -4973,6 +5045,9 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "CREST",
+        "10": "BPAY",
+        "11": "HIGH_VALUE_CLEARING_SYSTEM_HVACS",
+        "12": "REINVEST_IN_FUND",
         "2": "NSCC",
         "3": "EUROCLEAR",
         "4": "CLEARSTREAM",
@@ -4980,10 +5055,7 @@ const fixdict = {
         "6": "TELEGRAPHIC_TRANSFER",
         "7": "FED_WIRE",
         "8": "DIRECT_CREDIT",
-        "9": "ACH_CREDIT",
-        "10": "BPAY",
-        "11": "HIGH_VALUE_CLEARING_SYSTEM_HVACS",
-        "12": "REINVEST_IN_FUND"
+        "9": "ACH_CREDIT"
       }
     },
     "478": {
@@ -5003,10 +5075,10 @@ const fixdict = {
       "number": 480,
       "tags": "",
       "enum": {
-        "Y": "YES",
-        "N": "NO_EXECUTION_ONLY",
         "M": "NO_WAIVER_AGREEMENT",
-        "O": "NO_INSTITUTIONAL"
+        "N": "NO_EXECUTION_ONLY",
+        "O": "NO_INSTITUTIONAL",
+        "Y": "YES"
       }
     },
     "481": {
@@ -5014,11 +5086,11 @@ const fixdict = {
       "number": 481,
       "tags": "",
       "enum": {
-        "Y": "PASSED",
-        "N": "NOT_CHECKED",
         "1": "EXEMPT_BELOW_THE_LIMIT",
         "2": "EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION",
-        "3": "EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION"
+        "3": "EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION",
+        "N": "NOT_CHECKED",
+        "Y": "PASSED"
       }
     },
     "482": {
@@ -5070,7 +5142,10 @@ const fixdict = {
         "2": "REPLACE",
         "3": "RELEASE",
         "4": "REVERSE",
-        "5": "CANCEL_DUE_TO_BACK_OUT_OF_TRADE"
+        "5": "CANCEL_DUE_TO_BACK_OUT_OF_TRADE",
+        "C": "CANCEL",
+        "N": "NEW",
+        "R": "REPLACE"
       }
     },
     "488": {
@@ -5103,6 +5178,12 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "CREST",
+        "10": "DIRECT_CREDIT",
+        "11": "CREDIT_CARD",
+        "12": "ACH_DEBIT",
+        "13": "ACH_CREDIT",
+        "14": "BPAY",
+        "15": "HIGH_VALUE_CLEARING_SYSTEM",
         "2": "NSCC",
         "3": "EUROCLEAR",
         "4": "CLEARSTREAM",
@@ -5110,13 +5191,7 @@ const fixdict = {
         "6": "TELEGRAPHIC_TRANSFER",
         "7": "FED_WIRE",
         "8": "DEBIT_CARD",
-        "9": "DIRECT_DEBIT",
-        "10": "DIRECT_CREDIT",
-        "11": "CREDIT_CARD",
-        "12": "ACH_DEBIT",
-        "13": "ACH_CREDIT",
-        "14": "BPAY",
-        "15": "HIGH_VALUE_CLEARING_SYSTEM"
+        "9": "DIRECT_DEBIT"
       }
     },
     "493": {
@@ -5138,14 +5213,6 @@ const fixdict = {
       "enum": {
         "0": "NONE_NOT_APPLICABLE",
         "1": "MAXI_ISA",
-        "2": "TESSA",
-        "3": "MINI_CASH_ISA",
-        "4": "MINI_STOCKS_AND_SHARES_ISA",
-        "5": "MINI_INSURANCE_ISA",
-        "6": "CURRENT_YEAR_PAYMENT",
-        "7": "PRIOR_YEAR_PAYMENT",
-        "8": "ASSET_TRANSFER",
-        "9": "EMPLOYEE_PRIOR_YEAR",
         "10": "EMPLOYEE_CURRENT_YEAR",
         "11": "EMPLOYER_PRIOR_YEAR",
         "12": "EMPLOYER_CURRENT_YEAR",
@@ -5156,6 +5223,7 @@ const fixdict = {
         "17": "INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER",
         "18": "KEOGH",
         "19": "PROFIT_SHARING_PLAN",
+        "2": "TESSA",
         "20": "_401",
         "21": "SELF_DIRECTED_IRA",
         "22": "_403",
@@ -5166,6 +5234,13 @@ const fixdict = {
         "27": "ROTH_CONVERSION_IRA_1",
         "28": "EDUCATION_IRA",
         "29": "EDUCATION_IRA_1",
+        "3": "MINI_CASH_ISA",
+        "4": "MINI_STOCKS_AND_SHARES_ISA",
+        "5": "MINI_INSURANCE_ISA",
+        "6": "CURRENT_YEAR_PAYMENT",
+        "7": "PRIOR_YEAR_PAYMENT",
+        "8": "ASSET_TRANSFER",
+        "9": "EMPLOYEE_PRIOR_YEAR",
         "999": "OTHER"
       }
     },
@@ -5238,9 +5313,9 @@ const fixdict = {
       "tags": "",
       "enum": {
         "A": "ACCEPTED",
-        "R": "REJECTED",
         "H": "HELD",
-        "N": "REMINDER_I_E_REGISTRATION_INSTRUCTIONS_ARE_STILL_OUTSTANDING"
+        "N": "REMINDER_I_E_REGISTRATION_INSTRUCTIONS_ARE_STILL_OUTSTANDING",
+        "R": "REJECTED"
       }
     },
     "507": {
@@ -5249,14 +5324,6 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "INVALID_UNACCEPTABLE_ACCOUNT_TYPE",
-        "2": "INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE",
-        "3": "INVALID_UNACCEPTABLE_OWNERSHIP_TYPE",
-        "4": "INVALID_UNACCEPTABLE_NO_REG_DETAILS",
-        "5": "INVALID_UNACCEPTABLE_REG_SEQ_NO",
-        "6": "INVALID_UNACCEPTABLE_REG_DETAILS",
-        "7": "INVALID_UNACCEPTABLE_MAILING_DETAILS",
-        "8": "INVALID_UNACCEPTABLE_MAILING_INSTRUCTIONS",
-        "9": "INVALID_UNACCEPTABLE_INVESTOR_ID",
         "10": "INVALID_UNACEEPTABLE_INVESTOR_ID_SOURCE",
         "11": "INVALID_UNACCEPTABLE_DATE_OF_BIRTH",
         "12": "INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE",
@@ -5266,6 +5333,14 @@ const fixdict = {
         "16": "INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME",
         "17": "INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE",
         "18": "INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM",
+        "2": "INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE",
+        "3": "INVALID_UNACCEPTABLE_OWNERSHIP_TYPE",
+        "4": "INVALID_UNACCEPTABLE_NO_REG_DETAILS",
+        "5": "INVALID_UNACCEPTABLE_REG_SEQ_NO",
+        "6": "INVALID_UNACCEPTABLE_REG_DETAILS",
+        "7": "INVALID_UNACCEPTABLE_MAILING_DETAILS",
+        "8": "INVALID_UNACCEPTABLE_MAILING_INSTRUCTIONS",
+        "9": "INVALID_UNACCEPTABLE_INVESTOR_ID",
         "99": "OTHER"
       }
     },
@@ -5311,8 +5386,8 @@ const fixdict = {
       "tags": "",
       "enum": {
         "0": "NEW",
-        "2": "CANCEL",
-        "1": "REPLACE"
+        "1": "REPLACE",
+        "2": "CANCEL"
       }
     },
     "515": {
@@ -5332,9 +5407,9 @@ const fixdict = {
       "number": 517,
       "tags": "",
       "enum": {
+        "2": "JOINT_TRUSTEES",
         "J": "JOINT_INVESTORS",
-        "T": "TENANTS_IN_COMMON",
-        "2": "JOINT_TRUSTEES"
+        "T": "TENANTS_IN_COMMON"
       }
     },
     "518": {
@@ -5349,6 +5424,12 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "COMMISSION_AMOUNT",
+        "10": "EXIT_CHARGE_PERCENT",
+        "11": "FUND_BASED_RENEWAL_COMMISSION_PERCENT",
+        "12": "PROJECTED_FUND_VALUE",
+        "13": "FUND_BASED_RENEWAL_COMMISSION_AMOUNT",
+        "14": "FUND_BASED_RENEWAL_COMMISSION_AMOUNT_1",
+        "15": "NET_SETTLEMENT_AMOUNT",
         "2": "COMMISSION_PERCENT",
         "3": "INITIAL_CHARGE_AMOUNT",
         "4": "INITIAL_CHARGE_PERCENT",
@@ -5356,13 +5437,7 @@ const fixdict = {
         "6": "DISCOUNT_PERCENT",
         "7": "DILUTION_LEVY_AMOUNT",
         "8": "DILUTION_LEVY_PERCENT",
-        "9": "EXIT_CHARGE_AMOUNT",
-        "10": "EXIT_CHARGE_PERCENT",
-        "11": "FUND_BASED_RENEWAL_COMMISSION_PERCENT",
-        "12": "PROJECTED_FUND_VALUE",
-        "13": "FUND_BASED_RENEWAL_COMMISSION_AMOUNT",
-        "14": "FUND_BASED_RENEWAL_COMMISSION_AMOUNT_1",
-        "15": "NET_SETTLEMENT_AMOUNT"
+        "9": "EXIT_CHARGE_AMOUNT"
       }
     },
     "520": {
@@ -5383,6 +5458,10 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "INDIVIDUAL_INVESTOR",
+        "10": "NETWORKING_SUB_ACCOUNT",
+        "11": "NON_PROFIT_ORGANIZATION",
+        "12": "CORPORATE_BODY",
+        "13": "NOMINEE",
         "2": "PUBLIC_COMPANY",
         "3": "PRIVATE_COMPANY",
         "4": "INDIVIDUAL_TRUSTEE",
@@ -5390,11 +5469,7 @@ const fixdict = {
         "6": "PENSION_PLAN",
         "7": "CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT",
         "8": "TRUSTS",
-        "9": "FIDUCIARIES",
-        "10": "NETWORKING_SUB_ACCOUNT",
-        "11": "NON_PROFIT_ORGANIZATION",
-        "12": "CORPORATE_BODY",
-        "13": "NOMINEE"
+        "9": "FIDUCIARIES"
       }
     },
     "523": {
@@ -5508,6 +5583,8 @@ const fixdict = {
       "enum": {
         "0": "MASS_CANCEL_NOT_SUPPORTED",
         "1": "INVALID_OR_UNKNOWN_SECURITY",
+        "10": "INVALID_OR_UNKNOWN_SECURITY_ISSUER",
+        "11": "INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY",
         "2": "INVALID_OR_UNKOWN_UNDERLYING_SECURITY",
         "3": "INVALID_OR_UNKNOWN_PRODUCT",
         "4": "INVALID_OR_UNKNOWN_CFICODE",
@@ -5516,8 +5593,6 @@ const fixdict = {
         "7": "INVALID_OR_UNKNOWN_MARKET",
         "8": "INVALID_OR_UNKOWN_MARKET_SEGMENT",
         "9": "INVALID_OR_UNKNOWN_SECURITY_GROUP",
-        "10": "INVALID_OR_UNKNOWN_SECURITY_ISSUER",
-        "11": "INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY",
         "99": "OTHER"
       }
     },
@@ -5590,7 +5665,10 @@ const fixdict = {
       "name": "InstrRegistry",
       "number": 543,
       "tags": "",
-      "enum": {}
+      "enum": {
+        "Code": "COUNTRY_IN_WHICH_REGISTRY_IS_KEPT",
+        "ZZ": "PHYSICAL_OR_BEARER"
+      }
     },
     "544": {
       "name": "CashMargin",
@@ -5834,32 +5912,38 @@ const fixdict = {
       "number": 574,
       "tags": "",
       "enum": {
-        "A1": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME",
-        "A2": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES",
-        "M3": "ACT_ACCEPTED_TRADE",
-        "A3": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME",
-        "M4": "ACT_DEFAULT_TRADE",
-        "A4": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES",
-        "M5": "ACT_DEFAULT_AFTER_M2",
-        "A5": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME",
-        "M6": "ACT_M6_MATCH",
-        "AQ": "COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS_PAIR_OFFS",
-        "S1": "SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIED",
-        "S2": "SUMMARIZED_MATCH_USING_A2_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED",
-        "S3": "SUMMARIZED_MATCH_USING_A3_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED",
-        "S4": "SUMMARIZED_MATCH_USING_A4_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED",
-        "S5": "SUMMARIZED_MATCH_USING_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED",
-        "M1": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_MINUS_BADGES_AND_TIMES_ACT_M1_MATCH",
-        "M2": "SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES_ACT_M2_MATCH",
-        "MT": "OCS_LOCKED_IN_NON_ACT",
         "1": "ONE_PARTY_TRADE_REPORT",
         "2": "TWO_PARTY_TRADE_REPORT",
         "3": "CONFIRMED_TRADE_REPORT",
         "4": "AUTO_MATCH",
         "5": "CROSS_AUCTION",
         "6": "COUNTER_ORDER_SELECTION",
+        "60": "ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT",
+        "61": "TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT",
+        "62": "CONTINUOUS_AUTO_MATCH",
+        "63": "CROSS_AUCTION2",
+        "64": "COUNTER_ORDER_SELECTION2",
+        "65": "CALL_AUCTION2",
         "7": "CALL_AUCTION",
-        "8": "ISSUING_BUY_BACK_AUCTION"
+        "8": "ISSUING_BUY_BACK_AUCTION",
+        "A1": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME",
+        "A2": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES",
+        "A3": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME",
+        "A4": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES",
+        "A5": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME",
+        "AQ": "COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS_PAIR_OFFS",
+        "M1": "EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_MINUS_BADGES_AND_TIMES_ACT_M1_MATCH",
+        "M2": "SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES_ACT_M2_MATCH",
+        "M3": "ACT_ACCEPTED_TRADE",
+        "M4": "ACT_DEFAULT_TRADE",
+        "M5": "ACT_DEFAULT_AFTER_M2",
+        "M6": "ACT_M6_MATCH",
+        "MT": "OCS_LOCKED_IN_NON_ACT",
+        "S1": "SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIED",
+        "S2": "SUMMARIZED_MATCH_USING_A2_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED",
+        "S3": "SUMMARIZED_MATCH_USING_A3_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED",
+        "S4": "SUMMARIZED_MATCH_USING_A4_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED",
+        "S5": "SUMMARIZED_MATCH_USING_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED"
       }
     },
     "575": {
@@ -5884,6 +5968,10 @@ const fixdict = {
       "enum": {
         "0": "PROCESS_NORMALLY",
         "1": "EXCLUDE_FROM_ALL_NETTING",
+        "10": "AUTOMATIC_GIVE_UP_MODE",
+        "11": "QUALIFIED_SERVICE_REPRESENTATIVE_QSR",
+        "12": "CUSTOMER_TRADE",
+        "13": "SELF_CLEARING",
         "2": "BILATERAL_NETTING_ONLY",
         "3": "EX_CLEARING",
         "4": "SPECIAL_TRADE",
@@ -5891,11 +5979,7 @@ const fixdict = {
         "6": "CLEAR_AGAINST_CENTRAL_COUNTERPARTY",
         "7": "EXCLUDE_FROM_CENTRAL_COUNTERPARTY",
         "8": "MANUAL_MODE",
-        "9": "AUTOMATIC_POSTING_MODE",
-        "10": "AUTOMATIC_GIVE_UP_MODE",
-        "11": "QUALIFIED_SERVICE_REPRESENTATIVE_QSR",
-        "12": "CUSTOMER_TRADE",
-        "13": "SELF_CLEARING"
+        "9": "AUTOMATIC_POSTING_MODE"
       }
     },
     "578": {
@@ -5959,6 +6043,7 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "STATUS_FOR_ORDERS_FOR_A_SECURITY",
+        "10": "STATUS_FOR_ISSUER_OF_UNDERLYING_SECURITY",
         "2": "STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY",
         "3": "STATUS_FOR_ORDERS_FOR_A_PRODUCT",
         "4": "STATUS_FOR_ORDERS_FOR_A_CFICODE",
@@ -5966,8 +6051,7 @@ const fixdict = {
         "6": "STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION",
         "7": "STATUS_FOR_ALL_ORDERS",
         "8": "STATUS_FOR_ORDERS_FOR_A_PARTYID",
-        "9": "STATUS_FOR_SECURITY_ISSUER",
-        "10": "STATUS_FOR_ISSUER_OF_UNDERLYING_SECURITY"
+        "9": "STATUS_FOR_SECURITY_ISSUER"
       }
     },
     "586": {
@@ -6235,6 +6319,11 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "CALCULATED",
+        "10": "REJECT",
+        "11": "ACCEPT_PENDING",
+        "12": "INCOMPLETE_GROUP",
+        "13": "COMPLETE_GROUP",
+        "14": "REVERSAL_PENDING",
         "2": "PRELIMINARY",
         "3": "SELLSIDE_CALCULATED_USING_PRELIMINARY",
         "4": "SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY",
@@ -6242,12 +6331,7 @@ const fixdict = {
         "6": "BUYSIDE_READY_TO_BOOK_COMBINED_SET_OF_ORDERS",
         "7": "WAREHOUSE_INSTRUCTION",
         "8": "REQUEST_TO_INTERMEDIARY",
-        "9": "ACCEPT",
-        "10": "REJECT",
-        "11": "ACCEPT_PENDING",
-        "12": "INCOMPLETE_GROUP",
-        "13": "COMPLETE_GROUP",
-        "14": "REVERSAL_PENDING"
+        "9": "ACCEPT"
       }
     },
     "627": {
@@ -6472,6 +6556,8 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "UNKNOWN_SYMBOL",
+        "10": "PASS",
+        "11": "INSUFFICIENT_CREDIT",
         "2": "EXCHANGE_CLOSED",
         "3": "QUOTE_REQUEST_EXCEEDS_LIMIT",
         "4": "TOO_LATE_TO_ENTER",
@@ -6480,8 +6566,6 @@ const fixdict = {
         "7": "NO_MATCH_FOR_INQUIRY",
         "8": "NO_MARKET_FOR_INSTRUMENT",
         "9": "NO_INVENTORY",
-        "10": "PASS",
-        "11": "INSUFFICIENT_CREDIT",
         "99": "OTHER"
       }
     },
@@ -6714,6 +6798,7 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "PERCENT",
+        "10": "YIELD",
         "2": "PER_SHARE",
         "3": "FIXED_AMOUNT",
         "4": "DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR",
@@ -6721,8 +6806,7 @@ const fixdict = {
         "6": "SPREAD_BASIS_POINTS_RELATIVE_TO_BENCHMARK",
         "7": "TED_PRICE",
         "8": "TED_YIELD",
-        "9": "YIELD_SPREAD",
-        "10": "YIELD"
+        "9": "YIELD_SPREAD"
       }
     },
     "693": {
@@ -6802,7 +6886,12 @@ const fixdict = {
         "ALC": "ALLOCATION_TRADE_QTY",
         "AS": "OPTION_ASSIGNMENT",
         "ASF": "AS_OF_TRADE_QTY",
+        "CAA": "CORPORATE_ACTION_ADJUSTMENT",
+        "CEA": "CREDIT_EVENT_ADJUSTMENT",
+        "DLT": "NET_DELTA_QTY",
         "DLV": "DELIVERY_QTY",
+        "DN": "DELIVERY_NOTICE_QTY",
+        "EP": "EXCHANGE_FOR_PHYSICAL_QTY",
         "ETR": "ELECTRONIC_TRADE_QTY",
         "EX": "OPTION_EXERCISE_QTY",
         "FIN": "END_OF_DAY_QTY",
@@ -6810,6 +6899,9 @@ const fixdict = {
         "IES": "INTER_SPREAD_QTY",
         "PA": "ADJUSTMENT_QTY",
         "PIT": "PIT_TRADE_QTY",
+        "PNTN": "PRIVATELY_NEGOTIATED_TRADE_QTY",
+        "RCV": "RECEIVE_QUANTITY",
+        "SEA": "SUCCESSION_EVENT_ADJUSTMENT",
         "SOD": "START_OF_DAY_QTY",
         "SPL": "INTEGRAL_SPLIT",
         "TA": "TRANSACTION_FROM_ASSIGNMENT",
@@ -6817,15 +6909,7 @@ const fixdict = {
         "TQ": "TRANSACTION_QUANTITY",
         "TRF": "TRANSFER_TRADE_QTY",
         "TX": "TRANSACTION_FROM_EXERCISE",
-        "XM": "CROSS_MARGIN_QTY",
-        "RCV": "RECEIVE_QUANTITY",
-        "CAA": "CORPORATE_ACTION_ADJUSTMENT",
-        "DN": "DELIVERY_NOTICE_QTY",
-        "EP": "EXCHANGE_FOR_PHYSICAL_QTY",
-        "PNTN": "PRIVATELY_NEGOTIATED_TRADE_QTY",
-        "DLT": "NET_DELTA_QTY",
-        "CEA": "CREDIT_EVENT_ADJUSTMENT",
-        "SEA": "SUCCESSION_EVENT_ADJUSTMENT"
+        "XM": "CROSS_MARGIN_QTY"
       }
     },
     "704": {
@@ -6855,24 +6939,24 @@ const fixdict = {
       "number": 707,
       "tags": "",
       "enum": {
+        "ACPN": "ACCRUED_COUPON_AMOUNT",
+        "BANK": "TOTAL_BANKED_AMOUNT",
         "CASH": "CASH_AMOUNT",
+        "CMTM": "COLLATERALIZED_MARK_TO_MARKET",
+        "COLAT": "TOTAL_COLLATERALIZED_AMOUNT",
+        "CPN": "COUPON_AMOUNT",
         "CRES": "CASH_RESIDUAL_AMOUNT",
+        "DLV": "COMPENSATION_AMOUNT",
         "FMTM": "FINAL_MARK_TO_MARKET_AMOUNT",
+        "IACPN": "INCREMENTAL_ACCRUED_COUPON",
+        "ICMTM": "INCREMENTAL_COLLATERALIZED_MARK_TO_MARKET",
+        "ICPN": "INITIAL_TRADE_COUPON_AMOUNT",
         "IMTM": "INCREMENTAL_MARK_TO_MARKET_AMOUNT",
         "PREM": "PREMIUM_AMOUNT",
+        "SETL": "SETTLEMENT_VALUE",
         "SMTM": "START_OF_DAY_MARK_TO_MARKET_AMOUNT",
         "TVAR": "TRADE_VARIATION_AMOUNT",
-        "VADJ": "VALUE_ADJUSTED_AMOUNT",
-        "SETL": "SETTLEMENT_VALUE",
-        "ICPN": "INITIAL_TRADE_COUPON_AMOUNT",
-        "ACPN": "ACCRUED_COUPON_AMOUNT",
-        "CPN": "COUPON_AMOUNT",
-        "IACPN": "INCREMENTAL_ACCRUED_COUPON",
-        "CMTM": "COLLATERALIZED_MARK_TO_MARKET",
-        "ICMTM": "INCREMENTAL_COLLATERALIZED_MARK_TO_MARKET",
-        "DLV": "COMPENSATION_AMOUNT",
-        "BANK": "TOTAL_BANKED_AMOUNT",
-        "COLAT": "TOTAL_COLLATERALIZED_AMOUNT"
+        "VADJ": "VALUE_ADJUSTED_AMOUNT"
       }
     },
     "708": {
@@ -6940,10 +7024,10 @@ const fixdict = {
       "number": 716,
       "tags": "",
       "enum": {
-        "ITD": "INTRADAY",
-        "RTH": "REGULAR_TRADING_HOURS",
+        "EOD": "END_OF_DAY",
         "ETH": "ELECTRONIC_TRADING_HOURS",
-        "EOD": "END_OF_DAY"
+        "ITD": "INTRADAY",
+        "RTH": "REGULAR_TRADING_HOURS"
       }
     },
     "717": {
@@ -7285,7 +7369,27 @@ const fixdict = {
       "name": "BenchmarkSecurityIDSource",
       "number": 761,
       "tags": "",
-      "enum": {}
+      "enum": {
+        "1": "CUSIP",
+        "2": "SEDOL",
+        "3": "QUIK",
+        "4": "ISIN_NUMBER",
+        "5": "RIC_CODE",
+        "6": "ISO_CURRENCY_CODE",
+        "7": "ISO_COUNTRY_CODE",
+        "8": "EXCHANGE_SYMBOL",
+        "9": "CONSOLIDATED_TAPE_ASSOCIATION",
+        "A": "BLOOMBERG_SYMBOL",
+        "B": "WERTPAPIER",
+        "C": "DUTCH",
+        "D": "VALOREN",
+        "E": "SICOVAM",
+        "F": "BELGIAN",
+        "G": "COMMON",
+        "H": "CLEARING_HOUSE_CLEARING_ORGANIZATION",
+        "I": "ISDA_FPML_PRODUCT_SPECIFICATION",
+        "J": "OPTIONS_PRICE_REPORTING_AUTHORITY"
+      }
     },
     "762": {
       "name": "SecuritySubType",
@@ -7523,16 +7627,16 @@ const fixdict = {
       "number": 794,
       "tags": "",
       "enum": {
+        "10": "REJECT",
+        "11": "ACCEPT_PENDING",
+        "12": "COMPLETE",
+        "14": "REVERSE_PENDING",
         "2": "PRELIMINARY_REQUEST_TO_INTERMEDIARY",
         "3": "SELLSIDE_CALCULATED_USING_PRELIMINARY",
         "4": "SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY",
         "5": "WAREHOUSE_RECAP",
         "8": "REQUEST_TO_INTERMEDIARY",
-        "9": "ACCEPT",
-        "10": "REJECT",
-        "11": "ACCEPT_PENDING",
-        "12": "COMPLETE",
-        "14": "REVERSE_PENDING"
+        "9": "ACCEPT"
       }
     },
     "795": {
@@ -7601,14 +7705,6 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "FIRM",
-        "2": "PERSON",
-        "3": "SYSTEM",
-        "4": "APPLICATION",
-        "5": "FULL_LEGAL_NAME_OF_FIRM",
-        "6": "POSTAL_ADDRESS",
-        "7": "PHONE_NUMBER",
-        "8": "EMAIL_ADDRESS",
-        "9": "CONTACT_NAME",
         "10": "SECURITIES_ACCOUNT_NUMBER",
         "11": "REGISTRATION_NUMBER",
         "12": "REGISTERED_ADDRESS",
@@ -7619,6 +7715,7 @@ const fixdict = {
         "17": "CSD_PARTICIPANT_MEMBER_CODE",
         "18": "REGISTERED_ADDRESS_1",
         "19": "FUND_ACCOUNT_NAME",
+        "2": "PERSON",
         "20": "TELEX_NUMBER",
         "21": "FAX_NUMBER",
         "22": "SECURITIES_ACCOUNT_NAME",
@@ -7629,10 +7726,17 @@ const fixdict = {
         "27": "SECURITY_LOCATE_ID",
         "28": "MARKET_MAKER",
         "29": "ELIGIBLE_COUNTERPARTY",
+        "3": "SYSTEM",
         "30": "PROFESSIONAL_CLIENT",
         "31": "LOCATION",
         "32": "EXECUTION_VENUE",
-        "33": "CURRENCY_DELIVERY_IDENTIFIER"
+        "33": "CURRENCY_DELIVERY_IDENTIFIER",
+        "4": "APPLICATION",
+        "5": "FULL_LEGAL_NAME_OF_FIRM",
+        "6": "POSTAL_ADDRESS",
+        "7": "PHONE_NUMBER",
+        "8": "EMAIL_ADDRESS",
+        "9": "CONTACT_NAME"
       }
     },
     "804": {
@@ -7818,14 +7922,6 @@ const fixdict = {
       "enum": {
         "0": "REGULAR_TRADE",
         "1": "BLOCK_TRADE",
-        "2": "EFP",
-        "3": "TRANSFER",
-        "4": "LATE_TRADE",
-        "5": "T_TRADE",
-        "6": "WEIGHTED_AVERAGE_PRICE_TRADE",
-        "7": "BUNCHED_TRADE",
-        "8": "LATE_BUNCHED_TRADE",
-        "9": "PRIOR_REFERENCE_PRICE_TRADE",
         "10": "AFTER_HOURS_TRADE",
         "11": "EXCHANGE_FOR_RISK",
         "12": "EXCHANGE_FOR_SWAP",
@@ -7836,6 +7932,7 @@ const fixdict = {
         "17": "FUTURES_LARGE_ORDER_EXECUTION",
         "18": "EXCHANGE_OF_FUTURES_FOR_FUTURES",
         "19": "OPTION_INTERIM_TRADE",
+        "2": "EFP",
         "20": "OPTION_CABINET_TRADE",
         "22": "PRIVATELY_NEGOTIATED_TRADES",
         "23": "SUBSTITUTION_OF_FUTURES_FOR_FORWARDS",
@@ -7845,6 +7942,7 @@ const fixdict = {
         "27": "SPECIAL_CUM_COUPON",
         "28": "SPECIAL_EX_COUPON",
         "29": "CASH_SETTLEMENT",
+        "3": "TRANSFER",
         "30": "SPECIAL_PRICE",
         "31": "GUARANTEED_DELIVERY",
         "32": "SPECIAL_CUM_RIGHTS",
@@ -7855,6 +7953,7 @@ const fixdict = {
         "37": "SPECIAL_EX_BONUS",
         "38": "BLOCK_TRADE_1",
         "39": "WORKED_PRINCIPAL_TRADE",
+        "4": "LATE_TRADE",
         "40": "BLOCK_TRADES_AFTER_MARKET",
         "41": "NAME_CHANGE",
         "42": "PORTFOLIO_TRANSFER",
@@ -7865,12 +7964,17 @@ const fixdict = {
         "47": "FINANCING_TRANSACTION",
         "48": "NON_STANDARD_SETTLEMENT",
         "49": "DERIVATIVE_RELATED_TRANSACTION",
+        "5": "T_TRADE",
         "50": "PORTFOLIO_TRADE",
         "51": "VOLUME_WEIGHTED_AVERAGE_TRADE",
         "52": "EXCHANGE_GRANTED_TRADE",
         "53": "REPURCHASE_AGREEMENT",
         "54": "OTC",
-        "55": "EXCHANGE_BASIS_FACILITY"
+        "55": "EXCHANGE_BASIS_FACILITY",
+        "6": "WEIGHTED_AVERAGE_PRICE_TRADE",
+        "7": "BUNCHED_TRADE",
+        "8": "LATE_BUNCHED_TRADE",
+        "9": "PRIOR_REFERENCE_PRICE_TRADE"
       }
     },
     "829": {
@@ -7880,14 +7984,6 @@ const fixdict = {
       "enum": {
         "0": "CMTA",
         "1": "INTERNAL_TRANSFER_OR_ADJUSTMENT",
-        "2": "EXTERNAL_TRANSFER_OR_TRANSFER_OF_ACCOUNT",
-        "3": "REJECT_FOR_SUBMITTING_SIDE",
-        "4": "ADVISORY_FOR_CONTRA_SIDE",
-        "5": "OFFSET_DUE_TO_AN_ALLOCATION",
-        "6": "ONSET_DUE_TO_AN_ALLOCATION",
-        "7": "DIFFERENTIAL_SPREAD",
-        "8": "IMPLIED_SPREAD_LEG_EXECUTED_AGAINST_AN_OUTRIGHT",
-        "9": "TRANSACTION_FROM_EXERCISE",
         "10": "TRANSACTION_FROM_ASSIGNMENT",
         "11": "ACATS",
         "14": "AI",
@@ -7896,6 +7992,7 @@ const fixdict = {
         "17": "LC",
         "18": "M",
         "19": "N",
+        "2": "EXTERNAL_TRANSFER_OR_TRANSFER_OF_ACCOUNT",
         "20": "NM_TRANSACTION_WHERE_EXCHANGE_HAS_GRANTED_PERMISSION_FOR_NON_PUBLICATION_II_IDB_IS_REPORTING_AS_SELLER_III_SUBMITTING_A_TRANSACTION_REPORT_TO_THE_EXCHANGE_WHERE_THE_TRANSACTION_REPORT_IS_NOT_ALSO_A_TRADE_REPORT_",
         "21": "NR",
         "22": "P",
@@ -7906,6 +8003,7 @@ const fixdict = {
         "27": "RO",
         "28": "RT",
         "29": "SW",
+        "3": "REJECT_FOR_SUBMITTING_SIDE",
         "30": "T",
         "31": "WN",
         "32": "WT",
@@ -7915,7 +8013,13 @@ const fixdict = {
         "36": "CONVERTED_SWAP",
         "37": "CROSSED_TRADE",
         "38": "INTERIM_PROTECTED_TRADE",
-        "39": "LARGE_IN_SCALE"
+        "39": "LARGE_IN_SCALE",
+        "4": "ADVISORY_FOR_CONTRA_SIDE",
+        "5": "OFFSET_DUE_TO_AN_ALLOCATION",
+        "6": "ONSET_DUE_TO_AN_ALLOCATION",
+        "7": "DIFFERENTIAL_SPREAD",
+        "8": "IMPLIED_SPREAD_LEG_EXECUTED_AGAINST_AN_OUTRIGHT",
+        "9": "TRANSACTION_FROM_EXERCISE"
       }
     },
     "830": {
@@ -8144,6 +8248,12 @@ const fixdict = {
       "enum": {
         "0": "SUBMIT",
         "1": "ALLEGED",
+        "10": "PENDED",
+        "11": "ALLEGED_NEW",
+        "12": "ALLEGED_ADDENDUM",
+        "13": "ALLEGED_NO_WAS",
+        "14": "ALLEGED_TRADE_REPORT_CANCEL",
+        "15": "ALLEGED_TRADE_BREAK",
         "2": "ACCEPT",
         "3": "DECLINE",
         "4": "ADDENDUM",
@@ -8151,13 +8261,7 @@ const fixdict = {
         "6": "TRADE_REPORT_CANCEL",
         "7": "TRADE_BREAK",
         "8": "DEFAULTED",
-        "9": "INVALID_CMTA",
-        "10": "PENDED",
-        "11": "ALLEGED_NEW",
-        "12": "ALLEGED_ADDENDUM",
-        "13": "ALLEGED_NO_WAS",
-        "14": "ALLEGED_TRADE_REPORT_CANCEL",
-        "15": "ALLEGED_TRADE_BREAK"
+        "9": "INVALID_CMTA"
       }
     },
     "857": {
@@ -8217,14 +8321,6 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "PUT",
-        "2": "CALL",
-        "3": "TENDER",
-        "4": "SINKING_FUND_CALL",
-        "5": "ACTIVATION",
-        "6": "INACTIVIATION",
-        "7": "LAST_ELIGIBLE_TRADE_DATE",
-        "8": "SWAP_START_DATE",
-        "9": "SWAP_END_DATE",
         "10": "SWAP_ROLL_DATE",
         "11": "SWAP_NEXT_START_DATE",
         "12": "SWAP_NEXT_ROLL_DATE",
@@ -8235,6 +8331,14 @@ const fixdict = {
         "17": "FIRST_INTENT_DATE",
         "18": "LAST_INTENT_DATE",
         "19": "POSITION_REMOVAL_DATE",
+        "2": "CALL",
+        "3": "TENDER",
+        "4": "SINKING_FUND_CALL",
+        "5": "ACTIVATION",
+        "6": "INACTIVIATION",
+        "7": "LAST_ELIGIBLE_TRADE_DATE",
+        "8": "SWAP_START_DATE",
+        "9": "SWAP_END_DATE",
         "99": "OTHER"
       }
     },
@@ -8274,14 +8378,6 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "FLAT",
-        "2": "ZERO_COUPON",
-        "3": "INTEREST_BEARING",
-        "4": "NO_PERIODIC_PAYMENTS",
-        "5": "VARIABLE_RATE",
-        "6": "LESS_FEE_FOR_PUT",
-        "7": "STEPPED_COUPON",
-        "8": "COUPON_PERIOD_FIELD_",
-        "9": "WHEN_AND_IF_ISSUED",
         "10": "ORIGINAL_ISSUE_DISCOUNT",
         "11": "CALLABLE_PUTTABLE",
         "12": "ESCROWED_TO_MATURITY",
@@ -8292,6 +8388,7 @@ const fixdict = {
         "17": "TAXABLE",
         "18": "INDEXED",
         "19": "SUBJECT_TO_ALTERNATIVE_MINIMUM_TAX",
+        "2": "ZERO_COUPON",
         "20": "ORIGINAL_ISSUE_DISCOUNT_PRICE_SUPPLY_PRICE_IN_THE_INSTRATTRIBVALUE_FIELD",
         "21": "CALLABLE_BELOW_MATURITY_VALUE",
         "22": "CALLABLE_WITHOUT_NOTICE_BY_MAIL_TO_HOLDER_UNLESS_REGISTERED",
@@ -8302,6 +8399,13 @@ const fixdict = {
         "27": "INSTRUMENT_PRICE_PRECISION",
         "28": "INSTRUMENT_STRIKE_PRICE",
         "29": "TRADEABLE_INDICATOR",
+        "3": "INTEREST_BEARING",
+        "4": "NO_PERIODIC_PAYMENTS",
+        "5": "VARIABLE_RATE",
+        "6": "LESS_FEE_FOR_PUT",
+        "7": "STEPPED_COUPON",
+        "8": "COUPON_PERIOD_FIELD_",
+        "9": "WHEN_AND_IF_ISSUED",
         "99": "TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE_FIELD_"
       }
     },
@@ -8952,14 +9056,6 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "INT",
-        "2": "LENGTH",
-        "3": "NUMINGROUP",
-        "4": "SEQNUM",
-        "5": "TAGNUM",
-        "6": "FLOAT",
-        "7": "QTY",
-        "8": "PRICE",
-        "9": "PRICEOFFSET",
         "10": "AMT",
         "11": "PERCENTAGE",
         "12": "CHAR",
@@ -8970,6 +9066,7 @@ const fixdict = {
         "17": "EXCHANGE",
         "18": "MONTHYEAR",
         "19": "UTCTIMESTAMP",
+        "2": "LENGTH",
         "20": "UTCTIMEONLY",
         "21": "LOCALMKTDATE",
         "22": "UTCDATEONLY",
@@ -8979,7 +9076,14 @@ const fixdict = {
         "26": "LANGUAGE",
         "27": "TZTIMEONLY",
         "28": "TZTIMESTAMP",
-        "29": "TENOR"
+        "29": "TENOR",
+        "3": "NUMINGROUP",
+        "4": "SEQNUM",
+        "5": "TAGNUM",
+        "6": "FLOAT",
+        "7": "QTY",
+        "8": "PRICE",
+        "9": "PRICEOFFSET"
       }
     },
     "960": {
@@ -9074,8 +9178,8 @@ const fixdict = {
       "number": 974,
       "tags": "",
       "enum": {
-        "FIXED": "FIXED",
-        "DIFF": "DIFF"
+        "DIFF": "DIFF",
+        "FIXED": "FIXED"
       }
     },
     "975": {
@@ -9220,19 +9324,19 @@ const fixdict = {
       "number": 996,
       "tags": "",
       "enum": {
+        "Alw": "ALLOWANCES",
         "Bbl": "BARRELS",
         "Bcf": "BILLION_CUBIC_FEET",
         "Bu": "BUSHELS",
-        "lbs": "POUNDS",
         "Gal": "GALLONS",
-        "MMbbl": "MILLION_BARRELS",
         "MMBtu": "ONE_MILLION_BTU",
+        "MMbbl": "MILLION_BARRELS",
         "MWh": "MEGAWATT_HOURS",
+        "USD": "US_DOLLARS",
+        "lbs": "POUNDS",
         "oz_tr": "TROY_OUNCES",
         "t": "METRIC_TONS",
-        "tn": "TONS",
-        "USD": "US_DOLLARS",
-        "Alw": "ALLOWANCES"
+        "tn": "TONS"
       }
     },
     "997": {
@@ -9240,12 +9344,12 @@ const fixdict = {
       "number": 997,
       "tags": "",
       "enum": {
+        "D": "DAY",
         "H": "HOUR",
         "Min": "MINUTE",
-        "S": "SECOND",
-        "D": "DAY",
-        "Wk": "WEEK",
         "Mo": "MONTH",
+        "S": "SECOND",
+        "Wk": "WEEK",
         "Yr": "YEAR"
       }
     },
@@ -9311,7 +9415,19 @@ const fixdict = {
       "name": "SideTrdSubTyp",
       "number": 1008,
       "tags": "",
-      "enum": {}
+      "enum": {
+        "0": "CMTA",
+        "1": "INTERNAL_TRANSFER",
+        "10": "TRANSACTION_FROM_ASSIGNMENT",
+        "2": "EXTERNAL_TRANSFER",
+        "3": "REJECT_FOR_SUBMITTING_TRADE",
+        "4": "ADVISORY_FOR_CONTRA_SIDE",
+        "5": "OFFSET_DUE_TO_AN_ALLOCATION",
+        "6": "ONSET_DUE_TO_AN_ALLOCATION",
+        "7": "DIFFERENTIAL_SPREAD",
+        "8": "IMPLIED_SPREAD_LEG_EXECUTED_AGAINST_AN_OUTRIGHT",
+        "9": "TRANSACTION_FROM_EXERCISE"
+      }
     },
     "1009": {
       "name": "SideLastQty",
@@ -9463,12 +9579,12 @@ const fixdict = {
         "FOK": "FILL_OR_KILL",
         "IO": "IMBALANCE_ONLY",
         "IOC": "IMMEDIATE_OR_CANCEL",
-        "LOO": "LIMIT_ON_OPEN",
         "LOC": "LIMIT_ON_CLOSE",
-        "MAO": "MARKET_AT_OPEN",
+        "LOO": "LIMIT_ON_OPEN",
         "MAC": "MARKET_AT_CLOSE",
-        "MOO": "MARKET_ON_OPEN",
+        "MAO": "MARKET_AT_OPEN",
         "MOC": "MARKET_ON_CLOSE",
+        "MOO": "MARKET_ON_OPEN",
         "MQT": "MINIMUM_QUANTITY",
         "NH": "NOT_HELD",
         "OVD": "OVER_THE_DAY",
@@ -9528,12 +9644,12 @@ const fixdict = {
         "FOK": "FILL_OR_KILL",
         "IO": "IMBALANCE_ONLY",
         "IOC": "IMMEDIATE_OR_CANCEL",
-        "LOO": "LIMIT_ON_OPEN",
         "LOC": "LIMIT_ON_CLOSE",
-        "MAO": "MARKET_AT_OPEN",
+        "LOO": "LIMIT_ON_OPEN",
         "MAC": "MARKET_AT_CLOSE",
-        "MOO": "MARKET_ON_OPEN",
+        "MAO": "MARKET_AT_OPEN",
         "MOC": "MARKET_ON_CLOSE",
+        "MOO": "MARKET_ON_OPEN",
         "MQT": "MINIMUM_QUANTITY",
         "NH": "NOT_HELD",
         "OVD": "OVER_THE_DAY",
@@ -9627,10 +9743,10 @@ const fixdict = {
       "number": 1047,
       "tags": "",
       "enum": {
-        "O": "OPEN",
         "C": "CLOSE",
-        "R": "ROLLED",
-        "F": "FIFO"
+        "F": "FIFO",
+        "O": "OPEN",
+        "R": "ROLLED"
       }
     },
     "1048": {
@@ -9696,8 +9812,8 @@ const fixdict = {
       "number": 1057,
       "tags": "",
       "enum": {
-        "Y": "ORDER_INITIATOR_IS_AGGRESSOR",
-        "N": "ORDER_INITIATOR_IS_PASSIVE"
+        "N": "ORDER_INITIATOR_IS_PASSIVE",
+        "Y": "ORDER_INITIATOR_IS_AGGRESSOR"
       }
     },
     "1058": {
@@ -9938,6 +10054,7 @@ const fixdict = {
         "3": "OPENING_PEG",
         "4": "MARKET_PEG",
         "5": "PRIMARY_PEG",
+        "6": "FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER",
         "7": "PEG_TO_VWAP",
         "8": "TRAILING_STOP_PEG",
         "9": "PEG_TO_LIMIT_PRICE"
@@ -10053,8 +10170,8 @@ const fixdict = {
       "number": 1109,
       "tags": "",
       "enum": {
-        "U": "TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_UP_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE_",
-        "D": "TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_DOWN_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE_"
+        "D": "TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_DOWN_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE_",
+        "U": "TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_UP_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE_"
       }
     },
     "1110": {
@@ -10459,14 +10576,14 @@ const fixdict = {
       "tags": "",
       "enum": {
         "0": "ACCEPTED",
-        "5": "REJECTED",
-        "6": "REMOVED_FROM_MARKET",
-        "7": "EXPIRED",
         "12": "LOCKED_MARKET_WARNING",
         "13": "CROSS_MARKET_WARNING",
         "14": "CANCELED_DUE_TO_LOCK_MARKET",
         "15": "CANCELED_DUE_TO_CROSS_MARKET",
-        "16": "ACTIVE"
+        "16": "ACTIVE",
+        "5": "REJECTED",
+        "6": "REMOVED_FROM_MARKET",
+        "7": "EXPIRED"
       }
     },
     "1168": {
@@ -10670,10 +10787,10 @@ const fixdict = {
       "number": 1196,
       "tags": "",
       "enum": {
-        "STD": "STANDARD_MONEY_PER_UNIT_OF_A_PHYSICAL",
-        "INX": "INDEX",
         "INT": "INTEREST_RATE_INDEX",
-        "PCTPAR": "PERCENT_OF_PAR"
+        "INX": "INDEX",
+        "PCTPAR": "PERCENT_OF_PAR",
+        "STD": "STANDARD_MONEY_PER_UNIT_OF_A_PHYSICAL"
       }
     },
     "1197": {
@@ -10681,11 +10798,11 @@ const fixdict = {
       "number": 1197,
       "tags": "",
       "enum": {
+        "CDS": "CDS_STYLE_COLLATERALIZATION_OF_MARKET_TO_MARKET_AND_COUPON",
+        "CDSD": "CDS_IN_DELIVERY_USE_RECOVERY_RATE_TO_CALCULATE_OBLIGATION",
         "EQTY": "PREMIUM_STYLE",
         "FUT": "FUTURES_STYLE_MARK_TO_MARKET",
-        "FUTDA": "FUTURES_STYLE_WITH_AN_ATTACHED_CASH_ADJUSTMENT",
-        "CDS": "CDS_STYLE_COLLATERALIZATION_OF_MARKET_TO_MARKET_AND_COUPON",
-        "CDSD": "CDS_IN_DELIVERY_USE_RECOVERY_RATE_TO_CALCULATE_OBLIGATION"
+        "FUTDA": "FUTURES_STYLE_WITH_AN_ATTACHED_CASH_ADJUSTMENT"
       }
     },
     "1198": {
@@ -11767,6 +11884,9 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "ALL_ORDERS_FOR_A_SECURITY",
+        "10": "ALL_ORDERS_FOR_A_SECURITY_GROUP",
+        "11": "CANCEL_FOR_SECURITY_ISSUER",
+        "12": "CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY",
         "2": "ALL_ORDERS_FOR_AN_UNDERLYING_SECURITY",
         "3": "ALL_ORDERS_FOR_A_PRODUCT",
         "4": "ALL_ORDERS_FOR_A_CFICODE",
@@ -11774,10 +11894,7 @@ const fixdict = {
         "6": "ALL_ORDERS_FOR_A_TRADING_SESSION",
         "7": "ALL_ORDERS",
         "8": "ALL_ORDERS_FOR_A_MARKET",
-        "9": "ALL_ORDERS_FOR_A_MARKET_SEGMENT",
-        "10": "ALL_ORDERS_FOR_A_SECURITY_GROUP",
-        "11": "CANCEL_FOR_SECURITY_ISSUER",
-        "12": "CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY"
+        "9": "ALL_ORDERS_FOR_A_MARKET_SEGMENT"
       }
     },
     "1375": {
@@ -11796,6 +11913,8 @@ const fixdict = {
       "enum": {
         "0": "MASS_ACTION_NOT_SUPPORTED",
         "1": "INVALID_OR_UNKNOWN_SECURITY",
+        "10": "INVALID_OR_UNKNOWN_SECURITY_ISSUER",
+        "11": "INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY",
         "2": "INVALID_OR_UNKNOWN_UNDERLYING_SECURITY",
         "3": "INVALID_OR_UNKNOWN_PRODUCT",
         "4": "INVALID_OR_UNKNOWN_CFICODE",
@@ -11804,8 +11923,6 @@ const fixdict = {
         "7": "INVALID_OR_UNKNOWN_MARKET",
         "8": "INVALID_OR_UNKNOWN_MARKET_SEGMENT",
         "9": "INVALID_OR_UNKNOWN_SECURITY_GROUP",
-        "10": "INVALID_OR_UNKNOWN_SECURITY_ISSUER",
-        "11": "INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY",
         "99": "OTHER"
       }
     },
@@ -11885,11 +12002,11 @@ const fixdict = {
       "tags": "",
       "enum": {
         "0": "BROKER_EXCHANGE_OPTION",
+        "11": "UNSUPPORTED_ORDER_CHARACTERISTIC",
         "2": "EXCHANGE_CLOSED",
         "4": "TOO_LATE_TO_ENTER",
         "5": "UNKNOWN_ORDER",
         "6": "DUPLICATE_ORDER",
-        "11": "UNSUPPORTED_ORDER_CHARACTERISTIC",
         "99": "OTHER"
       }
     },
@@ -12175,16 +12292,16 @@ const fixdict = {
       "enum": {
         "0": "SECONDS",
         "1": "TENTHS_OF_A_SECOND",
-        "2": "HUNDREDTHS_OF_A_SECOND",
-        "3": "MILLISECONDS",
-        "4": "MICROSECONDS",
-        "5": "NANOSECONDS",
         "10": "MINUTES",
         "11": "HOURS",
         "12": "DAYS",
         "13": "WEEKS",
         "14": "MONTHS",
-        "15": "YEARS"
+        "15": "YEARS",
+        "2": "HUNDREDTHS_OF_A_SECOND",
+        "3": "MILLISECONDS",
+        "4": "MICROSECONDS",
+        "5": "NANOSECONDS"
       }
     },
     "1430": {
@@ -12341,8 +12458,8 @@ const fixdict = {
       "tags": "",
       "enum": {
         "FR": "FULL_RESTRUCTURING",
-        "MR": "MODIFIED_RESTRUCTURING",
         "MM": "MODIFIED_MOD_RESTRUCTURING",
+        "MR": "MODIFIED_RESTRUCTURING",
         "XR": "NO_RESTRUCTURING_SPECIFIED"
       }
     },
@@ -12351,9 +12468,9 @@ const fixdict = {
       "number": 1450,
       "tags": "",
       "enum": {
+        "SB": "SUBORDINATED",
         "SD": "SENIOR_SECURED",
-        "SR": "SENIOR",
-        "SB": "SUBORDINATED"
+        "SR": "SENIOR"
       }
     },
     "1451": {
@@ -12770,9 +12887,9 @@ const fixdict = {
       "tags": "",
       "enum": {
         "1": "BEST_BID",
-        "2": "BEST_OFFER",
         "11": "PAID",
         "12": "GIVEN",
+        "2": "BEST_OFFER",
         "45": "DEALABLE_BID",
         "46": "DEALABLE_OFFER",
         "47": "LOCAL_BID",
