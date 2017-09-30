@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { parseFixData } from './fixparser';
-import { Button, Container, Divider, Form, Grid, Header, Label, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Container, Divider, Form, Grid, Header, Label, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
   state = { fixData: '' };
@@ -88,22 +88,22 @@ class FixMsgSummary extends Component {
       if (msg.hasTag(54)) { // buy or sell
         summary.push(<Label key='side' color='green'>{msg.tag(54).enum}</Label>);
       }
-      
+
       if (msg.hasTag(38)) { // qty
         summary.push(<span key='qty'>{' ' + this.formattedNumber(msg.tag(38).value)}</span>);
       }
-      
+
       if (msg.hasTag(55)) { // symbol
         summary.push(<Label key='sym' color='blue'>{' ' + msg.tag(55).value}</Label>); 
       }
-      
+
       if (msg.hasTag(44)) { // px
         summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.tag(44).value)}</span>);
       }
     }
 
     if (msg.hasTag(58)) {
-        summary = <span key='text'>{msg.tag(58).value}</span>;
+      summary = <span key='text'>{msg.tag(58).value}</span>;
     }
 
     return <span>{summary}</span>;
@@ -111,8 +111,24 @@ class FixMsgSummary extends Component {
 } 
 
 class FixTimeline extends Component {
+  state = { 
+    filterAdmin: false,
+    filterHeartbeats: false 
+  }
   render() {
-    let rows = this.props.messages.map((msg, idx) => {
+    let rows = this.props.messages
+      .filter(msg => {
+        const type = msg.tag(35).value;
+        if (this.state.filterHeartbeats && type === '0') {
+          return false;
+        }
+        const cat = msg.msgcat();
+        if (this.state.filterAdmin && cat === 'admin') {
+          return false;
+        }
+        return true;
+      })
+      .map((msg, idx) => {
         return (
           <Table.Row key={idx} active={msg === this.props.selectedMessage} onClick={e => this.props.onMessageSelected(msg)}>
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
@@ -123,11 +139,15 @@ class FixTimeline extends Component {
             <Table.Cell><FixMsgSummary msg={msg}/></Table.Cell>
           </Table.Row>
         );
-    });
-
+      });
+      
     return (
       <Container>
         <Header as="h3">Timeline</Header>
+        <Form>
+          <Form.Field><Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})}/></Form.Field>
+          <Form.Field><Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})}/></Form.Field>
+        </Form>
         <Table selectable size='small' striped>
           <Table.Header>
             <Table.Row>
@@ -180,26 +200,44 @@ class FixFieldDescription extends Component {
 }
 
 class FixMessageDetail extends Component {
+  state = {
+    filterHeader: false
+  }
   render() {
     const msg = this.props.selectedMessage;
 
-    const rows = msg.fieldList.map((field, idx) => {
-        const tagnum = field[0];
-        const value = field[1];
-        const tag = msg.tagWithValue(tagnum, value);
-        return (
-          <Table.Row key={idx}>
-            <Table.Cell>{tag.def.number}</Table.Cell>
-            <Table.Cell><FixFieldName tag={tag}/></Table.Cell>
-            <Table.Cell>{tag.value}</Table.Cell>
-            <Table.Cell><FixFieldDescription tag={tag}/></Table.Cell>
-          </Table.Row>
-      );
-    });
+    const rows = msg.fieldList
+      // map the field array to tags
+      .map(field => {
+          const tagnum = field[0];
+          const value = field[1];
+          return msg.tagWithValue(tagnum, value);
+      })
+      // filter out any header fields
+      .filter(tag => {
+        if (this.state.filterHeader && tag.def.tags.includes('header')) {
+          return false;
+        }
+        return true;
+      })
+      // build a list 
+      .map((tag, idx) => {
+          return (
+            <Table.Row key={idx}>
+              <Table.Cell>{tag.def.number}</Table.Cell>
+              <Table.Cell><FixFieldName tag={tag}/></Table.Cell>
+              <Table.Cell>{tag.value}</Table.Cell>
+              <Table.Cell><FixFieldDescription tag={tag}/></Table.Cell>
+            </Table.Row>
+        );
+      });
 
     return (
       <Container>
         <Header as="h3">Detail</Header>
+        <Form>
+          <Form.Field><Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} /></Form.Field>
+        </Form>
         <Table selectable size='small' striped>
           <Table.Header>
             <Table.Row>
