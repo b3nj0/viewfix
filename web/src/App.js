@@ -42,7 +42,7 @@ class FixMsgType extends Component {
     const name = msg.msgtype();
     const msgcat = msg.msgcat();
 
-    let color = 'standard'; 
+    let lbl = {}
     let text = name;
 
     if (msgtype === '8') { // execution report
@@ -50,26 +50,26 @@ class FixMsgType extends Component {
       text = 'ER ' + msg.tag(150).enum.replace(/_/g, ' ');
       let value = msg.tag(150).value;
       if (['0', '8'].includes(value)) {
-        color = 'red';
+        lbl.color = 'red';
       } else if (['2', 'F'].includes(value)) {
-        color = 'blue';
+        lbl.color = 'blue';
       } else {
-        color = 'teal';
+        lbl.color = 'teal';
       }
     } else if (msgtype === 'AE') { // trade capture report
-      color = 'violet';
+      lbl.color = 'violet';
       // fid: 573 = match status
       text = 'TCR ' + msg.tag(573).enum.replace(/_/g, ' '); 
     } else if (msgtype === 'D') { // new order
-      color = 'green';
+      lbl.color = 'green';
     } else if (msgtype === '3') { // reject
-      color = 'red';
+      lbl.color = 'red';
     } else if (msgcat === 'app') { // application message 
-      color = 'teal';
+      lbl.color = 'teal';
     }
 
     return (
-      <Label color={color}>{text}</Label>
+      <Label {...lbl}>{text}</Label>
     );
   }
 }
@@ -156,15 +156,17 @@ class FixFieldName extends Component {
     fieldtype = def.number === 35 ? 'type' : fieldtype;
     fieldtype = def.number === 150 ? 'type' : fieldtype;
 
-    let color = 'blue';
+    let lbl = {};
     if (fieldtype === 'header') {
-      color = 'standard';   
+      // do nothing
     } else if (fieldtype === 'type') {
-      color = 'green';
+      lbl.color = 'green';
+    } else {
+      lbl.color = 'blue';
     }
 
     return (
-      <Label color={color}>{def.name}</Label>
+      <Label {...lbl}>{def.name}</Label>
     );
   }
 }
