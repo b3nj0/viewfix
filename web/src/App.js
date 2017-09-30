@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { parseFixData } from './fixparser';
-import { Button, Checkbox, Container, Divider, Form, Grid, Header, Label, Table } from 'semantic-ui-react'
+import { Button, Container, Divider, Form, Grid, Header, Label, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
   state = { fixData: '' };
@@ -145,8 +145,8 @@ class FixTimeline extends Component {
       <Container>
         <Header as="h3">Timeline</Header>
         <Form>
-          <Form.Field><Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})}/></Form.Field>
-          <Form.Field><Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})}/></Form.Field>
+          <Form.Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})} />
+          <Form.Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})} />
         </Form>
         <Table selectable size='small' striped>
           <Table.Header>
@@ -236,7 +236,7 @@ class FixMessageDetail extends Component {
       <Container>
         <Header as="h3">Detail</Header>
         <Form>
-          <Form.Field><Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} /></Form.Field>
+          <Form.Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} />
         </Form>
         <Table selectable size='small' striped>
           <Table.Header>
