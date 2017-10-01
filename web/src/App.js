@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { parseFixData } from './fixparser';
-import { Button, Checkbox, Container, Divider, Form, Grid, Label, Menu, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
   state = { fixData: '' };
@@ -143,7 +143,7 @@ class FixTimeline extends Component {
       
     return (
       <Container>
-        <Menu secondary size='tiny'>
+        <Menu attached='top' secondary size='tiny'>
           <Menu.Item>
             <Menu.Header as='h4'>Timeline</Menu.Header>
           </Menu.Item>
@@ -156,7 +156,7 @@ class FixTimeline extends Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Table compact selectable size='small' striped>
+        <Table attached='bottom' compact selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Time</Table.HeaderCell>
@@ -242,7 +242,7 @@ class FixMessageDetail extends Component {
 
     return (
       <Container>
-        <Menu secondary size='tiny'>
+        <Menu attached='top' secondary size='tiny'>
           <Menu.Item>
             <Menu.Header as="h4">Detail</Menu.Header>
           </Menu.Item>
@@ -252,7 +252,7 @@ class FixMessageDetail extends Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Table compact selectable size='small' striped>
+        <Table attached='bottom' compact selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Tag</Table.HeaderCell>
