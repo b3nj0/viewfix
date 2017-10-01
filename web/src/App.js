@@ -158,7 +158,7 @@ class FixTimeline extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Table selectable size='small' striped>
+        <Table compact selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Time</Table.HeaderCell>
@@ -256,7 +256,7 @@ class FixMessageDetail extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Table selectable size='small' striped>
+        <Table compact selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Tag</Table.HeaderCell>
