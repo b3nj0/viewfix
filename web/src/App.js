@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { parseFixData } from './fixparser';
-import { Button, Container, Divider, Form, Grid, Header, Label, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Container, Divider, Form, Grid, Label, Menu, Table } from 'semantic-ui-react'
 
 class FixInput extends Component {
   state = { fixData: '' };
@@ -143,21 +143,19 @@ class FixTimeline extends Component {
       
     return (
       <Container>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <Header as="h3">Timeline</Header>
-            </Grid.Column>
-            <Grid.Column floated='right' width={8}>
-              <Form>
-                <Form.Group inline>
-                  <Form.Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})} />
-                  <Form.Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})} />
-                </Form.Group>
-              </Form>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <Menu secondary size='tiny'>
+          <Menu.Item>
+            <Menu.Header as='h4'>Timeline</Menu.Header>
+          </Menu.Item>
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})} />
+            </Menu.Item>
+            <Menu.Item>
+              <Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})} />
+            </Menu.Item>
+          </Menu.Menu>
+        </Menu>
         <Table compact selectable size='small' striped>
           <Table.Header>
             <Table.Row>
@@ -244,18 +242,16 @@ class FixMessageDetail extends Component {
 
     return (
       <Container>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={11}>
-              <Header as="h3">Detail</Header>
-            </Grid.Column>
-            <Grid.Column floated='right' width={5}>
-              <Form>
-                <Form.Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} />
-              </Form>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <Menu secondary size='tiny'>
+          <Menu.Item>
+            <Menu.Header as="h4">Detail</Menu.Header>
+          </Menu.Item>
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} />
+            </Menu.Item>
+          </Menu.Menu>
+        </Menu>
         <Table compact selectable size='small' striped>
           <Table.Header>
             <Table.Row>
