@@ -126,6 +126,20 @@ class FixTimeline extends Component {
         if (this.state.filterAdmin && cat === 'admin') {
           return false;
         }
+        if (this.state.filterMessages) { 
+          const regex = new RegExp(this.state.filterMessages, 'gi');
+          const matches = (
+            regex.test(msg.sendingTime()) 
+            || regex.test(msg.tag(49).value) 
+            || regex.test(msg.tag(56).value) 
+            || regex.test(msg.msgtype())
+            || regex.test(msg.tag(150).enum) 
+            || regex.test(msg.tag(11).value) 
+          );
+          if (!matches) {
+            return false;
+          }
+        }
         return true;
       })
       .map((msg, idx) => {
@@ -153,6 +167,9 @@ class FixTimeline extends Component {
             </Menu.Item>
             <Menu.Item>
               <Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})} />
+            </Menu.Item>
+            <Menu.Item>
+              <Input icon='filter' type='search' placeholder='Filter messages...' onChange={e => this.setState({filterMessages: e.target.value})}/>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
@@ -226,6 +243,13 @@ class FixMessageDetail extends Component {
         if (this.state.filterHeader && tag.def.tags.includes('header')) {
           return false;
         }
+        if (this.state.filterFields) { 
+          const regex = new RegExp(this.state.filterFields, 'gi');
+          const matches = (regex.test(tag.def.number) || regex.test(tag.def.name) || regex.test(tag.enum) || regex.test(tag.value));
+          if (!matches) {
+            return false;
+          }
+        }
         return true;
       })
       // build a list 
@@ -249,6 +273,9 @@ class FixMessageDetail extends Component {
           <Menu.Menu position='right'>
             <Menu.Item>
               <Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} />
+            </Menu.Item>
+            <Menu.Item>
+              <Input icon='filter' type='search' placeholder='Filter fields...' onChange={e => this.setState({filterFields: e.target.value})} />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
