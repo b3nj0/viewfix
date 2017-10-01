@@ -42,7 +42,7 @@ class FixMsgType extends Component {
     const name = msg.msgtype();
     const msgcat = msg.msgcat();
 
-    let lbl = {}
+    let color = null;
     let text = name;
 
     if (msgtype === '8') { // execution report
@@ -50,26 +50,26 @@ class FixMsgType extends Component {
       text = 'ER ' + msg.tag(150).enum.replace(/_/g, ' ');
       let value = msg.tag(150).value;
       if (['0', '8'].includes(value)) {
-        lbl.color = 'red';
+        color = 'red';
       } else if (['2', 'F'].includes(value)) {
-        lbl.color = 'blue';
+        color = 'blue';
       } else {
-        lbl.color = 'teal';
+        color = 'teal';
       }
     } else if (msgtype === 'AE') { // trade capture report
-      lbl.color = 'violet';
+      color = 'violet';
       // fid: 573 = match status
       text = 'TCR ' + msg.tag(573).enum.replace(/_/g, ' '); 
     } else if (msgtype === 'D') { // new order
-      lbl.color = 'green';
+      color = 'green';
     } else if (msgtype === '3') { // reject
-      lbl.color = 'red';
+      color = 'red';
     } else if (msgcat === 'app') { // application message 
-      lbl.color = 'teal';
+      color = 'teal';
     }
 
     return (
-      <Label {...lbl}>{text}</Label>
+      <Label color={color} size='tiny'>{text}</Label>
     );
   }
 }
@@ -86,7 +86,7 @@ class FixMsgSummary extends Component {
 
     if (['D', 'F', 'G'].includes(msgtype)) {
       if (msg.hasTag(54)) { // buy or sell
-        summary.push(<Label key='side' color='green'>{msg.tag(54).enum}</Label>);
+        summary.push(<Label key='side' color='green' size='tiny'>{msg.tag(54).enum}</Label>);
       }
 
       if (msg.hasTag(38)) { // qty
@@ -94,7 +94,7 @@ class FixMsgSummary extends Component {
       }
 
       if (msg.hasTag(55)) { // symbol
-        summary.push(<Label key='sym' color='blue'>{' ' + msg.tag(55).value}</Label>); 
+        summary.push(<Label key='sym' color='blue' size='tiny'>{' ' + msg.tag(55).value}</Label>); 
       }
 
       if (msg.hasTag(44)) { // px
@@ -201,17 +201,17 @@ class FixFieldName extends Component {
     fieldtype = def.number === 35 ? 'type' : fieldtype;
     fieldtype = def.number === 150 ? 'type' : fieldtype;
 
-    let lbl = {};
+    let color = null;
     if (fieldtype === 'header') {
       // do nothing
     } else if (fieldtype === 'type') {
-      lbl.color = 'green';
+      color = 'green';
     } else {
-      lbl.color = 'blue';
+      color = 'blue';
     }
 
     return (
-      <Label {...lbl}>{def.name}</Label>
+      <Label color={color} size='tiny'>{def.name}</Label>
     );
   }
 }
