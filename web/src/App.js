@@ -143,11 +143,21 @@ class FixTimeline extends Component {
       
     return (
       <Container>
-        <Header as="h3">Timeline</Header>
-        <Form>
-          <Form.Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})} />
-          <Form.Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})} />
-        </Form>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <Header as="h3">Timeline</Header>
+            </Grid.Column>
+            <Grid.Column floated='right' width={8}>
+              <Form>
+                <Form.Group inline>
+                  <Form.Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})} />
+                  <Form.Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})} />
+                </Form.Group>
+              </Form>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <Table selectable size='small' striped>
           <Table.Header>
             <Table.Row>
@@ -234,10 +244,18 @@ class FixMessageDetail extends Component {
 
     return (
       <Container>
-        <Header as="h3">Detail</Header>
-        <Form>
-          <Form.Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} />
-        </Form>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={11}>
+              <Header as="h3">Detail</Header>
+            </Grid.Column>
+            <Grid.Column floated='right' width={5}>
+              <Form>
+                <Form.Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} />
+              </Form>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <Table selectable size='small' striped>
           <Table.Header>
             <Table.Row>
