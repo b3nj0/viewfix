@@ -28,9 +28,9 @@ class FixInput extends Component {
     return (
       <Form>
         <Form.TextArea onChange={this.onFixTextChange} placeholder={'Paste FIX messages here'} name='fixData' value={fixData} />
-        <Button>Process</Button>
-        <Button onClick={this.onClear}>Clear</Button>
-        <Button onClick={this.onSampleData}>Sample Data</Button>
+        <Button size='tiny'>Process</Button>
+        <Button size='tiny' onClick={this.onClear}>Clear</Button>
+        <Button size='tiny' onClick={this.onSampleData}>Sample Data</Button>
       </Form>
     )
   }
