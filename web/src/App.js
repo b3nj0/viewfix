@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { FixDoc } from './fixdoc';
 import { parseFixData } from './fixparser';
 import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Table } from 'semantic-ui-react'
 
@@ -39,6 +40,7 @@ class FixMsgType extends Component {
   render() {
     const msg = this.props.msg;
     const msgtype = msg.tag(35).value;
+    const msgtypedoc = FixDoc.msgtypedoc(msg);
     const name = msg.msgtype();
     const msgcat = msg.msgcat();
 
@@ -69,7 +71,7 @@ class FixMsgType extends Component {
     }
 
     return (
-      <Label color={color} size='tiny'>{text}</Label>
+      <Label as='a' color={color} href={msgtypedoc} size='tiny'>{text}</Label>
     );
   }
 }
@@ -143,6 +145,7 @@ class FixTimeline extends Component {
         return true;
       })
       .map((msg, idx) => {
+        console.log(FixDoc.msgtypedoc(msg));
         return (
           <Table.Row key={idx} active={msg === this.props.selectedMessage} onClick={e => this.props.onMessageSelected(msg)}>
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
@@ -195,11 +198,15 @@ class FixTimeline extends Component {
 
 class FixFieldName extends Component {
   render() {
-    const def = this.props.tag.def;
+    const msg = this.props.msg;
+    const tag = this.props.tag;
+    const def = tag.def;
     
     let fieldtype = def.tags.includes('header') ? 'header' : 'body';
     fieldtype = def.number === 35 ? 'type' : fieldtype;
     fieldtype = def.number === 150 ? 'type' : fieldtype;
+
+    const tagdoc = FixDoc.tagdoc(msg, tag);
 
     let color = null;
     if (fieldtype === 'header') {
@@ -211,7 +218,7 @@ class FixFieldName extends Component {
     }
 
     return (
-      <Label color={color} size='tiny'>{def.name}</Label>
+      <Label as='a' color={color} href={tagdoc} size='tiny'>{def.name}</Label>
     );
   }
 }
@@ -230,7 +237,6 @@ class FixMessageDetail extends Component {
   }
   render() {
     const msg = this.props.selectedMessage;
-
     const rows = msg.fieldList
       // map the field array to tags
       .map(field => {
@@ -257,7 +263,7 @@ class FixMessageDetail extends Component {
           return (
             <Table.Row key={idx}>
               <Table.Cell>{tag.def.number}</Table.Cell>
-              <Table.Cell><FixFieldName tag={tag}/></Table.Cell>
+              <Table.Cell><FixFieldName msg={msg} tag={tag}/></Table.Cell>
               <Table.Cell>{tag.value}</Table.Cell>
               <Table.Cell><FixFieldDescription tag={tag}/></Table.Cell>
             </Table.Row>
