@@ -145,9 +145,10 @@ class FixTimeline extends Component {
         return true;
       })
       .map((msg, idx) => {
-        console.log(FixDoc.msgtypedoc(msg));
+        const isSelectedMessage = msg === this.props.selectedMessage;
+        const isRelatedMessage = msg.hasTag(11) && (msg.tag(11).value === this.props.selectedMessage.tag(11).value);
         return (
-          <Table.Row key={idx} active={msg === this.props.selectedMessage} onClick={e => this.props.onMessageSelected(msg)}>
+          <Table.Row key={idx} active={isSelectedMessage} positive={isRelatedMessage} onClick={e => this.props.onMessageSelected(msg)}>
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
             <Table.Cell>{msg.tag(49).value}</Table.Cell>
             <Table.Cell>{msg.tag(56).value}</Table.Cell>
