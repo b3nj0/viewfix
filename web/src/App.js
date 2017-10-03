@@ -127,6 +127,17 @@ class FixTimeline extends Component {
     filterAdmin: false,
     filterHeartbeats: false 
   }
+  onFilterAdmin = () => {
+    ReactGA.event({category: 'filter', action: 'filter_admin'});
+    this.setState({filterAdmin: !this.state.filterAdmin});
+  }
+  onFilterHeartbeats = () => {
+    ReactGA.event({category: 'filter', action: 'filter_heartbeats'});
+    this.setState({filterHeartbeats: !this.state.filterHeartbeats});
+  }
+  onFilterMessages = () => {
+    ReactGA.event({category: 'filter', action: 'filter_messages'});
+  }
   render() {
     const selected = this.props.selectedMessage;
 
@@ -184,13 +195,13 @@ class FixTimeline extends Component {
           </Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Checkbox label='Filter admin' onClick={e => this.setState({filterAdmin: !this.state.filterAdmin})} />
+              <Checkbox label='Filter admin' onClick={this.onFilterAdmin} />
             </Menu.Item>
             <Menu.Item>
-              <Checkbox label='Filter heartbeats' onClick={e => this.setState({filterHeartbeats: !this.state.filterHeartbeats})} />
+              <Checkbox label='Filter heartbeats' onClick={this.onFilterHeartbeats} />
             </Menu.Item>
             <Menu.Item>
-              <Input icon='filter' type='search' placeholder='Filter messages...' onChange={e => this.setState({filterMessages: e.target.value})}/>
+              <Input icon='filter' type='search' placeholder='Filter messages...' onBlur={this.onFilterMessages} onChange={e => this.setState({filterMessages: e.target.value})}/>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
@@ -253,6 +264,13 @@ class FixMessageDetail extends Component {
   state = {
     filterHeader: false
   }
+  onFilterHeader = () => {
+    ReactGA.event({category: 'filter', action: 'filter_header'});
+    this.setState({filterHeader: !this.state.filterHeader});
+  }
+  onFilterFields = () => {
+    ReactGA.event({category: 'filter', action: 'filter_fields'});
+  }
   render() {
     const msg = this.props.selectedMessage;
     const rows = msg.fieldList
@@ -296,10 +314,10 @@ class FixMessageDetail extends Component {
           </Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Checkbox label='Filter header' onClick={e => this.setState({filterHeader: !this.state.filterHeader})} />
+              <Checkbox label='Filter header' onClick={this.onFilterHeader} />
             </Menu.Item>
             <Menu.Item>
-              <Input icon='filter' type='search' placeholder='Filter fields...' onChange={e => this.setState({filterFields: e.target.value})} />
+              <Input icon='filter' type='search' placeholder='Filter fields...' onBlur={this.onFilterFields} onChange={e => this.setState({filterFields: e.target.value})} />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
