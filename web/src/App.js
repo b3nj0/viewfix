@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import './App.css';
 import { FixDoc } from './fixdoc';
 import { parseFixData } from './fixparser';
 import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Table } from 'semantic-ui-react'
+
+// initialise google analytics
+ReactGA.initialize('UA-106929065-2', {titleCase: false}); 
+ReactGA.pageview('/');
 
 class FixInput extends Component {
   state = { fixData: '' };
@@ -10,9 +15,14 @@ class FixInput extends Component {
     this.onParseFix(data.value);
   }
   onClear = () => {
+    ReactGA.event({category: 'fix_input', action: 'clear'});
     this.onParseFix('');
   }
+  onProcess = () => {
+    ReactGA.event({category: 'fix_input', action: 'process'});
+  }
   onSampleData = () => {
+    ReactGA.event({category: 'fix_input', action: 'sample_data'});
     const fixsession = '' +
       '8=FIX.4.2|9=76|35=A|34=702|49=ABC|52=20100130-10:52:40.663|56=XYZ|95=4|96=1234|98=0|108=60|10=134|\n' +
       '8=FIX.4.2|9=59|35=A|49=XYZ|56=ABC|34=710|52=20100130-10:52:36|98=0|108=60|10=103|\n';
@@ -27,8 +37,8 @@ class FixInput extends Component {
     const { fixData } = this.state;
     return (
       <Form>
-        <Form.TextArea onChange={this.onFixTextChange} placeholder={'Paste FIX messages here'} name='fixData' value={fixData} />
-        <Button size='tiny'>Process</Button>
+        <Form.TextArea onChange={this.onFixTextChange} onBlur={this.onProcess} placeholder={'Paste FIX messages here'} name='fixData' value={fixData} />
+        <Button size='tiny' onClick={this.onProcess}>Process</Button>
         <Button size='tiny' onClick={this.onClear}>Clear</Button>
         <Button size='tiny' onClick={this.onSampleData}>Sample Data</Button>
       </Form>
