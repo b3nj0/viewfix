@@ -118,6 +118,8 @@ class FixTimeline extends Component {
     filterHeartbeats: false 
   }
   render() {
+    const selected = this.props.selectedMessage;
+
     let rows = this.props.messages
       .filter(msg => {
         const type = msg.tag(35).value;
@@ -145,8 +147,13 @@ class FixTimeline extends Component {
         return true;
       })
       .map((msg, idx) => {
-        const isSelectedMessage = msg === this.props.selectedMessage;
-        const isRelatedMessage = msg.hasTag(11) && (msg.tag(11).value === this.props.selectedMessage.tag(11).value);
+        const isSelectedMessage = msg === selected;
+
+        // look at ClOrdId and OrigClOrdId to find if two messages are related
+        const msgOrderId = msg.hasTag(41) ? msg.tag(41).value : msg.hasTag(11) ? msg.tag(11).value : null;
+        const selectedOrderId = selected.hasTag(41) ? selected.tag(41).value : selected.hasTag(11) ? selected.tag(11).value : null;
+        const isRelatedMessage = msgOrderId != null && msgOrderId === selectedOrderId;
+
         return (
           <Table.Row key={idx} active={isSelectedMessage} positive={isRelatedMessage} onClick={e => this.props.onMessageSelected(msg)}>
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
