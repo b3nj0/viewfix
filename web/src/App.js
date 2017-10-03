@@ -177,7 +177,7 @@ class FixTimeline extends Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Table attached='bottom' compact selectable size='small' striped>
+        <Table attached='bottom' compact='very' selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Time</Table.HeaderCell>
@@ -286,7 +286,7 @@ class FixMessageDetail extends Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Table attached='bottom' compact selectable size='small' striped>
+        <Table attached='bottom' compact='very' selectable size='small' striped>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Tag</Table.HeaderCell>
