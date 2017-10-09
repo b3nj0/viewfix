@@ -5,7 +5,7 @@ function isNumeric(str) {
 class FixDoc {
   static fixversion(msg, tag) {
     // note: we'll need to do something more interesting for FIXT
-    const fixver = msg.tag(8).value.replace('FIX.', '');
+    const fixver = msg.tag(8).value.replace('FIX.', '').replace('FIXT.', 'FIXT');
     return fixver;
   }
   static msgtypecode(msgtype) {
