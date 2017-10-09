@@ -25,7 +25,10 @@ class FixDoc {
     return `http://www.onixs.biz/fix-dictionary/${fixver}/msgType_${msgtype}_${msgtypecode}.html`;
   }
   static tagdoc(msg, tag) {
-    const fixver = FixDoc.fixversion(msg, 35);
+    let fixver = FixDoc.fixversion(msg, 35);
+    if (fixver.includes('FIXT')) {
+      fixver = '5.0.SP2'; // for now we'll use the latest spec.  we should ideally get the version to use from the message if present
+    }
     const tagnum = tag.def.number;
     return `http://www.onixs.biz/fix-dictionary/${fixver}/tagNum_${tagnum}.html`;
   }
