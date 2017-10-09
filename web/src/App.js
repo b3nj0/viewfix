@@ -152,17 +152,21 @@ class FixTimeline extends Component {
           return false;
         }
         if (this.state.filterMessages) { 
-          const regex = new RegExp(this.state.filterMessages, 'gi');
-          const matches = (
-            regex.test(msg.sendingTime()) 
-            || regex.test(msg.tag(49).value) 
-            || regex.test(msg.tag(56).value) 
-            || regex.test(msg.msgtype())
-            || regex.test(msg.tag(150).enum) 
-            || regex.test(msg.tag(11).value) 
-          );
-          if (!matches) {
-            return false;
+          try {
+            const regex = new RegExp(this.state.filterMessages, 'gi');
+            const matches = (
+              regex.test(msg.sendingTime()) 
+              || regex.test(msg.tag(49).value) 
+              || regex.test(msg.tag(56).value) 
+              || regex.test(msg.msgtype())
+              || regex.test(msg.tag(150).enum) 
+              || regex.test(msg.tag(11).value) 
+            );
+            if (!matches) {
+              return false;
+            }
+          } catch (e) {
+            // filter is badly formed - do nothing
           }
         }
         return true;
@@ -285,11 +289,15 @@ class FixMessageDetail extends Component {
         if (this.state.filterHeader && tag.def.tags.includes('header')) {
           return false;
         }
-        if (this.state.filterFields) { 
-          const regex = new RegExp(this.state.filterFields, 'gi');
-          const matches = (regex.test(tag.def.number) || regex.test(tag.def.name) || regex.test(tag.enum) || regex.test(tag.value));
-          if (!matches) {
-            return false;
+        if (this.state.filterFields) {
+          try { 
+            const regex = new RegExp(this.state.filterFields, 'gi');
+            const matches = (regex.test(tag.def.number) || regex.test(tag.def.name) || regex.test(tag.enum) || regex.test(tag.value));
+            if (!matches) {
+              return false;
+            }
+          } catch (e) {
+            // filter is badly formed - do nothing
           }
         }
         return true;
