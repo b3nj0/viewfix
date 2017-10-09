@@ -4,8 +4,13 @@ function isNumeric(str) {
 
 class FixDoc {
   static fixversion(msg, tag) {
-    // note: we'll need to do something more interesting for FIXT
-    const fixver = msg.tag(8).value.replace('FIX.', '').replace('FIXT.', 'FIXT');
+    let fixver = msg.tag(8).value.replace('FIX.', '').replace('FIXT.', 'FIXT');
+
+    // for FIXT we'll use the latest fix version.  would be better to introspect the message version from the message where present
+    if (fixver.includes('FIXT')) {
+      fixver = '5.0.SP2'; 
+    }
+
     return fixver;
   }
   static msgtypecode(msgtype) {
@@ -26,9 +31,6 @@ class FixDoc {
   }
   static tagdoc(msg, tag) {
     let fixver = FixDoc.fixversion(msg, 35);
-    if (fixver.includes('FIXT')) {
-      fixver = '5.0.SP2'; // for now we'll use the latest spec.  we should ideally get the version to use from the message if present
-    }
     const tagnum = tag.def.number;
     return `http://www.onixs.biz/fix-dictionary/${fixver}/tagNum_${tagnum}.html`;
   }
