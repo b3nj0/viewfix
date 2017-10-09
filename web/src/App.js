@@ -61,7 +61,7 @@ class FixMsgType extends Component {
       // fid: 150 = exec type
       text = 'ER ' + msg.tag(150).enum.replace(/_/g, ' ');
       let value = msg.tag(150).value;
-      if (['0', '8'].includes(value)) {
+      if (['0', '4', '8'].includes(value)) {
         color = 'red';
       } else if (['2', 'F'].includes(value)) {
         color = 'blue';
