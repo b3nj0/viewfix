@@ -106,7 +106,7 @@ class FixMsgSummary extends Component {
       }
 
       if (msg.hasTag(55)) { // symbol
-        summary.push(<Label key='sym' color='blue' size='tiny'>{' ' + msg.tag(55).value}</Label>); 
+        summary.push(<span key='sym'> <Label color='blue' size='tiny'>{msg.tag(55).value}</Label></span>); 
       }
 
       if (msg.hasTag(44)) { // px
