@@ -96,6 +96,7 @@ class FixMsgSummary extends Component {
 
     let summary = [];
 
+    // new orders + cancels + rejects
     if (['D', 'F', 'G'].includes(msgtype)) {
       if (msg.hasTag(54)) { // buy or sell
         summary.push(<Label key='side' color='green' size='tiny'>{msg.tag(54).enum}</Label>);
@@ -111,6 +112,25 @@ class FixMsgSummary extends Component {
 
       if (msg.hasTag(44)) { // px
         summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.tag(44).value)}</span>);
+      }
+    }
+   
+    // execution reports and trade capture reports 
+    if (['8', 'AE'].includes(msgtype)) {
+      if (msg.hasTag(54)) { // buy or sell
+        summary.push(<Label key='side' color='green' size='tiny'>{msg.tag(54).enum}</Label>);
+      }
+
+      if (msg.hasTag(32)) { // last qty
+        summary.push(<span key='qty'>{' ' + this.formattedNumber(msg.tag(32).value)}</span>);
+      }
+
+      if (msg.hasTag(55)) { // symbol
+        summary.push(<span key='sym'> <Label color='blue' size='tiny'>{msg.tag(55).value}</Label></span>); 
+      }
+
+      if (msg.hasTag(31)) { // last px
+        summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.tag(31).value)}</span>);
       }
     }
 
