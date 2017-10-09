@@ -137,6 +137,10 @@ class FixMsgSummary extends Component {
     if (msg.hasTag(58)) {
       summary = <span key='text'>{msg.tag(58).value}</span>;
     }
+    
+    if (msg.hasTag(927)) {
+      summary = <span key='userstatustext'>{msg.tag(927).value}</span>;
+    }
 
     return <span>{summary}</span>;
   }
