@@ -162,6 +162,29 @@ class FixTimeline extends Component {
   onFilterMessages = () => {
     ReactGA.event({category: 'filter', action: 'filter_messages'});
   }
+  onNextMessage = (offset) => {
+    ReactGA.event({category: 'timeline', action: 'next_message'});
+
+    const selected = this.props.selectedMessage;
+    const filteredMessages = this.filterMessages(this.props.messages);
+    
+    // find the index of the currently selected message    
+    let selectedIndex = 0;
+    for (let i = 0; i < filteredMessages.length; i++) {
+      if (filteredMessages[i] === selected) {
+        selectedIndex = i;
+      }
+    }
+
+    // select the new message
+    selectedIndex += offset;
+    // ensure the new index is within the range
+    selectedIndex = Math.max(Math.min(selectedIndex, filteredMessages.length - 1), 0);
+    
+    const newSelected = filteredMessages[selectedIndex];
+    
+    this.props.onMessageSelected(newSelected);
+  }
   filterMessages = (messages) => {
     return messages.filter(msg => {
       const type = msg.tag(35).value;
@@ -196,8 +219,7 @@ class FixTimeline extends Component {
   render() {
     const selected = this.props.selectedMessage;
 
-    let rows = this.filterMessages(this.props.messages)
-      .map((msg, idx) => {
+    let rows = this.filterMessages(this.props.messages).map((msg, idx) => {
         const isSelectedMessage = msg === selected;
 
         // look at ClOrdId and OrigClOrdId to find if two messages are related
@@ -233,6 +255,14 @@ class FixTimeline extends Component {
             <Menu.Item>
               <Input icon='filter' type='search' placeholder='Filter messages...' onBlur={this.onFilterMessages} onChange={e => this.setState({filterMessages: e.target.value})}/>
             </Menu.Item>
+            <Menu.Menu position='right'>
+              <Menu.Item>
+                <Button icon='chevron left'  onClick={e => this.onNextMessage(-1)} />
+              </Menu.Item>
+              <Menu.Item>
+                <Button icon='chevron right' onClick={e => this.onNextMessage(1)} />
+              </Menu.Item>
+            </Menu.Menu>
           </Menu.Menu>
         </Menu>
         <Table attached='bottom' compact='very' selectable size='small' striped>
