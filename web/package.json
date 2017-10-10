@@ -5,6 +5,7 @@
   "homepage": "https://b3nj0.github.io/viewfix",
   "dependencies": {
     "gh-pages": "^1.0.0",
+    "mousetrap": "^1.6.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-ga": "^2.3.5",

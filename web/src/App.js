@@ -4,6 +4,7 @@ import './App.css';
 import { FixDoc } from './fixdoc';
 import { parseFixData } from './fixparser';
 import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Table } from 'semantic-ui-react'
+import Mousetrap from 'mousetrap';
 
 // initialise google analytics
 ReactGA.initialize('UA-106929065-2', {titleCase: false}); 
@@ -150,7 +151,11 @@ class FixTimeline extends Component {
   state = { 
     filterAdmin: false,
     filterHeartbeats: false 
-  }
+  };
+  componentDidMount = () => {
+    Mousetrap.bind('j', (e) => { this.onNextMessage(1); });
+    Mousetrap.bind('k', (e) => { this.onNextMessage(-1); });
+  };
   onFilterAdmin = () => {
     ReactGA.event({category: 'filter', action: 'filter_admin'});
     this.setState({filterAdmin: !this.state.filterAdmin});
