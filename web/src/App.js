@@ -162,39 +162,41 @@ class FixTimeline extends Component {
   onFilterMessages = () => {
     ReactGA.event({category: 'filter', action: 'filter_messages'});
   }
+  filterMessages = (messages) => {
+    return messages.filter(msg => {
+      const type = msg.tag(35).value;
+      if (this.state.filterHeartbeats && type === '0') {
+        return false;
+      }
+      const cat = msg.msgcat();
+      if (this.state.filterAdmin && cat === 'admin') {
+        return false;
+      }
+      if (this.state.filterMessages) { 
+        try {
+          const regex = new RegExp(this.state.filterMessages, 'gi');
+          const matches = (
+            regex.test(msg.sendingTime()) 
+            || regex.test(msg.tag(49).value) 
+            || regex.test(msg.tag(56).value) 
+            || regex.test(msg.msgtype())
+            || regex.test(msg.tag(150).enum) 
+            || regex.test(msg.tag(11).value) 
+          );
+          if (!matches) {
+            return false;
+          }
+        } catch (e) {
+          // filter is badly formed - do nothing
+        }
+      }
+      return true;
+    });
+  }
   render() {
     const selected = this.props.selectedMessage;
 
-    let rows = this.props.messages
-      .filter(msg => {
-        const type = msg.tag(35).value;
-        if (this.state.filterHeartbeats && type === '0') {
-          return false;
-        }
-        const cat = msg.msgcat();
-        if (this.state.filterAdmin && cat === 'admin') {
-          return false;
-        }
-        if (this.state.filterMessages) { 
-          try {
-            const regex = new RegExp(this.state.filterMessages, 'gi');
-            const matches = (
-              regex.test(msg.sendingTime()) 
-              || regex.test(msg.tag(49).value) 
-              || regex.test(msg.tag(56).value) 
-              || regex.test(msg.msgtype())
-              || regex.test(msg.tag(150).enum) 
-              || regex.test(msg.tag(11).value) 
-            );
-            if (!matches) {
-              return false;
-            }
-          } catch (e) {
-            // filter is badly formed - do nothing
-          }
-        }
-        return true;
-      })
+    let rows = this.filterMessages(this.props.messages)
       .map((msg, idx) => {
         const isSelectedMessage = msg === selected;
 
