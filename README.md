@@ -11,6 +11,7 @@ This is a ReactJS implementation of [fixparser.targetcompid.com](https://fixpars
 * [ReactJs](https://facebook.github.io/react/)
 * [React Semantic UI](https://react.semantic-ui.com)
 * [React Google Analytics](https://github.com/react-ga/react-ga)
+* [Mousetrap](https://craig.is/killing/mice)
 
 ### Dictionary Parser
 
