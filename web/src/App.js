@@ -136,7 +136,7 @@ class FixMsgSummary extends Component {
     }
     
     if (msg.hasTag(1409)) {
-      summary.push(<span key='sessionstatus'>{msg.tag(1409).enum}</span>);
+      summary.push(<span key='sessionstatus'>{' ' + msg.tag(1409).enum}</span>);
     }
     
     if (msg.hasTag(926)) {
@@ -148,7 +148,7 @@ class FixMsgSummary extends Component {
     }
 
     if (msg.hasTag(58)) {
-      summary.push(<span key='text'>{msg.tag(58).value}</span>);
+      summary.push(<span key='text'>{' ' + msg.tag(58).value}</span>);
     }
 
     return <span>{summary}</span>;
