@@ -134,21 +134,21 @@ class FixMsgSummary extends Component {
         summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.firstTag(31, 44).value)}</span>);
       }
     }
-
-    if (msg.hasTag(58)) {
-      summary = <span key='text'>{msg.tag(58).value}</span>;
-    }
     
     if (msg.hasTag(1409)) {
-      summary = <span key='sessionstautus'>{' ' + msg.tag(1409).enum}</span>;
+      summary.push(<span key='sessionstatus'>{msg.tag(1409).enum}</span>);
     }
     
     if (msg.hasTag(926)) {
-      summary = <span key='userstatus'>{' ' + msg.tag(926).enum}</span>;
+      summary.push(<span key='userstatus'>{' ' + msg.tag(926).enum}</span>);
     }
     
     if (msg.hasTag(927)) {
-      summary = <span key='userstatustext'>{' ' + msg.tag(927).value}</span>;
+      summary.push(<span key='userstatustext'>{' ' + msg.tag(927).value}</span>);
+    }
+
+    if (msg.hasTag(58)) {
+      summary.push(<span key='text'>{msg.tag(58).value}</span>);
     }
 
     return <span>{summary}</span>;
