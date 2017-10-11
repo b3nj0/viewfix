@@ -52,7 +52,7 @@ function guessFieldSeparator(fixData) {
 
 // remove any pesky new lines or whitespace from the data
 function sanitizeFixData(fixData) {
-  return fixData.replace('\n', '').replace('\r', '');
+  return fixData.replace(/\n|\r/g, '');
 }
 
 // split the fix data into individual messages 
