@@ -10,6 +10,15 @@ class FixMessage {
   hasTag(tag) {
     return tag in this.fieldIndex;
   }
+  // first tag in argument list in msg
+  firstTag(tags) {
+    for (let arg in arguments) {
+      if (this.hasTag(arg)) {
+        return this.tag(arg);
+      }
+    }
+    return this.tag(arguments[0]);
+  }
   tag(tag, defaultValue='') { 
     const value = this.fieldIndex[tag] || defaultValue;
     return this.tagWithValue(tag, value);

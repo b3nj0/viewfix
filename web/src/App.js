@@ -123,7 +123,7 @@ class FixMsgSummary extends Component {
       }
 
       if (msg.hasTag(32)) { // last qty or qty
-        summary.push(<span key='qty'>{' ' + this.formattedNumber(msg.hasTag(32) ? msg.tag(32).value : msg.tag(38).value)}</span>);
+        summary.push(<span key='qty'>{' ' + this.formattedNumber(msg.firstTag(32, 38).value)}</span>);
       }
 
       if (msg.hasTag(55)) { // symbol
@@ -131,7 +131,7 @@ class FixMsgSummary extends Component {
       }
 
       if (msg.hasTag(31)) { // last px or px
-        summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.hasTag(31) ? msg.tag(31).value : msg.tag(44).value)}</span>);
+        summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.firstTag(31, 44).value)}</span>);
       }
     }
 
