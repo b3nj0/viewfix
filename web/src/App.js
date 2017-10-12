@@ -156,10 +156,20 @@ class FixMsgSummary extends Component {
 }
 
 class SearchInput extends Component {
+  state = {
+    text: ''
+  }
+  onChange = (text) => {
+    this.setState({text: text});
+    this.props.onChange(text);
+  }
   render() {
+    const icon = this.state.text.length > 0 ? 'cancel' : 'filter';
     return (
-      <Input icon='filter' type='search' placeholder={this.props.placeholder} onBlur={this.props.onBlur} onChange={this.props.onChange}/>
-
+      <Input type='search' action placeholder={this.props.placeholder} onBlur={this.props.onBlur} onChange={e => this.onChange(e.target.value)} value={this.state.text}>
+        <input/>
+        <Button basic compact size='mini' icon={icon} onClick={e => this.onChange('')} />
+      </Input>
     )
   }
 } 
@@ -275,7 +285,7 @@ class FixTimeline extends Component {
               <Checkbox label='Filter heartbeats' onClick={this.onFilterHeartbeats} />
             </Menu.Item>
             <Menu.Item>
-              <SearchInput placeholder='Filter messages...' onBlur={this.onFilterMessages} onChange={e => this.setState({filterMessages: e.target.value})}/>
+              <SearchInput placeholder='Filter messages...' onBlur={this.onFilterMessages} onChange={text => this.setState({filterMessages: text})}/>
             </Menu.Item>
             <Menu.Menu position='right'>
               <Menu.Item>
@@ -403,7 +413,7 @@ class FixMessageDetail extends Component {
               <Checkbox label='Filter header' onClick={this.onFilterHeader} />
             </Menu.Item>
             <Menu.Item>
-              <SearchInput placeholder='Filter fields...' onBlur={this.onFilterFields} onChange={e => this.setState({filterFields: e.target.value})} />
+              <SearchInput placeholder='Filter fields...' onBlur={this.onFilterFields} onChange={text => this.setState({filterFields: text})} />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
