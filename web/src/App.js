@@ -182,6 +182,8 @@ class FixTimeline extends Component {
   componentDidMount = () => {
     Mousetrap.bind('j', (e) => { this.onNextMessage(1); });
     Mousetrap.bind('k', (e) => { this.onNextMessage(-1); });
+    Mousetrap.bind('g g', (e) => { this.onNextMessage(-9999); });
+    Mousetrap.bind('G', (e) => { this.onNextMessage(9999); });
   };
   onFilterAdmin = () => {
     ReactGA.event({category: 'filter', action: 'filter_admin'});
