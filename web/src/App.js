@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import './App.css';
 import { FixDoc } from './fixdoc';
 import { parseFixData } from './fixparser';
-import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Popup, Table } from 'semantic-ui-react'
 import Mousetrap from 'mousetrap';
 
 // initialise google analytics
@@ -287,14 +287,12 @@ class FixTimeline extends Component {
             <Menu.Item fitted='horizontally'>
               <SearchInput placeholder='Filter messages...' onBlur={this.onFilterMessages} onChange={text => this.setState({filterMessages: text})}/>
             </Menu.Item>
-            <Menu.Menu position='right'>
-              <Menu.Item fitted='horizontally'>
-                <Button basic size='tiny' icon='chevron left' onClick={e => this.onNextMessage(-1)} />
+              <Menu.Item fitted>
+                <Button.Group size='tiny'>
+                  <Popup trigger={<Button basic icon='chevron left' onClick={e => this.onNextMessage(-1)} />} content='Previous [ k ]' />
+                  <Popup trigger={<Button basic icon='chevron right'onClick={e => this.onNextMessage(1)} />} content='Next [ j ]' />
+                </Button.Group>
               </Menu.Item>
-              <Menu.Item fitted='horizontally'>
-                <Button basic size='tiny' icon='chevron right'onClick={e => this.onNextMessage(1)} />
-              </Menu.Item>
-            </Menu.Menu>
           </Menu.Menu>
         </Menu>
         <Table attached='bottom' compact='very' selectable size='small' striped>
