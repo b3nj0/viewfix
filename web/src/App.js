@@ -122,7 +122,7 @@ class FixMsgSummary extends Component {
         summary.push(<Label key='side' color='green' size='tiny'>{msg.tag(54).enum}</Label>);
       }
 
-      if (msg.hasTag(32)) { // last qty or qty
+      if (msg.hasTag(32) || msg.hasTag(38)) { // last qty or qty
         summary.push(<span key='qty'>{' ' + this.formattedNumber(msg.firstTag(32, 38).value)}</span>);
       }
 
@@ -130,7 +130,7 @@ class FixMsgSummary extends Component {
         summary.push(<span key='sym'> <Label color='blue' size='tiny'>{msg.tag(55).value}</Label></span>); 
       }
 
-      if (msg.hasTag(31)) { // last px or px
+      if (msg.hasTag(31) || msg.hasTag(44)) { // last px or px
         summary.push(<span key='px'>{' @ ' + this.formattedNumber(msg.firstTag(31, 44).value)}</span>);
       }
     }
