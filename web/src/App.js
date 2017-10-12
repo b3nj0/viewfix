@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import './App.css';
 import { FixDoc } from './fixdoc';
 import { parseFixData } from './fixparser';
-import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Popup, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Popup, Segment, Sticky, Table } from 'semantic-ui-react'
 import Mousetrap from 'mousetrap';
 
 // initialise google analytics
@@ -438,6 +438,7 @@ class FixMessageDetail extends Component {
 class App extends Component {
   NULL_MESSAGE = { fieldList: [] }
   state = { messages: [], selectedMessage: this.NULL_MESSAGE };
+  handleContextRef = contextRef => this.setState({ contextRef })
   onMessages = (messages) => {
     this.setState({
       messages: messages,
@@ -457,12 +458,20 @@ class App extends Component {
             <Divider/>
             <Grid>
               <Grid.Row>
-                <Grid.Column width={9}>
-                  <FixTimeline messages={this.state.messages} selectedMessage={this.state.selectedMessage} onMessageSelected={this.onMessageSelected}/>
-                </Grid.Column>
-                <Grid.Column width={7}>
-                  <FixMessageDetail selectedMessage={this.state.selectedMessage}/>
-                </Grid.Column>
+                <div ref={this.handleContextRef}>
+                  <Segment basic>
+                    <Grid basic columns={16}>
+                      <Grid.Column width={9}>
+                        <FixTimeline messages={this.state.messages} selectedMessage={this.state.selectedMessage} onMessageSelected={this.onMessageSelected}/>
+                      </Grid.Column>
+                      <Grid.Column width={7}>
+                        <Sticky context={this.state.contextRef}>
+                          <FixMessageDetail selectedMessage={this.state.selectedMessage}/>
+                        </Sticky>
+                      </Grid.Column>
+                    </Grid>
+                  </Segment>
+                </div>
               </Grid.Row>
             </Grid>
           </Grid.Column>
