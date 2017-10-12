@@ -273,26 +273,26 @@ class FixTimeline extends Component {
       
     return (
       <Container>
-        <Menu attached='top' secondary size='tiny'>
+        <Menu attached='top' secondary stackable size='mini'>
           <Menu.Item>
             <Menu.Header as='h4'>Timeline</Menu.Header>
           </Menu.Item>
           <Menu.Menu position='right'>
-            <Menu.Item>
+            <Menu.Item fitted='horizontally'>
               <Checkbox label='Filter admin' onClick={this.onFilterAdmin} />
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item fitted='horizontally'>
               <Checkbox label='Filter heartbeats' onClick={this.onFilterHeartbeats} />
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item fitted='horizontally'>
               <SearchInput placeholder='Filter messages...' onBlur={this.onFilterMessages} onChange={text => this.setState({filterMessages: text})}/>
             </Menu.Item>
             <Menu.Menu position='right'>
-              <Menu.Item>
-                <Button icon='chevron left'  onClick={e => this.onNextMessage(-1)} />
+              <Menu.Item fitted='horizontally'>
+                <Button basic size='tiny' icon='chevron left' onClick={e => this.onNextMessage(-1)} />
               </Menu.Item>
-              <Menu.Item>
-                <Button icon='chevron right' onClick={e => this.onNextMessage(1)} />
+              <Menu.Item fitted='horizontally'>
+                <Button basic size='tiny' icon='chevron right'onClick={e => this.onNextMessage(1)} />
               </Menu.Item>
             </Menu.Menu>
           </Menu.Menu>
@@ -404,15 +404,15 @@ class FixMessageDetail extends Component {
 
     return (
       <Container>
-        <Menu attached='top' secondary size='tiny'>
+        <Menu attached='top' secondary size='mini' stackable>
           <Menu.Item>
             <Menu.Header as="h4">Detail</Menu.Header>
           </Menu.Item>
           <Menu.Menu position='right'>
-            <Menu.Item>
+            <Menu.Item fitted='horizontally'>
               <Checkbox label='Filter header' onClick={this.onFilterHeader} />
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item fitted='horizontally'>
               <SearchInput placeholder='Filter fields...' onBlur={this.onFilterFields} onChange={text => this.setState({filterFields: text})} />
             </Menu.Item>
           </Menu.Menu>
