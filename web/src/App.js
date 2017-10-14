@@ -461,7 +461,7 @@ class App extends Component {
             <Divider/>
             <Grid>
               <Grid.Row>
-                <Grid basic columns={16}>
+                <Grid columns={16}>
                   <Grid.Column width={9}>
                     <FixTimeline messages={this.state.messages} selectedMessage={this.state.selectedMessage} onMessageSelected={this.onMessageSelected}/>
                   </Grid.Column>
