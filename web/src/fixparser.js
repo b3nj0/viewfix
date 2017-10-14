@@ -27,7 +27,7 @@ class FixMessage {
   tagWithValue(tag, value) { 
     const def = fixdict.fields[tag] || {name: 'Unknown[' + tag + ']', number: tag, tags: '', enum: {}};
     const enumValue = def.enum[value] || '';
-    return {def: def, value: value, enum: enumValue};
+    return {def: def, value: value, enum: enumValue, valid: tag in fixdict.fields};
   }
   msgtype() {
     let type = this.tag(35).value;

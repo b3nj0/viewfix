@@ -322,6 +322,11 @@ class FixFieldName extends Component {
     const msg = this.props.msg;
     const tag = this.props.tag;
     const def = tag.def;
+ 
+    // don't show a description if we don't recognise the tag 
+    if (!tag.valid) {
+      return null;
+    }
     
     let fieldtype = def.tags.includes('header') ? 'header' : 'body';
     fieldtype = def.number === 35 ? 'type' : fieldtype;
