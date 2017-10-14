@@ -13,8 +13,9 @@ class FixMessage {
   // first tag in argument list in msg
   firstTag(tags) {
     for (let arg in arguments) {
-      if (this.hasTag(arg)) {
-        return this.tag(arg);
+      const tag = arguments[arg];
+      if (this.hasTag(tag)) {
+        return this.tag(tag);
       }
     }
     return this.tag(arguments[0]);
