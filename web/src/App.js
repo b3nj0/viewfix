@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import './App.css';
 import { FixDoc } from './fixdoc';
 import { parseFixData } from './fixparser';
-import { Button, Checkbox, Container, Divider, Form, Grid, Input, Label, Menu, Popup, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Container, Divider, Form, Grid, Header, Input, Label, Menu, Popup, Table } from 'semantic-ui-react'
 import Mousetrap from 'mousetrap';
 
 // initialise google analytics
@@ -461,7 +461,7 @@ class App extends Component {
       <Grid centered columns={16}>
         <Grid.Row>
           <Grid.Column width={14}>
-            <h1>viewfix</h1>
+            <Header as='h1' content='viewfix' subheader='Quickly parse, decode and view FIX session logs without the data leaving your web browser.'/>
             <FixInput onMessages={this.onMessages}/>
             <Divider/>
             <Grid>
