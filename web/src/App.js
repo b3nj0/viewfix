@@ -365,6 +365,9 @@ class FixMessageDetail extends Component {
   }
   render() {
     const msg = this.props.selectedMessage;
+
+    console.log(msg);
+
     const rows = msg && msg.fieldList 
       // map the field array to tags
       .map(field => {
