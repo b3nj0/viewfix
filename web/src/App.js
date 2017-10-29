@@ -260,9 +260,10 @@ class FixTimeline extends Component {
         const msgOrderId = msg.hasTag(41) ? msg.tag(41).value : msg.hasTag(11) ? msg.tag(11).value : null;
         const selectedOrderId = selected.hasTag(41) ? selected.tag(41).value : selected.hasTag(11) ? selected.tag(11).value : null;
         const isRelatedMessage = msgOrderId != null && msgOrderId === selectedOrderId;
+        const isPossibleDuplicate = msg.hasTag(43) && msg.tag(43).value === 'Y';
 
         return (
-          <Table.Row key={idx} active={isSelectedMessage} positive={isRelatedMessage} onClick={e => this.props.onMessageSelected(msg)}>
+          <Table.Row key={idx} active={isSelectedMessage} positive={isRelatedMessage} warning={isPossibleDuplicate} onClick={e => this.props.onMessageSelected(msg)}>
             <Table.Cell>{msg.sendingTime()}</Table.Cell>
             <Table.Cell>{msg.tag(49).value}</Table.Cell>
             <Table.Cell>{msg.tag(56).value}</Table.Cell>
