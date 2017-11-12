@@ -146,6 +146,10 @@ class FixMsgSummary extends Component {
     if (msg.hasTag(927)) {
       summary.push(<span key='userstatustext'>{' ' + msg.tag(927).value}</span>);
     }
+    
+    if (msg.hasTag(102)) {
+      summary.push(<span key='cxlrejreason'>{' ' + msg.tag(102).value}</span>);
+    }
 
     if (msg.hasTag(58)) {
       summary.push(<span key='text'>{' ' + msg.tag(58).value}</span>);
