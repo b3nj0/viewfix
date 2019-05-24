@@ -4,11 +4,11 @@
   "private": true,
   "homepage": "https://b3nj0.github.io/viewfix",
   "dependencies": {
-    "gh-pages": "^1.0.0",
-    "mousetrap": "^1.6.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-ga": "^2.3.5",
+    "gh-pages": "^1.2.0",
+    "mousetrap": "^1.6.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-ga": "^2.5.7",
     "react-scripts": "1.0.13",
     "semantic-ui-react": "^0.74.2"
   },
