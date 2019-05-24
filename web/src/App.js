@@ -16,14 +16,11 @@ class FixInput extends Component {
     this.onParseFix(data.value);
   }
   onClear = () => {
-    ReactGA.event({category: 'fix_input', action: 'clear'});
     this.onParseFix('');
   }
   onProcess = () => {
-    ReactGA.event({category: 'fix_input', action: 'process'});
   }
   onSampleData = () => {
-    ReactGA.event({category: 'fix_input', action: 'sample_data'});
     const fixsession = '' +
       '8=FIX.4.2|9=76|35=A|34=702|49=ABC|52=20100130-10:52:40.663|56=XYZ|95=4|96=1234|98=0|108=60|10=134|\n' +
       '8=FIX.4.2|9=59|35=A|49=XYZ|56=ABC|34=710|52=20100130-10:52:36|98=0|108=60|10=103|\n';
@@ -190,19 +187,14 @@ class FixTimeline extends Component {
     Mousetrap.bind('G', (e) => { this.onNextMessage(9999); });
   };
   onFilterAdmin = () => {
-    ReactGA.event({category: 'filter', action: 'filter_admin'});
     this.setState({filterAdmin: !this.state.filterAdmin});
   }
   onFilterHeartbeats = () => {
-    ReactGA.event({category: 'filter', action: 'filter_heartbeats'});
     this.setState({filterHeartbeats: !this.state.filterHeartbeats});
   }
   onFilterMessages = () => {
-    ReactGA.event({category: 'filter', action: 'filter_messages'});
   }
   onNextMessage = (offset) => {
-    ReactGA.event({category: 'timeline', action: 'next_message'});
-
     const selected = this.props.selectedMessage;
     const filteredMessages = this.filterMessages(this.props.messages);
     
@@ -367,11 +359,9 @@ class FixMessageDetail extends Component {
     filterHeader: false
   }
   onFilterHeader = () => {
-    ReactGA.event({category: 'filter', action: 'filter_header'});
     this.setState({filterHeader: !this.state.filterHeader});
   }
   onFilterFields = () => {
-    ReactGA.event({category: 'filter', action: 'filter_fields'});
   }
   render() {
     const msg = this.props.selectedMessage;
