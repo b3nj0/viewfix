@@ -363,6 +363,9 @@ class FixMessageDetail extends Component {
   }
   onFilterFields = () => {
   }
+  onCopyToClipboard = (text) => {
+    window.prompt('Copy to clipboard: Ctrl+C, Enter', text);
+  }
   render() {
     const msg = this.props.selectedMessage;
 
@@ -412,6 +415,9 @@ class FixMessageDetail extends Component {
             <Menu.Header as="h4">Detail</Menu.Header>
           </Menu.Item>
           <Menu.Menu position='right'>
+            <Menu.Item fitted='horizontally'>
+              <Button title={msg.rawFix} onClick={() => this.onCopyToClipboard(msg.rawFix)}>FIX</Button>
+            </Menu.Item>
             <Menu.Item fitted='horizontally'>
               <Checkbox label='Filter header' onClick={this.onFilterHeader} />
             </Menu.Item>
